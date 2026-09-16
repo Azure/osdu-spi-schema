@@ -4,12 +4,12 @@
 	<parent>
 		<groupId>org.opengroup.osdu</groupId>
 		<artifactId>os-schema-test</artifactId>
-		<version>0.30.3-SNAPSHOT</version>
+		<version>0.30.4-SNAPSHOT</version>
 		<relativePath>../pom.xml</relativePath>
 	</parent>
 
 	<artifactId>schema-test-azure</artifactId>
-	<version>0.30.3-SNAPSHOT</version>
+	<version>0.30.4-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>schema-test-azure</name>
 	<description>Azure integration tests for schema service</description>
