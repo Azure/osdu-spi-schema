@@ -309,27 +309,14 @@
             </activation>
             <modules>
                 <module>schema-core</module>
-                <module>schema-core-plus</module>
             </modules>
         </profile>
-        <profile>
-            <id>azure</id>
-            <modules>
-                <module>provider/schema-azure</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>ibm</id>
-            <modules>
-                <module>provider/schema-ibm</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>gc</id>
-            <modules>
-                <module>provider/schema-gc</module>
-            </modules>
-        </profile>
+    <profile>
+      <id>azure</id>
+      <modules>
+        <module>provider/schema-azure</module>
+      </modules>
+    </profile>
     </profiles>
 
     <repositories>

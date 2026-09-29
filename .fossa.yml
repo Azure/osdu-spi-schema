@@ -16,35 +16,3 @@ analyze:
       type: mvn
       target: schema-core/pom.xml
       path: .
-    - name: schema-core-plus
-      type: mvn
-      target: schema-core-plus/pom.xml
-      path: .
-    - name: os-schema-gc
-      type: mvn
-      target: provider/schema-gc/pom.xml
-      path: .
-    - name: os-schema-ibm
-      type: mvn
-      target: provider/schema-ibm/pom.xml
-      path: .
-    - name: os-schema-azure
-      type: mvn
-      target: provider/schema-azure/pom.xml
-      path: .
-    - name: google
-      type: pip
-      target: deployments/scripts/google
-      path: deployments/scripts/google
-    - name: ibm
-      type: pip
-      target: deployments/scripts/ibm
-      path: deployments/scripts/ibm
-    - name: scripts
-      type: pip
-      target: deployments/scripts
-      path: deployments/scripts
-    - name: azure
-      type: pip
-      target: deployments/scripts/azure
-      path: deployments/scripts/azure
