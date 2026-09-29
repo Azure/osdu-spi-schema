@@ -1,0 +1,14 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--CementJob:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/CementJob.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--PlannedCementJob:1.4.0",
+    "relativePath": "shared-schemas/osdu/master-data/PlannedCementJob.1.4.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicHorizon:2.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicHorizon.2.0.0.json"
+  }
+]

@@ -1,0 +1,187 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Title",
+  "description": "Description",
+  "type": "object",
+  "definitions": {
+    "accessControlList": {
+      "properties": {
+        "owners": {
+          "title": "List of Owners",
+          "description": "The list of owners of this data record.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "viewers": {
+          "title": "List of Viewers",
+          "description": "The list of viewers to which this data record is accessible/visible/discoverable.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "owners",
+        "viewers"
+      ],
+      "additionalProperties": false
+    },
+    "legalParentList": {
+      "properties": {
+        "parents": {
+          "description": "An array of none, one or many entity references in the data ecosystem, which identify the source of data in the legal sense. Example: the 'parents' will be queried when e.g. the subscription of source data services is terminated; access to the derivatives is also terminated.",
+          "items": {
+            "type": "string"
+          },
+          "example": [],
+          "title": "Parents",
+          "type": "array"
+        }
+      }
+    },
+    "legalTags": {
+      "properties": {
+        "legaltags": {
+          "title": "Legal Tags",
+          "description": "The list of legal tags.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "otherRelevantDataCountries": {
+          "title": "Other Relevant Data Countries",
+          "description": "The list of other relevant data countries.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "title": "Legal Status",
+          "description": "The legal status.",
+          "type": "string"
+        }
+      },
+      "required": [
+        "legaltags",
+        "otherRelevantDataCountries"
+      ],
+      "additionalProperties": false
+    },
+    "metaItem": {
+      "properties": {
+        "kind": {
+          "title": "Reference Kind",
+          "description": "The kind of reference, unit, measurement, CRS or azimuth reference.",
+          "type": "string",
+          "enum": [
+            "CRS",
+            "Unit",
+            "Measurement",
+            "AzimuthReference",
+            "DateTime"
+          ]
+        },
+        "name": {
+          "title": "Name or Symbol",
+          "description": "The name of the CRS or the symbol/name of the unit.",
+          "type": "string",
+          "example": "ftUS"
+        },
+        "persistableReference": {
+          "title": "Persistable Reference",
+          "description": "The persistable reference string uniquely identifying the CRS or Unit.",
+          "type": "string",
+          "example": "{\"scaleOffset\":{\"scale\":0.3048006096012192,\"offset\":0.0},\"symbol\":\"ftUS\",\"baseMeasurement\":{\"ancestry\":\"Length\",\"type\":\"UM\"},\"type\":\"USO\"}"
+        },
+        "propertyNames": {
+          "title": "Property Names",
+          "description": "The list of property names, to which this meta data item provides Unit/CRS context to. Data structures, which come in a single frame of reference, can register the property name, others require a full path like \"data.structureA.propertyB\" to define a unique context.",
+          "type": "array",
+          "example": [
+            "elevationFromMsl",
+            "totalDepthMdDriller",
+            "wellHeadProjected"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "propertyValues": {
+          "title": "Property Values",
+          "description": "The list of property values, to which this meta data item provides Unit/CRS context to. Typically a unit symbol is a value to a data structure; this symbol is then registered in this propertyValues array and the persistableReference provides the absolute reference.",
+          "type": "array",
+          "example": [
+            "FOOT_US",
+            "ftUS"
+          ],
+          "items": {
+            "type": "string"
+          }
+        },
+        "uncertainty": {
+          "title": "Uncertainty",
+          "description": "The uncertainty of the values measured given the unit or CRS unit.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "kind",
+        "persistableReference"
+      ]
+    }
+  },
+  "properties": {
+    "id": {
+      "description": "The entity ID which identifies this OSDU resource object without version.",
+      "title": "Entity ID",
+      "type": "string",
+      "example": "someDataPartitionId:dataSourceNamespace:entity:unique-id-3680fceb-bfef-4027-abba-6e580f6d212e"
+    },
+    "kind": {
+      "description": "The schema identification for the DELFI/OSDU resource object following the pattern <Namespace>:<Source>:<Type>:<VersionMajor>.<VersionMiddle>.<VersionMinor>",
+      "title": "Entity Kind",
+      "type": "string",
+      "pattern": "[A-Za-z0-9-_]+:[A-Za-z0-9-_]+:[A-Za-z0-9-_]+:[0-9]+.[0-9]+.[0-9]+"
+    },
+    "version": {
+      "description": "The version number of this OSDU resource; set by the framework.",
+      "title": "Version Number",
+      "type": "number",
+      "format": "int64",
+      "example": "1831253916104085"
+    },
+    "acl": {
+      "description": "The access control tags associated with this entity.",
+      "title": "Access Control List",
+      "$ref": "#/definitions/accessControlList"
+    },
+    "legal": {
+      "description": "The entity's legal tags and compliance status.",
+      "title": "Legal Tags",
+      "$ref": "#/definitions/legalTags"
+    },
+    "ancestry": {
+      "description": "The links to data, which constitute the inputs.",
+      "title": "Ancestry",
+      "$ref": "#/definitions/legalParentList"
+    },
+    "meta": {
+      "description": "The meta data section linking the 'unitKey', 'crsKey' to self-contained definitions.",
+      "title": "Frame of Reference Meta Data",
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/metaItem"
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "acl",
+    "legal"
+  ]
+}

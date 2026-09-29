@@ -1,0 +1,26 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractSpatialReference:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractSpatialReference.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.GeoJSON:1.0.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.GeoJSON.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.Esri.Shape:1.0.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.Esri.Shape.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--MarkerPropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/MarkerPropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--PersistedCollection:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/PersistedCollection.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreMarkerSet:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreMarkerSet.1.1.0.json"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.EPC:1.0.2",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.EPC.1.0.2.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReferenceDataIndexTemplate:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReferenceDataIndexTemplate.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SampleImage:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SampleImage.1.0.0.json"
+  }
+]

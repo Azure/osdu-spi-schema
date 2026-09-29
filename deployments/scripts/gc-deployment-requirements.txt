@@ -1,0 +1,3 @@
+google-cloud-datastore
+google.api_core
+grpcio

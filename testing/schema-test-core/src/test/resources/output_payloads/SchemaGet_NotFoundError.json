@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 404,
+        "message": "Schema is not present",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "notFound",
+                "message": "Schema is not present"
+            }
+        ]
+    }
+}

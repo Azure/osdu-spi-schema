@@ -1,0 +1,28 @@
+{
+	"schemaInfo": {
+		"schemaIdentity": {
+			"authority": "SchemaSanityTest",
+			"source": "testSource",
+			"entityType": "testEntity",
+			"schemaVersionMajor": 248,
+			"schemaVersionMinor": 215,
+			"schemaVersionPatch": 0,
+			"id": "SchemaSanityTest:testSource:testEntity:248.215.0"
+		},
+		"status": "DEVELOPMENT"
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"description": "The entity well.",
+		"title": "Well",
+		"type": "object",
+		"x-slb-lifecycle-state": "published",
+		"definitions": {
+			"FeatureCollection": {
+				"$schema": "http://json-schema.org/draft-07/schema#",
+				"title": "GeoJSON FeatureCollection",
+				"type": "object"
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+{
+  "authority": "osdu",
+  "source": "osdu",
+  "majorVersion": 0,
+  "minorVersion": 2,
+  "patchVersion": 0,
+  "createdBy": "OSDU Data Definition Group",
+  "status": "DEVELOPMENT",
+  "scope": "SHARED",
+  "exclude": ["WorkProductLoadManifestStagedFiles", "WoodchuckWorkProductComponent", "WoodchuckWorkProduct"]
+}

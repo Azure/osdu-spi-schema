@@ -1,0 +1,123 @@
+{
+	"schemaInfo": {
+		"schemaIdentity": {
+			"authority": "OSDUTest",
+			"source": "testSource",
+			"entityType": "testEntity",
+			"schemaVersionMajor": 11,
+			"schemaVersionMinor": 0,
+			"schemaVersionPatch": 0
+		},
+		"status": "DEVELOPMENT"
+	},
+	"schema": [
+		{
+			"path": "Original CRS",
+			"kind": "string"
+		},
+		{
+			"path": "Original CRS Name",
+			"kind": "string"
+		},
+		{
+			"path": "Top Y",
+			"kind": "double"
+		},
+		{
+			"path": "Field",
+			"kind": "string"
+		},
+		{
+			"path": "Project Coordinate System",
+			"kind": "string"
+		},
+		{
+			"path": "Permanent Elevation [m]",
+			"kind": "double"
+		},
+		{
+			"path": "Spud Date",
+			"kind": "string"
+		},
+		{
+			"path": "Current Status",
+			"kind": "string"
+		},
+		{
+			"path": "Original Coord System Name",
+			"kind": "string"
+		},
+		{
+			"path": "Remarks",
+			"kind": "string"
+		},
+		{
+			"path": "Original Top X",
+			"kind": "string"
+		},
+		{
+			"path": "Permanent Elevation Ref",
+			"kind": "string"
+		},
+		{
+			"path": "Project Elevation Ref",
+			"kind": "string"
+		},
+		{
+			"path": "Class",
+			"kind": "string"
+		},
+		{
+			"path": "Primary Source",
+			"kind": "string"
+		},
+		{
+			"path": "Country",
+			"kind": "string"
+		},
+		{
+			"path": "Well Name",
+			"kind": "string"
+		},
+		{
+			"path": "Row Status",
+			"kind": "string"
+		},
+		{
+			"path": "Original Top Y",
+			"kind": "string"
+		},
+		{
+			"path": "Top X",
+			"kind": "double"
+		},
+		{
+			"path": "Short Name",
+			"kind": "string"
+		},
+		{
+			"path": "UWI",
+			"kind": "string"
+		},
+		{
+			"path": "Original Coord System Id",
+			"kind": "long"
+		},
+		{
+			"path": "Operator",
+			"kind": "string"
+		},
+		{
+			"path": "_crc",
+			"kind": "int"
+		},
+		{
+			"path": "_dataset_descriptor",
+			"kind": "link"
+		},
+		{
+			"path": "dlLatLongWGS84",
+			"kind": "core:dl:geopoint:1.0.0"
+		}
+	]
+}

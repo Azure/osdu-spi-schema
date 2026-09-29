@@ -1,0 +1,238 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractDataset:1.0.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractDataset.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractFileSourceInfo:1.0.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractFileSourceInfo.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractFile:1.0.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractFile.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractFileCollection:1.0.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractFileCollection.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractFluidAdditive:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractFluidAdditive.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractProppantAgent:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractProppantAgent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractReferenceValueUpgrade:2.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractReferenceValueUpgrade.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractStimMaterialQuantity:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractStimMaterialQuantity.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--AgreementType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/AgreementType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ArtefactRole:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ArtefactRole.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--CementJob:1.2.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/CementJob.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CompressionMethodType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/CompressionMethodType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--ConnectedSource.Generic:1.0.1",
+    "relativePath": "shared-schemas/osdu/dataset/ConnectedSource.Generic.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceDataJob:1.5.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceDataJob.1.5.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceRegistryEntry:1.4.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceRegistryEntry.1.4.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DocumentType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/DocumentType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--ETPDataspace:1.0.1",
+    "relativePath": "shared-schemas/osdu/dataset/ETPDataspace.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.CompressedVectorHeaders:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.CompressedVectorHeaders.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.EML:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.EML.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.Generic:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.Generic.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.GeoJSON:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.GeoJSON.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.HDF5:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.HDF5.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.Image.JPEG:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.Image.JPEG.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.Image.PNG:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.Image.PNG.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.Image.TIFF:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.Image.TIFF.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.Image.WorldFile:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.Image.WorldFile.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.OGC.GeoTIFF:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.OGC.GeoTIFF.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.PRODML:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.PRODML.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.SeismicHistogram:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.SeismicHistogram.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.SeismicLineGeometry:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.SeismicLineGeometry.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.WITSML:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.WITSML.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.Bluware.OpenVDS:1.2.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.Bluware.OpenVDS.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.EPC:1.0.1",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.EPC.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.Esri.Shape:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.Esri.Shape.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.Generic:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.Generic.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.SEGA:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.SEGA.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.SEGB:1.1.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.SEGB.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.SEGD:1.2.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.SEGD.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.SEGY:1.3.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.SEGY.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.Slb.OpenZGY:1.2.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.Slb.OpenZGY.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ObligationType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ObligationType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--PhysicalMedia:1.0.1",
+    "relativePath": "shared-schemas/osdu/dataset/PhysicalMedia.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PressureMeasurementType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/PressureMeasurementType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ProcessingParameterType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ProcessingParameterType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--QualitativeSpatialAccuracyType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/QualitativeSpatialAccuracyType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReferenceValueUpgradeLookUp:2.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReferenceValueUpgradeLookUp.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimAdditiveType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimAdditiveType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimFETestAnalysisMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimFETestAnalysisMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimFlowPathType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimFlowPathType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimJobDiversionMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimJobDiversionMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimJobFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimJobFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimJobStepType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimJobStepType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimJobType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimJobType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimMaterialType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimMaterialType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimPIDXCommodityCode:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimPIDXCommodityCode.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StimProppantAgentType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StimProppantAgentType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--StimulationJob:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/StimulationJob.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--StimulationStage:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/StimulationStage.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellboreOpeningType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/WellboreOpeningType.1.0.1.json"
+  }
+]

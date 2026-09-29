@@ -1,0 +1,8 @@
+{
+  "PRIVILEGED_USER": [
+    "users",
+    "service.entitlements.user",
+    "service.schema-service.viewers",
+    "service.schema-service.editors"
+  ]
+}

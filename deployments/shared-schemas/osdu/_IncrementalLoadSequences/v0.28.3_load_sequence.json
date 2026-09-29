@@ -1,0 +1,54 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractGenericReservoirUnit:2.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractGenericReservoirUnit.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceDataJob:1.7.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceDataJob.1.7.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--EdsExternalProcessType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/EdsExternalProcessType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--FaultInterpretation:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/FaultInterpretation.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.TGS.MDIO:1.0.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.TGS.MDIO.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FlowTestType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/FlowTestType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Reservoir:2.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/Reservoir.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirLifeCycleStatus:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirLifeCycleStatus.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ReservoirSegment:2.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/ReservoirSegment.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirStatusType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirStatusType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicFault:2.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicFault.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicTraceDataDimensionalityType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicTraceDataDimensionalityType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VshCalculationModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/VshCalculationModel.1.0.0.json"
+  }
+]

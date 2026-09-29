@@ -1,0 +1,17 @@
+{
+	"schemaInfo": {
+		"schemaIdentity": {
+			"authority": "OSDUTest",
+			"source": "testSource",
+			"entityType": "testEntity",
+			"schemaVersionMajor": 291,
+			"schemaVersionMinor": 257,
+			"schemaVersionPatch": 0,
+			"id": "OSDUTest:testSource:testEntity:1.1.0"
+		},
+		"status": "DEVELOPMENT"
+	},
+	"schema": {
+	"test" : "test"
+	}
+}

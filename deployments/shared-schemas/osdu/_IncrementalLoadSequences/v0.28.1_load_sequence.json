@@ -1,0 +1,42 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:master-data--BlowoutPreventer:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/BlowoutPreventer.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--BlowoutPreventerComponent:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/BlowoutPreventerComponent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BlowoutPreventerComponentType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BlowoutPreventerComponentType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BlowoutPreventerConnectionType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BlowoutPreventerConnectionType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ChokeManifoldType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ChokeManifoldType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ControlManifoldType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ControlManifoldType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--DataQualitySummary:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/DataQualitySummary.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--Document:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/Document.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DocumentTaxonomy:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DocumentTaxonomy.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellPlanningWellbore:1.2.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellPlanningWellbore.1.2.0.json"
+  }
+]

@@ -1,0 +1,73 @@
+{
+	"schemaInfo": {
+		"schemaIdentity": {
+			"authority": "SchemaSanityTest",
+			"source": "testSource",
+			"entityType": "testEntity",
+			"schemaVersionMajor": 1,
+			"schemaVersionMinor": 0,
+			"schemaVersionPatch": 0,
+			"id": "SchemaSanityTest:testSource:testEntity:1.1.0"
+		},
+		"status": "DEVELOPMENT"
+	},
+	"schema": {
+		"$schema": "http://json-schema.org/draft-07/schema#",
+		"x-slb-lifecycle-state": "published",
+		"description": "Theentitywell.",
+		"title": "Well",
+		"type": "object",
+		"definitions": {
+			"anyCrsFeatureCollection.1.0": {
+				"$schema": "http://json-schema.org/draft-07/schema#",
+				"title": "anyCrsFeatureCollection",
+				"type": "object"
+			},
+			"osdu:wks:well-changed:2.1.1": {
+				"$schema": "http://json-schema.org/draft-07/schema#",
+				"title": "osdu.wks.well",
+				"type": "object"
+			}
+		},
+		"properties": {
+			"locationOriginalCRS": {
+				"description": "Thewell'soriginallocationasAnyCrsFeatureCollection-astructuresimilartobutdistinctfromGeoJSON.",
+				"title": "OriginalCRSLocation",
+				"$ref": "#/definition/anyCrsFeatureCollection.1.0"
+			},
+			"location": {
+				"description": "Thewell'soriginallocationasAnyCrsFeatureCollection-astructuresimilartobutdistinctfromGeoJSON.",
+				"title": "OriginalLocation"
+			},
+			"allOf": [
+				{
+					"$ref": "#/definition/osdu:wks:well-changed:2.1.1"
+				}
+			],
+			"locationWGS84": {
+				"description": "Thewell'slocationasGeoJSONFeatureCollection.",
+				"title": "WGS84Location",
+				"$ref": "https://geojson.org/schema/FeatureCollection.json",
+				"example": {
+					"features": [
+						{
+							"geometry": {
+								"coordinates": [
+									-92.11569999999999,
+									29.8823,
+									153.4779442519685
+								],
+								"type": "Point"
+							},
+							"type": "Feature",
+							"properties": {
+								"name": "Newton2-31"
+							}
+						}
+					],
+					"type": "FeatureCollection"
+				}
+			}
+		}
+	}
+}

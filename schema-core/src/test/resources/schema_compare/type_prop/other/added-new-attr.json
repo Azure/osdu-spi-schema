@@ -1,0 +1,33 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "title": "My schema",
+    "properties": {
+        "AddressLine1": { "type": "string" },
+        "AddressLine2": { "type": "string" },
+        "City":         { "type": "string" },
+        "Landmark":     { "type": "string" }
+    },
+    "required": [ "AddressLine1", "AddressLine2" ],
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "State":   { "type": "string" },
+                "ZipCode": { "type": "string" }
+            },
+            "required": [ "ZipCode" ]
+        },
+        {
+            "type": "object",
+            "properties": {
+                "County":   { "type": "string" },
+                "PostCode": { "type": "string" }
+            },
+            "required": [ "PostCode" ]
+        },
+        {
+      		"$ref": "#/definitions/osdu:wks:AbstractCommonResources:2.1.1"
+    	}
+    ]
+}

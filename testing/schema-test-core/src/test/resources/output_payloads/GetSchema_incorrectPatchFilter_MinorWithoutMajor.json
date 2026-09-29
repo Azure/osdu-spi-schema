@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "MinorVersion Filter is invalid without giving MajorVersion when LatestVersion Schema is required",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "MinorVersion Filter is invalid without giving MajorVersion when LatestVersion Schema is required"
+            }
+        ]
+    }
+}

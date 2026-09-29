@@ -1,0 +1,16 @@
+{
+	"schemaInfo": {
+		"schemaIdentity": {
+			"authority": "SchemaSanityTest",
+			"source": "testSource",
+			"entityType": "testEntity",
+			"schemaVersionMajor": 1,
+			"schemaVersionMinor": 1,
+			"schemaVersionPatch": 0,
+			"id": "SchemaSanityTest:testSource:testEntity:1.1.0"
+		},
+		"status": "DEVELOPMENT"
+	},
+	"schema": {
+	}
+}

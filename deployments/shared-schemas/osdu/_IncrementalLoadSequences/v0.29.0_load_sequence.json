@@ -1,0 +1,214 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--AmendReason:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/AmendReason.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--BHARun:2.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/BHARun.2.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BlackOilFlashMechanismApplied:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BlackOilFlashMechanismApplied.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CompressibilityModelType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CompressibilityModelType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ConventionalCoreCatcherType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ConventionalCoreCatcherType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ConventionalCoreInnerSleeveMaterial:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ConventionalCoreInnerSleeveMaterial.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ConventionalCoreType:1.0.2",
+    "relativePath": "shared-schemas/osdu/reference-data/ConventionalCoreType.1.0.2.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--EquilibriumModelSaturationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/EquilibriumModelSaturationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--FluidModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/FluidModel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidModelPropertyFormulationMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidModelPropertyFormulationMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidModelPropertyPhase:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidModelPropertyPhase.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidModelPropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidModelPropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidModelSaturationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidModelSaturationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidModelSurfaceSeparationProcessType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidModelSurfaceSeparationProcessType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidModelType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidModelType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--FluidsProgram:1.3.0",
+    "relativePath": "shared-schemas/osdu/master-data/FluidsProgram.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--GenericFacility:1.0.1",
+    "relativePath": "shared-schemas/osdu/master-data/GenericFacility.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--GenericSite:1.1.1",
+    "relativePath": "shared-schemas/osdu/master-data/GenericSite.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PressureGradientCalculationMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PressureGradientCalculationMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PropertyTypeClass:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PropertyTypeClass.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirComponentCompositionType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirComponentCompositionType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ReservoirSimulationEquilibriumModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ReservoirSimulationEquilibriumModel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationInitialisationDataType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationInitialisationDataType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationInitialisationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationInitialisationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ReservoirSimulationModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ReservoirSimulationModel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationPhase:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationPhase.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationPropertyFacetType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationPropertyFacetType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationPropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationPropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationRockModelMappingType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationRockModelMappingType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ReservoirSimulationRockPhysicsModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ReservoirSimulationRockPhysicsModel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ReservoirSimulationRunConfiguration:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ReservoirSimulationRunConfiguration.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationTypeTag:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationTypeTag.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSimulationTypeTagCategory:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSimulationTypeTagCategory.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--RockModelCapillaryPressurePhase:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/RockModelCapillaryPressurePhase.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--RockModelRelativePermeabilityPhase:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/RockModelRelativePermeabilityPhase.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RockSample:1.1.1",
+    "relativePath": "shared-schemas/osdu/master-data/RockSample.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--RockSampleType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/RockSampleType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Sample:3.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/Sample.3.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleAcquisitionToolFamily:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleAcquisitionToolFamily.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--SampleChainOfCustodyEvent:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/SampleChainOfCustodyEvent.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleSubstanceFamily:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleSubstanceFamily.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleType:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleType.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SamplesAnalysis:2.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SamplesAnalysis.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SaturationFunctionSet:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SaturationFunctionSet.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SaturationFunctionUsageType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SaturationFunctionUsageType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SidewallCoreType:1.0.2",
+    "relativePath": "shared-schemas/osdu/reference-data/SidewallCoreType.1.0.2.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SiteType:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SiteType.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ThermalModelType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ThermalModelType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ThreePhaseRelativePermeabilityModelType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ThreePhaseRelativePermeabilityModelType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellPlanningWellbore:1.4.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellPlanningWellbore.1.4.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellPressureTestAcquisitionJob:1.2.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellPressureTestAcquisitionJob.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellPressureTestInterpretation:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellPressureTestInterpretation.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellTreatmentType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/WellTreatmentType.1.0.1.json"
+  }
+]

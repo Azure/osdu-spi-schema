@@ -1,0 +1,15 @@
+{
+	"schemaIdentity": {
+		"authority": "testAuthority1",
+		"source": "local",
+		"entityType": "schema-validation1",
+		"schemaVersionMajor": 1,
+		"schemaVersionMinor": 1,
+		"schemaVersionPatch": 0,
+		"id": "SchemaSanityTest:testSource:testEntity:1.1.0"
+	},
+	"createdBy": "hmadhani-slb-com-350e08c6@desid.delfi.slb.com",
+	"dateCreated": "2019-12-24T09:53:02.285+0000",
+	"status": "DEVELOPMENT",
+	"scope": "INTERNAL"
+}

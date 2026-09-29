@@ -1,0 +1,206 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractDecisionQualityElement:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractDecisionQualityElement.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractDowntimeContext:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractDowntimeContext.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractLabelAndValue:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractLabelAndValue.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractPTCondition:1.1.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractPTCondition.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractSampleProperties:1.1.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractSampleProperties.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTrigger:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTrigger.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractWellboreDrillingReason:1.1.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractWellboreDrillingReason.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--AmendReason:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/AmendReason.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--AquiferStrengthType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/AquiferStrengthType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--AssessedDecisionQuality:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/AssessedDecisionQuality.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--BusinessDecision:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/BusinessDecision.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ColumnBasedTableType:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ColumnBasedTableType.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DataQualityRuleSet:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/DataQualityRuleSet.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DecisionApprovalStatus:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DecisionApprovalStatus.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DecisionLevel:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DecisionLevel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DispositionType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DispositionType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DownTimeType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DownTimeType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DowntimeComponentType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DowntimeComponentType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--DowntimeEvent:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/DowntimeEvent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DowntimeEventStatus:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DowntimeEventStatus.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DowntimeReasonDetailType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DowntimeReasonDetailType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DowntimeReasonType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DowntimeReasonType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DurationContext:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DurationContext.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--FlowTest:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/FlowTest.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FlowTestMeasurementType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FlowTestMeasurementType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FlowTestType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FlowTestType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--GeoLabelSet:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/GeoLabelSet.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GeoLabelType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GeoLabelType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--HydrocarbonSealType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/HydrocarbonSealType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--KerogenType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/KerogenType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--MudTracerType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/MudTracerType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PermeabilityMeasurementType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/PermeabilityMeasurementType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PorosityMeasurementType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/PorosityMeasurementType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ProductKind:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ProductKind.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ProductionPropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ProductionPropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ProductionValues:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ProductionValues.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ProspectType:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ProspectType.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--QuantityMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/QuantityMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReportingPeriod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReportingPeriod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirDriveMechanismType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirDriveMechanismType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirTrappingMechanismType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirTrappingMechanismType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Sample:2.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/Sample.2.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleOrientationType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleOrientationType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SubjectiveClassificationRating:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SubjectiveClassificationRating.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--TestApprovalStatus:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/TestApprovalStatus.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--TubularAssembly:2.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/TubularAssembly.2.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--TubularComponent:2.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/TubularComponent.2.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VelocityType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/VelocityType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VolumeFlowMeasurementType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/VolumeFlowMeasurementType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellMAASP:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellMAASP.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Wellbore:1.5.1",
+    "relativePath": "shared-schemas/osdu/master-data/Wellbore.1.5.1.json"
+  }
+]

@@ -1,0 +1,15 @@
+{
+   "[schemaIdentity":{
+      "authority":"SchemaSanityTest",
+      "source":"testSource",
+      "entityType":"testEntity1",
+      "schemaVersionMajor":551,
+      "schemaVersionMinor":552,
+      "schemaVersionPatch":5,
+      "id":"SchemaSanityTest:testSource:testEntity1:551.552.5"
+   },
+   "createdBy":"integrationtest@opendes.iam.gserviceaccount.com",
+   "dateCreated":"2020-06-04T07:33:10.672+0000",
+   "status":"DEVELOPMENT",
+   "scope":"INTERNAL"
+}

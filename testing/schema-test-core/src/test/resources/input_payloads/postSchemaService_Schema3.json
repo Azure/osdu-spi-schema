@@ -1,0 +1,49 @@
+{
+    "schemaInfo": {
+        "schemaIdentity": {
+            "authority": "SchemaSanityTest",
+            "source": "AbstractMaster100",
+            "entityType": "testEntity",
+            "schemaVersionMajor": 767,
+            "schemaVersionMinor": 0,
+            "schemaVersionPatch": 0
+        },
+        "status": "DEVELOPMENT"
+    },
+    "schema": {
+        "title": "Abstract Master",
+        "type": "object",
+        "definitions": {
+        "SchemaSanityTest:testSource:testEntity:1.0.0": {
+                "title": "AbstractAnyCrsFeatureCollection",
+                "type": "object",
+                "required": [
+                    "type",
+                    "persistableReferenceCrs"
+                ],
+                "properties": {
+                    "persistableReferenceCrs": {
+                        "description": "The CRS reference as persistableReference string. If populated, the CoordinateReferenceSystemID takes precedence.",
+                        "type": "string",
+                        "title": "CRS Reference"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "AnyCrsFeatureCollection"
+                        ]
+                    },
+                    "AsIngestedCoordinates": {
+                        "title": "As Ingested Coordinates"
+                    }
+                }
+            }
+        },
+        "properties": {
+            "SpatialLocation": {
+                "description": "The spatial location information such as coordinates, CRS information (left empty when not appropriate).",
+                "$ref": "#/definitions/SchemaSanityTest:AbstractSpatialLocation100:testEntity:667.0.0"
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractReferencePropertyType:1.2.2",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractReferencePropertyType.1.2.2.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--Document:2.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/Document.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--GenericProperty:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/GenericProperty.1.3.0.json"
+  }
+]

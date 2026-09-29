@@ -1,0 +1,10 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ReservoirSegment:1.2.0",
+    "relativePath": "shared-schemas/osdu/master-data/ReservoirSegment.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirSegmentType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirSegmentType.1.0.1.json"
+  }
+]

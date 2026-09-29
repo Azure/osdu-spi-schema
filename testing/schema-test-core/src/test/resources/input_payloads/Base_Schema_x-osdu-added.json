@@ -1,0 +1,46 @@
+{
+   "schemaInfo":{
+      "schemaIdentity":{
+         "authority":"SchemaSanityTest",
+         "source":"testSource",
+         "entityType":"testEntity",
+         "schemaVersionMajor":0,
+         "schemaVersionMinor":0,
+         "schemaVersionPatch":4        
+      },
+      "status":"DEVELOPMENT"
+   },
+   "schema": {
+	"x-osdu-license":"Landmark copyright placeholder",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://schema.osdu.opengroup.org/json/dataset/schema-with-id-added.json",
+    "$comment": "This is a test schema",
+    "type": "object",
+	"definitions": {},
+    "properties": {
+        "AddressLine1": { "type": "string",
+        "$comment": "This is a mandatory attribute"},
+        "AddressLine2": { "type": "string" },
+        "City":         { "type": "string" }
+    },
+    "required": [ "AddressLine1", "AddressLine2" ],
+    "oneOf": [
+        {
+            "type": "object",
+            "properties": {
+                "State":   { "type": "string" },
+                "ZipCode": { "type": "string" }
+            },
+            "required": [ "ZipCode" ]
+        },
+        {
+            "type": "object",
+            "properties": {
+                "County":   { "type": "string" },
+                "PostCode": { "type": "string" }
+            },
+            "required": [ "PostCode" ]
+        }
+    ]
+}
+}

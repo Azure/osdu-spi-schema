@@ -1,0 +1,210 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractReferencePropertyType:1.2.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractReferencePropertyType.1.2.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractColumnBasedTable:1.2.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractColumnBasedTable.1.2.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentBend:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentBend.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentBitRecord:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentBitRecord.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentConnection:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentConnection.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentHoleOpener:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentHoleOpener.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentJar:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentJar.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentPressureLoss:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentPressureLoss.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentMWDTool:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentMWDTool.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentMotor:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentMotor.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentRSS:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentRSS.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentStabiliser:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentStabiliser.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--BHARun:2.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/BHARun.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BitFormationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BitFormationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ColumnBasedTable:1.4.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ColumnBasedTable.1.4.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ColumnBasedTableTemplate:1.0.1",
+    "relativePath": "shared-schemas/osdu/master-data/ColumnBasedTableTemplate.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ColumnBasedTableType:1.1.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ColumnBasedTableType.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Coring:1.1.1",
+    "relativePath": "shared-schemas/osdu/master-data/Coring.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DurationContext:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/DurationContext.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--File.TabularData:1.0.0",
+    "relativePath": "shared-schemas/osdu/dataset/File.TabularData.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GeoLabelType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/GeoLabelType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--HoleOpenerType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/HoleOpenerType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--JarActionType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/JarActionType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--JarType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/JarType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--MudMotorBearingType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/MudMotorBearingType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTCauseSubType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTCauseSubType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTCauseType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTCauseType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTEquipmentType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTEquipmentType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTInvestigationStatusType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTInvestigationStatusType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTRiskAssessmentType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTRiskAssessmentType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTRootCauseType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTRootCauseType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTSafetyClassificationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTSafetyClassificationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTSeverityLevel:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTSeverityLevel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NPTUnplannedEventType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NPTUnplannedEventType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ProductionValues:1.1.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/ProductionValues.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReportingPeriod:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ReportingPeriod.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ReservoirEstimatedVolumes:1.1.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/ReservoirEstimatedVolumes.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--RockImage:1.3.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/RockImage.1.3.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--RockSampleAnalysis:1.3.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/RockSampleAnalysis.1.3.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--RotarySteerableDeflectionMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/RotarySteerableDeflectionMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StabiliserBladeDesignType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StabiliserBladeDesignType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StabiliserOperatingDesign:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StabiliserOperatingDesign.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StabiliserType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StabiliserType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--TubularComponent:2.3.0",
+    "relativePath": "shared-schemas/osdu/master-data/TubularComponent.2.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--TubularComponentCXNPosition:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/TubularComponentCXNPosition.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellControlEventClassification:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellControlEventClassification.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellOpsNonProductiveTime:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellOpsNonProductiveTime.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellPressureTestAcquisitionJob:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellPressureTestAcquisitionJob.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellPressureTestMeasurementPeriodKind:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellPressureTestMeasurementPeriodKind.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellPressureTestRawMeasurement:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellPressureTestRawMeasurement.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreIntervalSet:1.3.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreIntervalSet.1.3.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreMarkerSet:1.5.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreMarkerSet.1.5.1.json"
+  }
+]

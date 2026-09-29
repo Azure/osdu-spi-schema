@@ -1,0 +1,218 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractCommonResources:1.0.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractCommonResources.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractRemark:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractRemark.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractVectorHeaderMapping:1.1.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractVectorHeaderMapping.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractWPCActivity:1.2.1",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractWPCActivity.1.2.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Basin:1.2.0",
+    "relativePath": "shared-schemas/osdu/master-data/Basin.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BiostratigraphicCountMethods:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BiostratigraphicCountMethods.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BiostratigraphicDiscipline:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BiostratigraphicDiscipline.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BiostratigraphicEventType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BiostratigraphicEventType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--Biozone:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/Biozone.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementConstantGasMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementConstantGasMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementEvalLogType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementEvalLogType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementExcessVolCalcMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementExcessVolCalcMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementFluidProductName:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementFluidProductName.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementGasFoamType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementGasFoamType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--CementJob:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/CementJob.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementJobQuality:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementJobQuality.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementMassUnitType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementMassUnitType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementMixFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementMixFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementMudType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementMudType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementPlacementMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementPlacementMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementPlugBaseSupportType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementPlugBaseSupportType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementPlugStatusType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementPlugStatusType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementPlugType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementPlugType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementPumpEquipmentType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementPumpEquipmentType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementPumpThroughEquipmentType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementPumpThroughEquipmentType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementShoeTestType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementShoeTestType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementSlurryClass:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementSlurryClass.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementSlurryMixMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementSlurryMixMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementSlurryType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementSlurryType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementSqueezeMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementSqueezeMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementSqueezeObjective:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementSqueezeObjective.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementSqueezeType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementSqueezeType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementStageType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementStageType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementTOCLocateMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementTOCLocateMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CementToolType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CementToolType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ChronoStratigraphicScheme:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ChronoStratigraphicScheme.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ChronoStratigraphy:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ChronoStratigraphy.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--FileCollection.SEGY:1.2.0",
+    "relativePath": "shared-schemas/osdu/dataset/FileCollection.SEGY.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidAdditiveConcUnitOfMeasure:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidAdditiveConcUnitOfMeasure.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidAdditiveConcentrationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidAdditiveConcentrationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidAdditiveFormulationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidAdditiveFormulationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidAdditiveName:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidAdditiveName.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidAdditiveUnitOfMeasure:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidAdditiveUnitOfMeasure.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidDensityMeasurementMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidDensityMeasurementMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidRheometerTempDirection:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidRheometerTempDirection.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FossilPreservation:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FossilPreservation.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FossilRecovery:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FossilRecovery.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--OsduDomain:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/OsduDomain.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ParentMatchingRuleSets:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ParentMatchingRuleSets.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--PhysicalMedia:1.0.0",
+    "relativePath": "shared-schemas/osdu/dataset/PhysicalMedia.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ResourceSecurityClassification:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ResourceSecurityClassification.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--StratigraphicColumnRankUnitType:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/StratigraphicColumnRankUnitType.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--UserProfile:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/UserProfile.1.0.0.json"
+  }
+]

@@ -1,0 +1,18 @@
+{
+    "definitions": {
+        "test:wks:TestDefinition:1.0.0": {
+            "$schema": "http://json-schema.org/draft-07/schema#",
+            "x-osdu-schema-source": "test:wks:TestDefinition:1.0.0",
+            "description": "Test schema for validating definition version upgrade handling",
+            "title": "Test Definition",
+            "type": "object",
+            "properties": {
+                "TestProperty": {
+                    "description": "A test property",
+                    "type": "string"
+                }
+            },
+            "$id": "https://schema.osdu.opengroup.org/json/test/TestDefinition.1.0.0.json"
+        }
+    }
+}

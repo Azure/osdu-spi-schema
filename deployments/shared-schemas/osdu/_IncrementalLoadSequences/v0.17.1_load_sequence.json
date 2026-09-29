@@ -1,0 +1,126 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractActivityState:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractActivityState.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractProjectActivity:1.1.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractProjectActivity.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractWPCActivity:1.1.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractWPCActivity.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--Activity:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/Activity.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ActivityPlan:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/ActivityPlan.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ActivityStatus:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ActivityStatus.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceDataJob:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceDataJob.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceRegistryEntry:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceRegistryEntry.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GrainSizeAnalysisMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GrainSizeAnalysisMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GrainSizeClassification:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GrainSizeClassification.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GrainSizeClassificationScheme:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GrainSizeClassificationScheme.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--IsolatedInterval:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/IsolatedInterval.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--IsolatedIntervalType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/IsolatedIntervalType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--OperationsReport:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/OperationsReport.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Reservoir:0.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/Reservoir.0.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ReservoirSegment:0.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/ReservoirSegment.0.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--RockSampleAnalysis:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/RockSampleAnalysis.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--RockSampleAnalysisType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/RockSampleAnalysisType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicPhase:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicPhase.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicPolarity:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicPolarity.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicProcessingStageType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicProcessingStageType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicTraceData:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicTraceData.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VerticalMeasurementType:1.0.2",
+    "relativePath": "shared-schemas/osdu/reference-data/VerticalMeasurementType.1.0.2.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellActivity:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellActivity.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellActivityType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellActivityType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellTechnologyApplied:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellTechnologyApplied.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Wellbore:1.1.1",
+    "relativePath": "shared-schemas/osdu/master-data/Wellbore.1.1.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreMarkerSet:1.2.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreMarkerSet.1.2.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellboreOpening:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellboreOpening.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellboreOpeningStateType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellboreOpeningStateType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellheadConnection:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellheadConnection.1.0.0.json"
+  }
+]

@@ -1,0 +1,142 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractCollaborationLifecycleEvent:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractCollaborationLifecycleEvent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractColumnBasedTable:1.2.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractColumnBasedTable.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractLocationUncertainty:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractLocationUncertainty.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTimeSeriesLink:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTimeSeriesLink.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--CollaborationProject:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/CollaborationProject.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--CollaborationProjectCollection:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/CollaborationProjectCollection.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CollaborationProjectLifecycleStatus:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CollaborationProjectLifecycleStatus.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ColumnBasedTable:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ColumnBasedTable.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ColumnBasedTableTemplate:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/ColumnBasedTableTemplate.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceDataJob:1.6.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceDataJob.1.6.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--FaultSystem:1.4.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/FaultSystem.1.4.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--GenericSite:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/GenericSite.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--GeoLabelSet:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/GeoLabelSet.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GeoMagneticModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GeoMagneticModel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GravityModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GravityModel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ProductionValues:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ProductionValues.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ReservoirEstimatedVolumes:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ReservoirEstimatedVolumes.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ReservoirType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/ReservoirType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--UnsealedSurfaceFramework:1.3.1",
+    "relativePath": "shared-schemas/osdu/work-product-component/UnsealedSurfaceFramework.1.3.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Well:1.4.0",
+    "relativePath": "shared-schemas/osdu/master-data/Well.1.4.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellLog:1.5.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellLog.1.5.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellLogAcquisition:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellLogAcquisition.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogClass:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogClass.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogDirection:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogDirection.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogFlowingCondition:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogFlowingCondition.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogHoleType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogHoleType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogPassType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogPassType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogToolClass:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogToolClass.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogToolCode:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogToolCode.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellSiteStructure:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellSiteStructure.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellSiteStructureType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellSiteStructureType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreIntervalSet:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreIntervalSet.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreMarkerSet:1.5.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreMarkerSet.1.5.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreTrajectory:1.4.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreTrajectory.1.4.0.json"
+  }
+]

@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "PatchVersion Filter is invalid without giving MinorVersion when LatestVersion Schema is required",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "PatchVersion Filter is invalid without giving MinorVersion when LatestVersion Schema is required"
+            }
+        ]
+    }
+}

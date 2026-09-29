@@ -1,0 +1,94 @@
+{
+    "osdu:wks:AbstractCommonResources:1.1.1": {
+      "x-osdu-inheriting-from-kind": [],
+      "x-osdu-license": "Copyright 2021, The Open Group \\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 . Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.",
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "x-osdu-schema-source": "osdu:wks:AbstractCommonResources:1.1.1",
+      "description": "Common resources to be injected at root 'data' level for every entity, which is persistable in Storage. The insertion is performed by the OsduSchemaComposer script.",
+      "title": "OSDU Common Resources",
+      "type": "object",
+      "properties": {
+        "ResourceHomeRegionID": {
+          "x-osdu-relationship": [
+            {
+              "EntityType": "OSDURegion",
+              "GroupType": "reference-data"
+            }
+          ],
+          "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-OSDURegion:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+          "description": "The name of the home [cloud environment] region for this OSDU resource object.",
+          "title": "Resource Home Region ID",
+          "type": "string"
+        },
+        "ResourceHostRegionIDs": {
+          "description": "The name of the host [cloud environment] region(s) for this OSDU resource object.",
+          "title": "Resource Host Region ID",
+          "type": "array",
+          "items": {
+            "x-osdu-relationship": [
+              {
+                "EntityType": "OSDURegion",
+                "GroupType": "reference-data"
+              }
+            ],
+            "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-OSDURegion:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+            "type": "string"
+          }
+        },
+        "ResourceLifecycleStatus": {
+          "x-osdu-relationship": [
+            {
+              "EntityType": "ResourceLifecycleStatus",
+              "GroupType": "reference-data"
+            }
+          ],
+          "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-ResourceLifecycleStatus:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+          "description": "Describes the current Resource Lifecycle status.",
+          "title": "Resource Lifecycle Status",
+          "type": "string"
+        },
+        "ResourceSecurityClassification": {
+          "x-osdu-relationship": [
+            {
+              "EntityType": "ResourceSecurityClassification",
+              "GroupType": "reference-data"
+            }
+          ],
+          "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-ResourceSecurityClassification:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+          "description": "Classifies the security level of the resource.",
+          "title": "Resource Security Classification",
+          "type": "string"
+        },
+        "ResourceCurationStatus": {
+          "x-osdu-relationship": [
+            {
+              "EntityType": "ResourceCurationStatus",
+              "GroupType": "reference-data"
+            }
+          ],
+          "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-ResourceCurationStatus:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+          "description": "Describes the current Curation status.",
+          "title": "Resource Curation Status",
+          "type": "string"
+        },
+        "ExistenceKind": {
+          "x-osdu-relationship": [
+            {
+              "EntityType": "ExistenceKind",
+              "GroupType": "reference-data"
+            }
+          ],
+          "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-ExistenceKind:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+          "description": "Where does this data resource sit in the cradle-to-grave span of its existence?",
+          "title": "Existence Kind",
+          "type": "string"
+        },
+        "Source": {
+          "description": "The entity that produced the record, or from which it is received; could be an organization, agency, system, internal team, or individual. For informational purposes only, the list of sources is not governed.",
+          "title": "Data Source",
+          "type": "string"
+        }
+      },
+      "$id": "https://schema.osdu.opengroup.org/json/abstract/AbstractCommonResources.1.0.0.json"
+    }
+}

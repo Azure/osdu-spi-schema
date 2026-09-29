@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "Minor version validation failed. Breaking changes were found; analysed versions 1013.2.0 and 1013.1.0. Updating the schema version to a higher major version is required.",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "Minor version validation failed. Breaking changes were found; analysed versions 1013.2.0 and 1013.1.0. Updating the schema version to a higher major version is required."
+            }
+        ]
+    }
+}

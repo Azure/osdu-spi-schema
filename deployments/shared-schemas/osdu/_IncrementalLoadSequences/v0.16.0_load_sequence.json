@@ -1,0 +1,134 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--AnnularFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/AnnularFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BitType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/BitType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BottomHolePressureType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BottomHolePressureType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:dataset--ConnectedSource.Generic:1.0.0",
+    "relativePath": "shared-schemas/osdu/dataset/ConnectedSource.Generic.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceDataJob:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceDataJob.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceRegistryEntry:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceRegistryEntry.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--FaultSystem:1.2.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/FaultSystem.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--OAuth2FlowType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/OAuth2FlowType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationCentralizationMethodType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationCentralizationMethodType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationConveyedMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationConveyedMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunCarrierCategory:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunCarrierCategory.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunCarrierModel:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunCarrierModel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunCarrierType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunCarrierType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunChargeShape:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunChargeShape.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunChargeSize:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunChargeSize.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunChargeType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunChargeType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunFiringHeadType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunFiringHeadType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunMetallurgyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunMetallurgyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationGunPhasingType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationGunPhasingType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--PerforationInterval:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/PerforationInterval.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationIntervalReason:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationIntervalReason.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationIntervalType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationIntervalType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationIntervalWLSize:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationIntervalWLSize.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--PerforationJob:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/PerforationJob.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PerforationPillType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PerforationPillType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SecuritySchemeType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SecuritySchemeType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicMigrationType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicMigrationType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicPickingType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicPickingType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--SeismicProcessingProject:1.2.0",
+    "relativePath": "shared-schemas/osdu/master-data/SeismicProcessingProject.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicTraceData:1.2.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicTraceData.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicWaveType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicWaveType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--VelocityModeling:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/VelocityModeling.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VerticalMeasurementType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/VerticalMeasurementType.1.0.1.json"
+  }
+]

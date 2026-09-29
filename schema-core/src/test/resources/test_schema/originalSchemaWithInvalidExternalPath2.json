@@ -1,0 +1,40 @@
+ {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "x-os-lifecycle-state": "published",
+    "description": "The entity well.",
+    "title": "Well",
+    "type": "object",
+    "definitions": {},
+    "properties": {
+      "locationOriginalCRS": {
+        "description": "The well's original location as AnyCrsFeatureCollection - a structure similar to but distinct from GeoJSON.",
+        "title": "Original CRS Location",
+        "$ref": "os:wks:anyCrsFeatureCollection.1.0.json"
+      },
+      "locationWGS84": {
+        "description": "The well's location as GeoJSON FeatureCollection.",
+        "title": "WGS84 Location",
+        "$ref": "https://schema-service.endpoints.evd-ddl-us-services.cloud.goog/api/sgsd",
+        "example": {
+          "features": [
+            {
+              "geometry": {
+                "coordinates": [
+                  -92.11569999999999,
+                  29.8823,
+                  153.4779442519685
+                ],
+                "type": "Point"
+              },
+              "type": "Feature",
+              "properties": {
+                "name": "Newton 2-31"
+              }
+            }
+          ],
+          "type": "FeatureCollection"
+        }
+      }
+    }
+  
+}

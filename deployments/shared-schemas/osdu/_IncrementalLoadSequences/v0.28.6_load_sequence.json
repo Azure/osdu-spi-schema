@@ -1,0 +1,26 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BiostratigraphicInterpretationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BiostratigraphicInterpretationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--BiostratigraphicStudy:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/BiostratigraphicStudy.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DispositionType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/DispositionType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--QuantityMethod:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/QuantityMethod.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicAcquisitionDocuments:2.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicAcquisitionDocuments.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellSiteStructureType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/WellSiteStructureType.1.0.1.json"
+  }
+]

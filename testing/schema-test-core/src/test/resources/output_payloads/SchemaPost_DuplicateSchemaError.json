@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "Schema Id is already present",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "Schema Id is already present"
+            }
+        ]
+    }
+}

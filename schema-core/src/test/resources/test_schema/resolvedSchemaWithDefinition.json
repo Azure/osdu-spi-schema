@@ -1,0 +1,1114 @@
+{
+  "definitions": {
+    "FeatureCollection": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "GeoJSON FeatureCollection",
+      "type": "object",
+      "required": [
+        "type",
+        "features"
+      ],
+      "properties": {
+        "features": {
+          "type": "array",
+          "items": {
+            "title": "GeoJSON Feature",
+            "type": "object",
+            "required": [
+              "type",
+              "properties",
+              "geometry"
+            ],
+            "properties": {
+              "bbox": {
+                "minItems": 4,
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "geometry": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "title": "GeoJSON Point",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "Point"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON LineString",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "LineString"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON Polygon",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "minItems": 4,
+                          "type": "array",
+                          "items": {
+                            "minItems": 2,
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "Polygon"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON MultiPoint",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "MultiPoint"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON MultiLineString",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "minItems": 2,
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "MultiLineString"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON MultiPolygon",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "minItems": 4,
+                            "type": "array",
+                            "items": {
+                              "minItems": 2,
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "MultiPolygon"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON GeometryCollection",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "geometries"
+                    ],
+                    "properties": {
+                      "geometries": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "title": "GeoJSON Point",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "minItems": 2,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "Point"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON LineString",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "minItems": 2,
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "LineString"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON Polygon",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 4,
+                                    "type": "array",
+                                    "items": {
+                                      "minItems": 2,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "Polygon"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON MultiPoint",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "MultiPoint"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON MultiLineString",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "minItems": 2,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "MultiLineString"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON MultiPolygon",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "minItems": 4,
+                                      "type": "array",
+                                      "items": {
+                                        "minItems": 2,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "MultiPolygon"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "GeometryCollection"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "id": {
+                "oneOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "type": "string"
+                  }
+                ]
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "Feature"
+                ]
+              },
+              "properties": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "bbox": {
+          "minItems": 4,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "FeatureCollection"
+          ]
+        }
+      },
+      "$id": "https://geojson.org/schema/FeatureCollection.json"
+    },
+    "os:wks:anyCrsFeatureCollection.1.0": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "description": "Structurally similar to a GeoJSON feature collection, however distinct and unambiguous.",
+      "title": "Any CRS FeatureCollection",
+      "type": "object",
+      "required": [
+        "type",
+        "features",
+        "persistableReference"
+      ],
+      "properties": {
+        "features": {
+          "type": "array",
+          "items": {
+            "title": "GeoJSON Feature",
+            "type": "object",
+            "required": [
+              "type",
+              "properties",
+              "geometry"
+            ],
+            "properties": {
+              "bbox": {
+                "minItems": 4,
+                "type": "array",
+                "items": {
+                  "type": "number"
+                }
+              },
+              "geometry": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "title": "GeoJSON Point",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "AnyCrsPoint"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON LineString",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "minItems": 2,
+                        "type": "array",
+                        "items": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "AnyCrsLineString"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON Polygon",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "minItems": 4,
+                          "type": "array",
+                          "items": {
+                            "minItems": 2,
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "AnyCrsPolygon"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON MultiPoint",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "type": "number"
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "AnyCrsMultiPoint"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON MultiLineString",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "minItems": 2,
+                          "type": "array",
+                          "items": {
+                            "minItems": 2,
+                            "type": "array",
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "AnyCrsMultiLineString"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON MultiPolygon",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "coordinates"
+                    ],
+                    "properties": {
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "coordinates": {
+                        "type": "array",
+                        "items": {
+                          "type": "array",
+                          "items": {
+                            "minItems": 4,
+                            "type": "array",
+                            "items": {
+                              "minItems": 2,
+                              "type": "array",
+                              "items": {
+                                "type": "number"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "AnyCrsMultiPolygon"
+                        ]
+                      }
+                    }
+                  },
+                  {
+                    "title": "GeoJSON GeometryCollection",
+                    "type": "object",
+                    "required": [
+                      "type",
+                      "geometries"
+                    ],
+                    "properties": {
+                      "geometries": {
+                        "type": "array",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "title": "GeoJSON Point",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "minItems": 2,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "AnyCrsPoint"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON LineString",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "minItems": 2,
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "AnyCrsLineString"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON Polygon",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 4,
+                                    "type": "array",
+                                    "items": {
+                                      "minItems": 2,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "AnyCrsPolygon"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON MultiPoint",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "type": "number"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "AnyCrsMultiPoint"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON MultiLineString",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "minItems": 2,
+                                    "type": "array",
+                                    "items": {
+                                      "minItems": 2,
+                                      "type": "array",
+                                      "items": {
+                                        "type": "number"
+                                      }
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "AnyCrsMultiLineString"
+                                  ]
+                                }
+                              }
+                            },
+                            {
+                              "title": "GeoJSON MultiPolygon",
+                              "type": "object",
+                              "required": [
+                                "type",
+                                "coordinates"
+                              ],
+                              "properties": {
+                                "bbox": {
+                                  "minItems": 4,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "number"
+                                  }
+                                },
+                                "coordinates": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "array",
+                                    "items": {
+                                      "minItems": 4,
+                                      "type": "array",
+                                      "items": {
+                                        "minItems": 2,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "number"
+                                        }
+                                      }
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string",
+                                  "enum": [
+                                    "AnyCrsMultiPolygon"
+                                  ]
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      "bbox": {
+                        "minItems": 4,
+                        "type": "array",
+                        "items": {
+                          "type": "number"
+                        }
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "AnyCrsGeometryCollection"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "AnyCrsFeature"
+                ]
+              },
+              "properties": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object"
+                  }
+                ]
+              }
+            }
+          }
+        },
+        "persistableReference": {
+          "description": "The CRS reference as persistableReference string.",
+          "type": "string",
+          "title": "CRS Reference",
+          "example": "{\"lateBoundCRS\":{\"wkt\":\"PROJCS[\\\"NAD_1927_StatePlane_North_Dakota_South_FIPS_3302\\\",GEOGCS[\\\"GCS_North_American_1927\\\",DATUM[\\\"D_North_American_1927\\\",SPHEROID[\\\"Clarke_1866\\\",6378206.4,294.9786982]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],PROJECTION[\\\"Lambert_Conformal_Conic\\\"],PARAMETER[\\\"False_Easting\\\",2000000.0],PARAMETER[\\\"False_Northing\\\",0.0],PARAMETER[\\\"Central_Meridian\\\",-100.5],PARAMETER[\\\"Standard_Parallel_1\\\",46.1833333333333],PARAMETER[\\\"Standard_Parallel_2\\\",47.4833333333333],PARAMETER[\\\"Latitude_Of_Origin\\\",45.6666666666667],UNIT[\\\"Foot_US\\\",0.304800609601219],AUTHORITY[\\\"EPSG\\\",32021]]\",\"ver\":\"PE_10_3_1\",\"name\":\"NAD_1927_StatePlane_North_Dakota_South_FIPS_3302\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"32021\"},\"type\":\"LBC\"},\"singleCT\":{\"wkt\":\"GEOGTRAN[\\\"NAD_1927_To_WGS_1984_79_CONUS\\\",GEOGCS[\\\"GCS_North_American_1927\\\",DATUM[\\\"D_North_American_1927\\\",SPHEROID[\\\"Clarke_1866\\\",6378206.4,294.9786982]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],GEOGCS[\\\"GCS_WGS_1984\\\",DATUM[\\\"D_WGS_1984\\\",SPHEROID[\\\"WGS_1984\\\",6378137.0,298.257223563]],PRIMEM[\\\"Greenwich\\\",0.0],UNIT[\\\"Degree\\\",0.0174532925199433]],METHOD[\\\"NADCON\\\"],PARAMETER[\\\"Dataset_conus\\\",0.0],AUTHORITY[\\\"EPSG\\\",15851]]\",\"ver\":\"PE_10_3_1\",\"name\":\"NAD_1927_To_WGS_1984_79_CONUS\",\"authCode\":{\"auth\":\"EPSG\",\"code\":\"15851\"},\"type\":\"ST\"},\"ver\":\"PE_10_3_1\",\"name\":\"NAD27 * OGP-Usa Conus / North Dakota South [32021,15851]\",\"authCode\":{\"auth\":\"SLB\",\"code\":\"32021079\"},\"type\":\"EBC\"}"
+        },
+        "bbox": {
+          "minItems": 4,
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": [
+            "AnyCrsFeatureCollection"
+          ]
+        }
+      },
+      "$id": "AnyCrsFeatureCollection"
+    },
+    "person": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "$ref": "#/definitions/os:wks:anyCrsFeatureCollection.1.0"
+        }
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "x-os-lifecycle-state": "published",
+  "description": "The entity well.",
+  "title": "Well",
+  "type": "object",
+  "properties": {
+    "person": {
+      "description": "Information for person",
+      "title": "Information for person",
+      "$ref": "#/definitions/person"
+    },
+    "locationOriginalCRS": {
+      "description": "The well's original location as AnyCrsFeatureCollection - a structure similar to but distinct from GeoJSON.",
+      "title": "Original CRS Location",
+      "$ref": "#/definitions/os:wks:anyCrsFeatureCollection.1.0"
+    },
+    "locationWGS84": {
+      "description": "The well's location as GeoJSON FeatureCollection.",
+      "title": "WGS84 Location",
+      "$ref": "#/definitions/FeatureCollection",
+      "example": {
+        "features": [
+          {
+            "geometry": {
+              "coordinates": [
+                -92.11569999999999,
+                29.8823,
+                153.4779442519685
+              ],
+              "type": "Point"
+            },
+            "type": "Feature",
+            "properties": {
+              "name": "Newton 2-31"
+            }
+          }
+        ],
+        "type": "FeatureCollection"
+      }
+    }
+  }
+}

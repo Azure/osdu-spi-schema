@@ -1,0 +1,73 @@
+{
+   "schemaInfo":{
+      "schemaIdentity":{
+         "authority":"SchemaSanityTest",
+         "source":"testSource",
+         "entityType":"testEntity",
+         "schemaVersionMajor":0,
+         "schemaVersionMinor":1,
+         "schemaVersionPatch":0        
+      },
+      "status":"DEVELOPMENT"
+   },
+   "schema": {
+   "$schema":"http://json-schema.org/draft-07/schema#",
+   "$id":"https://schema.osdu.opengroup.org/json/dataset/schema-with-id-added.json",
+   "type":"object",
+   "title":"My schema - Changed - changed",
+   "definitions":{
+      
+   },
+   "properties":{
+      "AddressLine1":{
+         "type":"string",
+         "$comment":"This is a mandatory attribute",
+         "description":"This should be the apartment number and building name - Changed"
+      },
+      "AddressLine2":{
+         "type":"string"
+      },
+      "City":{
+         "type":"string"
+      }
+   },
+   "required":[
+      "AddressLine1",
+      "AddressLine2"
+   ],
+   "oneOf":[
+      {
+         "type":"object",
+         "properties":{
+            "State":{
+               "type":"string"
+            },
+            "ZipCode":{
+               "type":"string",
+               "pattern":"^\\d{5}(?:[-\\s]\\d{4})?$",
+               "examples":[
+                  "98052-7329"
+               ]
+            }
+         },
+         "required":[
+            "ZipCode"
+         ]
+      },
+      {
+         "type":"object",
+         "properties":{
+            "County":{
+               "type":"string"
+            },
+            "PostCode":{
+               "type":"string"
+            }
+         },
+         "required":[
+            "PostCode"
+         ]
+      }
+   ]
+}
+}

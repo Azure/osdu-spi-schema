@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "Only schema in developement stage can be updated",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "Only schema in developement stage can be updated"
+            }
+        ]
+    }
+}

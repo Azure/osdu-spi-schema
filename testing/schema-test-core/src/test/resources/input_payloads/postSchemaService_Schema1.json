@@ -1,0 +1,34 @@
+{
+    "schemaInfo": {
+        "schemaIdentity": {
+            "authority": "SchemaSanityTest",
+            "source": "testSource",
+            "entityType": "testEntity",
+            "schemaVersionMajor": 567,
+            "schemaVersionMinor": 0,
+            "schemaVersionPatch": 0
+        },
+        "status": "DEVELOPMENT"
+    },
+    "schema": {
+        "title": "AbstractAnyCrsFeatureCollection",
+        "type": "object",
+        "required": [
+            "type",
+            "persistableReferenceCrs"
+        ],
+        "properties": {
+            "persistableReferenceCrs": {
+                "description": "The CRS reference as persistableReference string. If populated, the CoordinateReferenceSystemID takes precedence.",
+                "type": "string",
+                "title": "CRS Reference"
+            },
+            "type": {
+                "type": "string",
+                "enum": [
+                    "AnyCrsFeatureCollection"
+                ]
+            }
+        }
+    }
+}

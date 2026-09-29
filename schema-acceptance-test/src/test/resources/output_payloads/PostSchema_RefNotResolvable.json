@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "Invalid Request, https://notexistingref not resolvable",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "Invalid Request, https://notexistingref not resolvable"
+            }
+        ]
+    }
+}

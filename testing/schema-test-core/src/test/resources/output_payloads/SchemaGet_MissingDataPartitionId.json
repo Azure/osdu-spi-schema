@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 401,
+        "message": "data-partition-id header is mandatory",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "unauthorized",
+                "message": "data-partition-id header is mandatory"
+            }
+        ]
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "Invalid Request, https://abc.com/ not a valid Json schema object",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "Invalid Request, https://abc.com/ not a valid Json schema object"
+            }
+        ]
+    }
+}

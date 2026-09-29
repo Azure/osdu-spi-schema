@@ -1,0 +1,18 @@
+{
+  "schemaInfo": {
+    "schemaIdentity": {
+      "authority": "testAuthority2",
+      "source": "testSource2",
+      "entityType": "",
+      "schemaVersionMajor": 1,
+      "schemaVersionMinor": 1,
+      "schemaVersionPatch": 0,
+      "id": "testAuthority2:testSource2::1.1.0"
+    },
+    "status": "DEVELOPMENT"
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "description": "The entity well."
+  }
+}

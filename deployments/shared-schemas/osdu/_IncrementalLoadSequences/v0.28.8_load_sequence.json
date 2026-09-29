@@ -1,0 +1,10 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractTubularComponentBitRecord:1.1.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractTubularComponentBitRecord.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--TubularComponent:2.4.0",
+    "relativePath": "shared-schemas/osdu/master-data/TubularComponent.2.4.0.json"
+  }
+]

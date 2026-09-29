@@ -1,0 +1,158 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractActivityParameter:1.2.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractActivityParameter.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractDefinitiveDepthShift:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractDefinitiveDepthShift.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractGenericBinGrid:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractGenericBinGrid.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractUnitEquipment:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractUnitEquipment.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ActivityTemplate:1.2.0",
+    "relativePath": "shared-schemas/osdu/master-data/ActivityTemplate.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ConnectedSourceDataJob:1.9.0",
+    "relativePath": "shared-schemas/osdu/master-data/ConnectedSourceDataJob.1.9.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CoreAnalysisFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CoreAnalysisFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--DepthShift:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/DepthShift.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DepthShiftInterpolationMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DepthShiftInterpolationMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DepthShiftInterpolationReason:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DepthShiftInterpolationReason.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DepthShiftType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DepthShiftType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DerrickType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DerrickType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--EquipmentInventory:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/EquipmentInventory.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FlareType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FlareType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GantryType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GantryType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--GenericBinGrid:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/GenericBinGrid.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--HorizonControlPoints:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/HorizonControlPoints.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--MooringType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/MooringType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--NotionalSeismicLine:1.3.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/NotionalSeismicLine.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--ProductionValues:2.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/ProductionValues.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Rig:2.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/Rig.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigCirculatingSystem:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigCirculatingSystem.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigDerrick:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigDerrick.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigPump:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigPump.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigRiser:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigRiser.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigSpecifications:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigSpecifications.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--RigType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/RigType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--RigType:1.0.1",
+    "relativePath": "shared-schemas/osdu/reference-data/RigType.1.0.1.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigUtilization:2.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigUtilization.2.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Sample:3.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/Sample.3.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicHorizon:2.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicHorizon.2.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SeismicSurfaceGriddingAlgorithm:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SeismicSurfaceGriddingAlgorithm.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicTraceData:1.7.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicTraceData.1.7.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--StructureMap:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/StructureMap.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--TubularComponent:2.5.0",
+    "relativePath": "shared-schemas/osdu/master-data/TubularComponent.2.5.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VerticalMeasurementType:1.0.3",
+    "relativePath": "shared-schemas/osdu/reference-data/VerticalMeasurementType.1.0.3.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ViscosityModelType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ViscosityModelType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellActivity:1.3.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellActivity.1.3.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--WellActivityProgram:1.2.0",
+    "relativePath": "shared-schemas/osdu/master-data/WellActivityProgram.1.2.0.json"
+  }
+]

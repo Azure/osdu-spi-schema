@@ -1,0 +1,78 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:AbstractActivityParameter:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractActivityParameter.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractProjectActivity:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractProjectActivity.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractPropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractPropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractReferencePropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractReferencePropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:AbstractWPCActivity:1.0.0",
+    "relativePath": "shared-schemas/osdu/abstract/AbstractWPCActivity.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--Activity:1.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/Activity.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ActivityTemplate:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/ActivityTemplate.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--ActivityTemplateArc:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/ActivityTemplateArc.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Collection:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/Collection.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CollectionPurpose:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CollectionPurpose.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ParameterKind:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ParameterKind.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ParameterRole:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ParameterRole.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SurveyToolType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SurveyToolType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--TrajectoryStationPropertyType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/TrajectoryStationPropertyType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--UnitOfMeasureConfiguration:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/UnitOfMeasureConfiguration.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellLog:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellLog.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WellLogSamplingDomainType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WellLogSamplingDomainType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--WellboreTrajectory:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/WellboreTrajectory.1.1.0.json"
+  }
+]

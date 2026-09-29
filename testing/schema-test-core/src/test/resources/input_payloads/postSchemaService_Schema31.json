@@ -1,0 +1,57 @@
+{
+    "schemaInfo": {
+        "schemaIdentity": {
+            "authority": "SchemaSanityTest",
+            "source": "testSource",
+            "entityType": "testEntity",
+            "schemaVersionMajor": 767,
+            "schemaVersionMinor": 1,
+            "schemaVersionPatch": 0
+        },
+        "status": "DEVELOPMENT"
+    },
+    "schema": {
+        "title": "Abstract Master",
+        "type": "object",
+        "definitions": {
+            "SchemaSanityTest:testSource:testEntity:1.0.0": {
+                "title": "AbstractSpatialLocation",
+                "type": "object",
+                "properties": {
+                    "persistableReferenceCrs": {
+                        "description": "The CRS reference as persistableReference string. If populated, the CoordinateReferenceSystemID takes precedence.",
+                        "type": "string",
+                        "title": "CRS Reference"
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "AnyCrsFeatureCollection"
+                        ]
+                    },
+                    "VerticalUnitID": {
+                        "x-osdu-relationship": [
+                            {
+                                "EntityType": "UnitOfMeasure",
+                                "GroupType": "reference-data"
+                            }
+                        ],
+                        "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-UnitOfMeasure:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+                        "title": "Vertical Unit ID",
+                        "type": "string",
+                        "example": "namespace:reference-data--UnitOfMeasure:m:"
+                    },
+                    "SpatialLocation": {
+                        "title": "As Ingested Coordinates"
+                    }
+                }
+            }
+        },
+        "properties": {
+            "SpatialLocation": {
+                "description": "The spatial location information such as coordinates, CRS information (left empty when not appropriate).",
+                "$ref": "#/definitions/SchemaSanityTest:testSource:testEntity:1.0.0"
+            }
+        }
+    }
+}

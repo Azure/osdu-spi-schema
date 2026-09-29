@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 401,
+        "message": "Authorization header is mandatory",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "unauthorized",
+                "message": "Authorization header is mandatory"
+            }
+        ]
+    }
+}

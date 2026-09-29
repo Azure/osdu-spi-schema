@@ -1,0 +1,246 @@
+[
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--AromaticGCMSCompounds:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/AromaticGCMSCompounds.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--BulkPyrolysisMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/BulkPyrolysisMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CompoundSpecificIsotopeComponents:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CompoundSpecificIsotopeComponents.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CompressibilityMeasurementType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CompressibilityMeasurementType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ConductivityMeasurementMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ConductivityMeasurementMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ConsolidationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ConsolidationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--CutFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CutFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DataQualityRule:1.1.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DataQualityRule.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:content--DdmsFootprint:1.0.0",
+    "relativePath": "shared-schemas/osdu/content/DdmsFootprint.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DesaturationMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DesaturationMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DisplacedFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DisplacedFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--DrainageCondition:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/DrainageCondition.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ElementalAnalysisMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ElementalAnalysisMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ElementalMeasurementMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ElementalMeasurementMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--Elements:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/Elements.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--EndFaceEstimationMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/EndFaceEstimationMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidPhasesPresent:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidPhasesPresent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidResistivityMeasurementMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidResistivityMeasurementMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidSaturantType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidSaturantType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FluidSystemAnalysisType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FluidSystemAnalysisType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FractionationComponent:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FractionationComponent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--FractionationMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/FractionationMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GCMSCompoundsRatios:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GCMSCompoundsRatios.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GCMSMSCompounds:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GCMSMSCompounds.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--GasIsotopeComponents:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/GasIsotopeComponents.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--IsotopeRatioElements:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/IsotopeRatioElements.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--Minerals:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/Minerals.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NMRTestCondition:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NMRTestCondition.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--NonGasIsotopeComponents:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/NonGasIsotopeComponents.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PHMeasurementMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PHMeasurementMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--PermeabilityMeasurementMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/PermeabilityMeasurementMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SampleImage:1.1.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SampleImage.1.1.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageBeamType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageBeamType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageColourSpace:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageColourSpace.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageLightingCondition:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageLightingCondition.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageOpticalLightFilter:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageOpticalLightFilter.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageOpticalLightPath:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageOpticalLightPath.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageParameters:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageParameters.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageResolutionSource:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageResolutionSource.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleImageXRayDetector:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleImageXRayDetector.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleInjectionFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleInjectionFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleOrganicCompositionComponent:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleOrganicCompositionComponent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleStressLoadingMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleStressLoadingMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleStressLoadingStage:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleStressLoadingStage.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SampleTestCondition:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SampleTestCondition.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SaturateGCMSCompounds:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SaturateGCMSCompounds.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SaturationFluidType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SaturationFluidType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SaturationMeasurementLocation:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SaturationMeasurementLocation.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SaturationPressureType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SaturationPressureType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--SaturationProcessMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/SaturationProcessMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--SeismicProcessingProject:1.4.0",
+    "relativePath": "shared-schemas/osdu/master-data/SeismicProcessingProject.1.4.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--TensileStrengthMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/TensileStrengthMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--UniaxialCycleType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/UniaxialCycleType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--UniaxialTestControlType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/UniaxialTestControlType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--ViscosityMethod:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/ViscosityMethod.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VitriniteMountTechnique:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/VitriniteMountTechnique.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--VitriniteReflectancePopulationType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/VitriniteReflectancePopulationType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WOGnCycleNotation:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WOGnCycleNotation.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WaterSaturationCompositionComponent:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WaterSaturationCompositionComponent.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WettabilityIndexType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WettabilityIndexType.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:reference-data--WettabilityPhaseType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/WettabilityPhaseType.1.0.0.json"
+  }
+]

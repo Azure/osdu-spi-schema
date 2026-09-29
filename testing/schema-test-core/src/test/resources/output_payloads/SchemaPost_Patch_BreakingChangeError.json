@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "Patch version validation failed. Changes requiring a minor or major version increment were found; analysed version: 2.2.15 and 2.2.14. Updating the schema version to a higher minor or major version is required.",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "Patch version validation failed. Changes requiring a minor or major version increment were found; analysed version: 2.2.15 and 2.2.14. Updating the schema version to a higher minor or major version is required."
+            }
+        ]
+    }
+}

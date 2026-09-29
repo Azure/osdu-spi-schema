@@ -1,0 +1,13 @@
+{
+    "error": {
+        "code": 400,
+        "message": "Changing list of \"oneOf\",\"allOf\" or \"anyOf\"  is not permitted, please change schema major version",
+        "errors": [
+            {
+                "domain": "global",
+                "reason": "badRequest",
+                "message": "Changing list of \"oneOf\",\"allOf\" or \"anyOf\"  is not permitted, please change schema major version"
+            }
+        ]
+    }
+}
