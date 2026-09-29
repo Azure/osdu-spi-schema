@@ -8,7 +8,7 @@
 - Login to your azure container registry
 ```
 az login
-az account set -s "AG-IND-OSDU-TEST" #Update subscription id
+az account set -s "<your-subscription>" #Update subscription id
 az acr login -n msosdu  #Update registry name
 ```
 - Build and push the container image
