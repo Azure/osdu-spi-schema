@@ -1,5 +1,8 @@
 ## Schema Service
 
+> [!NOTE]
+> This is the Azure provider for the Schema service, maintained by Microsoft in [`Azure/osdu-spi-schema`](https://github.com/Azure/osdu-spi-schema). The shared service code comes from the OSDU community upstream. See [CONTRIBUTING.md](../../CONTRIBUTING.md) for which paths this repository owns.
+
 [![coverage report](https://community.opengroup.org/osdu/platform/system/schema-service/badges/master/coverage.svg)](https://community.opengroup.org/osdu/platform/system/schema-service/-/commits/master)
 
 ## Running Locally
@@ -11,7 +14,7 @@ In order to run this service locally, you will need the following:
 - [Maven 3.8.0+](https://maven.apache.org/download.cgi)
 - [Java 17](https://adoptopenjdk.net/)
 - Download the [application-insights-agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.5.2) jar
-- Infrastructure dependencies, deployable through the relevant [infrastructure template](https://dev.azure.com/slb-des-ext-collaboration/open-data-ecosystem/_git/infrastructure-templates?path=%2Finfra&version=GBmaster&_a=contents)
+- Azure infrastructure for the service, provisioned by [OSDU SPI Stack](https://github.com/Azure/osdu-spi-stack)
 - While not a strict dependency, example commands in this document use [bash](https://www.gnu.org/software/bash/)
 
 ### General Tips
@@ -82,32 +85,9 @@ az keyvault secret show --vault-name $KEY_VAULT_NAME --name $KEY_VAULT_SECRET_NA
 
 ### Configure Maven
 
-Check that maven is installed:
+The OSDU dependencies resolve from the public OSDU community package registry. Pass the settings file in `.mvn` to Maven:
 ```bash
-$ mvn --version
-Apache Maven 3.6.0
-Maven home: /usr/share/maven
-Java version: 1.8.0_212, vendor: AdoptOpenJDK, runtime: /usr/lib/jvm/jdk8u212-b04/jre
-...
-```
-
-You will need to configure access to the remote maven repository that holds the OSDU dependencies. This file should live within `~/.m2/settings.xml`:
-```bash
-$ cat ~/.m2/settings.xml
-<?xml version="1.0" encoding="UTF-8"?>
-<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <servers>
-        <server>
-            <id>os-core</id>
-            <username>mvn-pat</username>
-            <!-- Treat this auth token like a password. Do not share it with anyone, including Microsoft support. -->
-            <!-- The generated token expires on or before 11/14/2019 -->
-            <password>$PERSONAL_ACCESS_TOKEN_GOES_HERE</password>
-        </server>
-    </servers>
-</settings>
+mvn --settings .mvn/community-maven.settings.xml <goals>
 ```
 
 ### Build and run the application
@@ -115,16 +95,11 @@ $ cat ~/.m2/settings.xml
 After configuring your environment as specified above, you can follow these steps to build and run the application.
 1. Navigate to the root of the schema project, os-schema. For building the project from the command line, run the command below:
     ```bash
-    mvn -P core,aws,azure,ibm,gc clean install
-    ```
-    This will build the core profile as well as all underlying profiles. If we want to build the profiles for a specific cloud vendor, we will build both the core profile and the cloud vendor's profile. For example, if we want to build the profiles for Azure, we can use the command below:
-    ```bash
     mvn -P core,azure clean install
     ```
-2. Run schema service in command line. We need to select which cloud vendor specific schema-service we want to run. For example, if we want to run schema-service for Azure, run the below command :
+2. Run the service from the command line:
     ```bash
-    # Running Azure :
-    java -jar  provider/schema-azure/target/os-schema-azure-0.0.1-SNAPSHOT-spring-boot.jar --add-opens java.base/java.lang=ALL-UNNAMED --add-opens  java.base/java.lang.reflect=ALL-UNNAMED -javaagent:<<Absolute file path to application-insights-agent jar>> -DAPPINSIGHTS_LOGGING_ENABLED=true
+    java -jar provider/schema-azure/target/os-schema-azure-*-spring-boot.jar --add-opens java.base/java.lang=ALL-UNNAMED --add-opens  java.base/java.lang.reflect=ALL-UNNAMED -javaagent:<<Absolute file path to application-insights-agent jar>> -DAPPINSIGHTS_LOGGING_ENABLED=true
 3. The port and path for the service endpoint can be configured in ```application.properties``` in the provider folder as following. If not specified, then  the web container (ex. Tomcat) default is used:
     ```bash
     server.servlet.contextPath=/api/schema-service/v1/
@@ -153,9 +128,7 @@ cd testing/schema-test-core
     mvn verify -DVENDOR=azure -DHOST=http://localhost:8080 -DPRIVATE_TENANT1=opendes -DPRIVATE_TENANT2=tenant2 -DSHARED_TENANT=common -Dcucumber.options="--tags @SchemaService"
 ```
 
-Below command can be run through azure-pipeline.yml after setting environment variables in the pipeline.
-
-	verify "-Dcucumber.options=--tags @SchemaService"
+Tests against a deployed environment live in [`schema-acceptance-test`](../../schema-acceptance-test/README.md).
 
 ## Open API 3.0 - Swagger
 - Swagger UI:  http://localhost:8080/api/schema-service/v1/swagger (will redirect to  http://localhost:8080/api/schema-service/v1/swagger-ui/index.html)
@@ -172,8 +145,7 @@ Jet Brains - the authors of Intellij IDEA, have written an [excellent guide](htt
 
 ## Deploying service to Azure
 
-Service deployments into Azure are standardized to make the process the same for all services. The steps to deploy into
-Azure can be [found here](https://dev.azure.com/slb-des-ext-collaboration/open-data-ecosystem/_git/infrastructure-templates?path=%2Fdocs%2Fosdu%2FSERVICE_DEPLOYMENTS.md&_a=preview)
+Environments and service deployments are provisioned by [OSDU SPI Stack](https://github.com/Azure/osdu-spi-stack). This repository builds the service image and runs the acceptance tests against a deployed environment; see [`schema-acceptance-test`](../../schema-acceptance-test/README.md).
 
 
 ## License
