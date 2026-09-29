@@ -61,6 +61,8 @@ SPI Stack sets the service's environment from two places: the shared `osdu-confi
 | Variable | Value on SPI Stack | Purpose |
 |---|---|---|
 | `SERVER_SERVLET_CONTEXTPATH` | `/api/schema-service/v1/` | API base path |
+| `AZURE_ISTIOAUTH_ENABLED` | `true` | Trust the mesh's token validation |
+| `AZURE_PAAS_WORKLOADIDENTITY_ISENABLED` | `true` | Authenticate to Azure with workload identity |
 | `SERVER_PORT` | `8080` | HTTP port |
 | `PARTITION_SERVICE_ENDPOINT` | `http://partition/api/partition/v1` | Per-partition resource lookup |
 | `ENTITLEMENTS_SERVICE_ENDPOINT` | `http://entitlements/api/entitlements/v2` | Caller authorization |
@@ -76,11 +78,13 @@ The service authenticates to Azure with workload identity, which injects `AZURE_
 
 | Suite | Where | Runs in CI | Run it yourself |
 |---|---|---|---|
-| Unit | `schema-core`, `provider/schema-azure` | Every pull request (Java Build) | `mvn ... install` from [Build](#build) |
-| Acceptance | [`schema-acceptance-test`](../../schema-acceptance-test/README.md) | Every pull request, against SPI Stack (Deploy and Test) | `spi test schema` |
+| Unit | `schema-core`, `provider/schema-azure` | Pull requests (Java Build) | `mvn ... install` from [Build](#build) |
+| Acceptance | [`schema-acceptance-test`](../../schema-acceptance-test/README.md) | Pull requests, against SPI Stack (Deploy and Test) | `spi test schema` |
 | Integration | `testing/schema-test-core`, `testing/schema-test-azure` | No | See below |
 
-**Acceptance** is the suite that gates a merge. It calls the deployed service through the gateway as a privileged test identity, and the bindings in `.spi/service.yaml` supply its host, partition, shared tenant, and token. Against an environment you are connected to:
+CI runs these on pull requests from this repository that change code. Documentation-only changes skip the build, and pull requests from forks build without deploying.
+
+**Acceptance** proves a change on real infrastructure before it merges. It calls the deployed service through the gateway as a privileged test identity, and the bindings in `.spi/service.yaml` supply its host, partition, shared tenant, and token. Against an environment you are connected to:
 
 ```bash
 spi test schema                   # the image and suite the environment is running
@@ -98,7 +102,7 @@ curl -H "Authorization: Bearer $(spi token)" -H "data-partition-id: <partition>"
 
 ## Deploy
 
-CI publishes two images to GHCR from each commit: the service, `osdu-spi-schema`, and its loader, `osdu-spi-schema-load`, built from `build/load.Dockerfile` with the schemas in `deployments/shared-schemas/`. On a pull request, the Deploy and Test lane borrows an SPI Stack environment, pins both images from the same commit, proves them with the acceptance suite, and restores the environment's own images, so a merge to `main` has already passed on real infrastructure. This repository does not own infrastructure; SPI Stack does.
+For a pull request from this repository that changes code, CI publishes two images to GHCR: the service, `osdu-spi-schema`, and its loader, `osdu-spi-schema-load`, built from `build/load.Dockerfile` with the schemas in `deployments/shared-schemas/`. The Deploy and Test lane then borrows an SPI Stack environment, pins both images from the same commit, proves them with the acceptance suite, and restores the environment's own images, so code merged to `main` has already passed on real infrastructure. This repository does not own infrastructure; SPI Stack does.
 
 To try a build by hand on an environment you are connected to, pin it by digest and release the pin when done:
 
