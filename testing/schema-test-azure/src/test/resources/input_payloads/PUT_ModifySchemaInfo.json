@@ -1,0 +1,21 @@
+{
+  "schemaInfo": {
+    "schemaIdentity": {
+      "authority": "OSDUTest",
+      "source": "testSource",
+      "entityType": "testEntity",
+      "schemaVersionMajor": 5,
+      "schemaVersionMinor": 6,
+      "schemaVersionPatch": 0,
+      "id": "OSDUTest:testSource:testEntity:5.5.0"
+    },
+    "status": "DEVELOPMENT",
+    "scope": "INTERNAL",
+    "createdBy": "John Smith",
+    "dateCreated": "2019-05-27T11:16:03Z"
+  },
+  "schema": {
+    "ValidationString": "Schema modified by PUT operation",
+    "definitions": {}
+  }
+}

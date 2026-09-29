@@ -1,0 +1,148 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.opengroup.osdu</groupId>
+		<artifactId>os-schema-test</artifactId>
+		<version>0.31.0-SNAPSHOT</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>schema-test-azure</artifactId>
+	<version>0.31.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>schema-test-azure</name>
+	<description>Azure integration tests for schema service</description>
+	<properties>
+		<os-core-lib-azure.version>2.2.9</os-core-lib-azure.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<cucumber-java.version>5.7.0</cucumber-java.version>
+	</properties>
+
+	<dependencies>
+		<!--Rest assured dependency to be placed before JUnit dependency -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>${cucumber-java.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>${cucumber-java.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-guice</artifactId>
+			<version>${cucumber-java.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>4.2.0</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.opengroup.osdu</groupId>
+			<artifactId>core-lib-azure</artifactId>
+			<version>${os-core-lib-azure.version}</version>
+		</dependency>
+
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+            <version>1.3.4</version>
+            <scope>test</scope>
+        </dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<scope>provided</scope>
+		</dependency>
+    </dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Inherit managed dependencies from core-lib-azure -->
+			<dependency>
+				<groupId>org.opengroup.osdu</groupId>
+				<artifactId>core-lib-azure</artifactId>
+				<version>${os-core-lib-azure.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<executions>
+					<execution>
+						<id>pre-integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+						<configuration>
+							<skipTests>${skipItTests}</skipTests>
+							<includes>
+								<include>org.opengroup.osdu.schema.runner.PreIntegrationTestsRunner</include>
+							</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+						<configuration>
+							<skipTests>${skipItTests}</skipTests>
+							<excludes>
+								<exclude>none</exclude>
+							</excludes>
+							<includes>
+								<include>org.opengroup.osdu.schema.runner.SchemaServiceTestsRunner</include>
+							</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>post-integration-test</id>
+						<goals>
+							<goal>integration-test</goal>
+						</goals>
+						<configuration>
+							<skipTests>${skipItTests}</skipTests>
+							<includes>
+								<include>org.opengroup.osdu.schema.runner.TearDownTestsRunner</include>
+							</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>verify</id>
+						<goals>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

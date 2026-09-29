@@ -1,0 +1,26 @@
+{
+  "schemaInfo": {
+    "schemaIdentity": {
+      "authority": "OSDUTest",
+      "source": "testSource",
+      "entityType": "testEntity",
+      "schemaVersionMajor": 651,
+      "schemaVersionMinor": 657,
+	  "schemaVersionPatch": 0,
+	  "id": "OSDUTest:testSource:testEntity1:551.552.5"
+    },
+     "supersededBy": {
+      "authority": "OSDUTest",
+                "source": "testSource",
+                "entityType": "testEntity",
+                "schemaVersionMajor": 551,
+                "schemaVersionMinor": 552,
+                "schemaVersionPatch": 5,
+                "id": "OSDUTest:testSource:testEntity1:551.552.5"
+     	
+     },
+    "status": "DEVELOPMENT",
+    "scope": "INTERNAL"
+  },
+  "schema": {"name": "Test"}
+} 

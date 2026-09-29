@@ -1,0 +1,105 @@
+# Per-service upstream filter config (ADR-038), planted at fork initialization
+# with schema substituted from the upstream repository name.
+# Every upstream top-level entry, testing/ entry, root pom profile, and
+# .fossa.yml module must appear here: the engine halts rather than guess.
+# Entries absent from a given upstream tree are inert, so this file carries the
+# superset of the conventional OSDU service shape. A service that deviates
+# maintains its own copy of this file on the fork's main branch.
+service: schema
+
+top_level:
+  .config: keep
+  .dockerignore: keep
+  .editorconfig: keep
+  .envrc.template: keep
+  .fossa.yml: keep
+  .gitattributes: keep
+  .gitignore: keep
+  .gitlab: strip
+  .gitlab-ci.yml: strip
+  .mvn: keep
+  .sonarlint: keep
+  .trufflehog-exclude: strip
+  LICENSE: keep
+  NOTICE: keep
+  README.md: keep
+  deployments: keep
+  docs: keep
+  maven: keep
+  pom.xml: keep
+  publish.yml: strip
+  schema-acceptance-test: keep
+  schema-core: keep
+  schema-core-plus: strip
+
+testing:
+  INTEGRATION-TESTS.md: keep
+  README.md: keep
+  maven: keep
+  pom.xml: keep
+  schema-test-core: keep
+  schema-test-azure: fork
+  schema-test-aws: strip
+  schema-test-baremetal: strip
+  schema-test-core-plus: strip
+  schema-test-gc: strip
+  schema-test-gcp: strip
+  schema-test-ibm: strip
+  schema-test-jdbc: strip
+
+profiles:
+  Default: keep
+  core: keep
+  azure: inject
+  aws: strip
+  gc: strip
+  gcp: strip
+  ibm: strip
+
+fossa_modules:
+  schema: keep
+  schema-service: keep
+  schema-core: keep
+  schema-core-plus: strip
+  schema-azure: strip
+  schema-aws: strip
+  schema-gc: strip
+  schema-gcp: strip
+  schema-ibm: strip
+  schema-jdbc: strip
+  os-schema: keep
+  os-schema-core: keep
+  os-schema-azure: strip
+  os-schema-gc: strip
+  os-schema-ibm: strip
+  azure: strip
+  google: strip
+  ibm: strip
+  scripts: strip
+
+expected_kept:
+  - pom.xml
+  - schema-core
+  - testing/schema-test-core
+  - deployments/shared-schemas
+  - deployments/scripts/DeploySharedSchemas.py
+
+expected_absent:
+  - provider
+  - devops
+  - schema-core-plus
+  - .gitlab-ci.yml
+  - testing/schema-test-azure
+  - testing/schema-test-aws
+  - testing/schema-test-core-plus
+
+inject_root_pom_azure_profile: |
+      <profile>
+        <id>azure</id>
+        <modules>
+          <module>provider/schema-azure</module>
+        </modules>
+      </profile>
+
+inject_testing_pom_azure_module: |
+      <module>schema-test-azure</module>

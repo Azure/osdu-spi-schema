@@ -1,0 +1,49 @@
+{
+  "schemaInfo": {
+    "schemaIdentity": {
+      "authority": "OSDUTest",
+      "source": "testSource",
+      "schemaVersionMajor": 1,
+      "schemaVersionMinor": 1,
+      "schemaVersionPatch": 0,
+      "entityType": "wellbore"
+    },
+    "status": "DEVELOPMENT",
+    "scope": "SHARED"
+  },
+  "schema": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Wellbore",
+    "description": "The entity wellbore.",
+    "type": "object",
+    "definitions": {},
+    "properties": {
+      "uwi": {
+        "description": "The unique wellbore identifier, aka. API number, US well number or UBHI. Codes can have 10, 12 or 14 digits depending on the availability of directional sidetrack (2 digits) and event sequence codes (2 digits).",
+        "example": [
+          "42-501-20130",
+          "42-501-20130-01-02"
+        ],
+        "title": "Unique Well Identifier",
+        "type": "string",
+        "x-slb-aliasProperties": [
+          "petrel:UWI",
+          "witsml:SuffixAPI",
+          "drillplan:uwi"
+        ]
+      },
+      "allOf": {
+        "$ref": "https://abc.com/"
+      },
+      "wellboreName": {
+        "description": "The wellbore name",
+        "title": "Wellbore Name",
+        "type": "string",
+        "x-slb-aliasProperties": [
+          "ocean:BoreholeName",
+          "witsml:NameLegal"
+        ]
+      }
+    }
+  }
+}
