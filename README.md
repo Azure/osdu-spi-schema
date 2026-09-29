@@ -66,7 +66,7 @@ SPI Stack sets the service's environment from two places: the shared `osdu-confi
 | `SERVER_PORT` | `8080` | HTTP port |
 | `PARTITION_SERVICE_ENDPOINT` | `http://partition/api/partition/v1` | Per-partition resource lookup |
 | `ENTITLEMENTS_SERVICE_ENDPOINT` | `http://entitlements/api/entitlements/v2` | Caller authorization |
-| `ENTITLEMENTS_SERVICE_API_KEY` | `OBSOLETE` | Legacy key the service no longer uses; the property has no default, so it must be set |
+| `ENTITLEMENTS_SERVICE_API_KEY` | `OBSOLETE` | Legacy API key passed to the Entitlements client; SPI Stack sets a placeholder, and the property has no default, so it must be set |
 | `COSMOSDB_DATABASE` | `osdu-db` | Database inside each partition's Cosmos DB account |
 | `AZURE_SYSTEM_STORAGECONTAINERNAME` | `system` | Container in the system storage account for shared schemas |
 | `SERVICE_BUS_ENABLED` | `true` | Publish schema change events to Service Bus |
