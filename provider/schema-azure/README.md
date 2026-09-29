@@ -1,164 +1,126 @@
-## Schema Service
+# Schema Service: Azure Provider
+
+[![Release](https://img.shields.io/github/v/release/Azure/osdu-spi-schema)](https://github.com/Azure/osdu-spi-schema/releases)
+[![Validate](https://github.com/Azure/osdu-spi-schema/actions/workflows/validate.yml/badge.svg?branch=main)](https://github.com/Azure/osdu-spi-schema/actions/workflows/validate.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](../../LICENSE)
 
 > [!NOTE]
-> This is the Azure provider for the Schema service, maintained by Microsoft in [`Azure/osdu-spi-schema`](https://github.com/Azure/osdu-spi-schema). The shared service code comes from the OSDU community upstream. See [CONTRIBUTING.md](../../CONTRIBUTING.md) for which paths this repository owns.
+> Shared service code comes from the [OSDU community upstream](https://community.opengroup.org/osdu/platform/system/schema-service).
 
-[![coverage report](https://community.opengroup.org/osdu/platform/system/schema-service/badges/master/coverage.svg)](https://community.opengroup.org/osdu/platform/system/schema-service/-/commits/master)
+Schema stores and serves the schemas that define every OSDU record type, both the shared schemas every partition sees and the private schemas a single partition registers.
 
-## Running Locally
+## At a glance
 
-### Requirements
+| | |
+|---|---|
+| API base path | `/api/schema-service/v1/` |
+| Swagger UI | `/api/schema-service/v1/swagger` |
+| Health | `:8081/actuator/health` |
+| Depends on | Partition, Entitlements |
+| Azure resources | Cosmos DB (schema metadata, plus the system database for shared schemas), Storage (schema documents), Service Bus (`schemachangedtopic` topic) |
+| Deployed by | [OSDU SPI Stack](https://github.com/Azure/osdu-spi-stack) (`software/stacks/osdu/services/schema.yaml`, `software/stacks/osdu/schema-load/`) |
 
-In order to run this service locally, you will need the following:
+## Repository layout
 
-- [Maven 3.8.0+](https://maven.apache.org/download.cgi)
-- [Java 17](https://adoptopenjdk.net/)
-- Download the [application-insights-agent](https://github.com/microsoft/ApplicationInsights-Java/releases/tag/3.5.2) jar
-- Azure infrastructure for the service, provisioned by [OSDU SPI Stack](https://github.com/Azure/osdu-spi-stack)
-- While not a strict dependency, example commands in this document use [bash](https://www.gnu.org/software/bash/)
+[CONTRIBUTING.md](../../CONTRIBUTING.md) explains where each kind of change belongs.
 
-### General Tips
+| Path | Owner | Contents |
+|---|---|---|
+| `schema-core/` | OSDU upstream | Shared service code |
+| `provider/schema-azure/` | This repository | Azure provider (this module) |
+| `schema-acceptance-test/` | OSDU upstream | End-to-end suite run against a deployed environment |
+| `deployments/shared-schemas/` | OSDU upstream | The shared schemas the loader image publishes |
+| `testing/schema-test-azure/` | This repository | Legacy Azure integration tests |
+| `.spi/service.yaml` | This repository | How CI deploys and tests the service on SPI Stack |
 
-**Environment Variable Management**
-The following tools make environment variable configuration simpler
- - [direnv](https://direnv.net/) - for a shell/terminal environment
- - [EnvFile](https://plugins.jetbrains.com/plugin/7861-envfile) - for [Intellij IDEA](https://www.jetbrains.com/idea/)
+## Build
 
-**Lombok**
-This project uses [Lombok](https://projectlombok.org/) for code generation. You may need to configure your IDE to take advantage of this tool.
- - [Intellij configuration](https://projectlombok.org/setup/intellij)
- - [VSCode configuration](https://projectlombok.org/setup/vscode)
-
-
-### Environment Variables
-
-In order to run the service locally, you will need to have the following environment variables defined.
-
-**Note** The following command can be useful to pull secrets from keyvault:
-```bash
-az keyvault secret show --vault-name $KEY_VAULT_NAME --name $KEY_VAULT_SECRET_NAME --query value -otsv
-```
-
-**Required to run service**
-
-| name                                             | value                                                               | description                                                                                                        | sensitive? | source                                                                 |
-|--------------------------------------------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|------------|------------------------------------------------------------------------|
-| `LOG_PREFIX`                                     | `schema`                                                            | Logging prefix                                                                                                     | no         | -                                                                      |
-| `entitlements_service_endpoint`                  | ex `https://foo-entitlements.azurewebsites.net/api/entitlements/v2` | Entitlements API endpoint                                                                                          | no         | output of infrastructure deployment                                    |
-| `entitlements_service_api_key`                   | `OBSOLETE`                                                          | The API key clients will need to use when calling the entitlements                                                 | yes        | --                                                                     |
-| `partition_service_endpoint`                     | ex `https//foo-partition.azurewebsites.net/api/partition/v1`        | Partition Service API endpoint                                                                                     | no         | output of infrastructure deployment                                    |
-| `azure.activedirectory.app-resource-id`          | `********`                                                          | AAD client application ID                                                                                          | yes        | keyvault secret: `$KEYVAULT_URI/secrets/aad_client_id`                 |
-| `azure.application-insights.instrumentation-key` | `********`                                                          | API Key for App Insights                                                                                           | yes        | keyvault secret: `$KEYVAULT_URI/secrets/appinsights-key`               |
-| `APPLICATIONINSIGHTS_CONNECTION_STRING`          | `InstrumentationKey=${appinsights_key}`                             | Connection String for App Insights. Instrumentation Key value can be obtained from Azure portal or from Key Vault  | yes        | keyvault secret: `$KEYVAULT_URI/secrets/appinsights-connection-string` |
-| `azure.activedirectory.client-id`                | `********`                                                          | AAD client application ID                                                                                          | yes        | keyvault secret: `$KEYVAULT_URI/secrets/app-dev-sp-username`           |
-| `azure.activedirectory.AppIdUri`                 | `api://${azure.activedirectory.client-id}`                          | URI for AAD Application                                                                                            | no         | --                                                                     |
-| `azure.activedirectory.session-stateless`        | `true`                                                              | Flag run in stateless mode (needed by AAD dependency)                                                              | no         | --                                                                     |
-| `azure.storage.account-name`                     | ex `foo-storage-account`                                            | Storage account for storing documents                                                                              | no         | output of infrastructure deployment                                    |
-| `cosmosdb_database`                              | `osdu-db`                                                           | Cosmos database                                                                                                    | no         | --                                                                     |
-| `event_grid_enabled`                             | ex `true`                                                           | Indicates whether event grid is enabled or not                                                                     | no         | if env is demo then value is `false`, otherwise it is `true`           |
-| `event_grid_topic`                               | `schemachangedtopic`                                                | Event grid topic name                                                                                              | no         | --                                                                     |
-| `service_bus_enabled`                            | ex `false`                                                          | Indicates whether service bus is enabled or not                                                                    | no         | if env is demo then value is `true`, otherwise it is `false`           |
-| `servicebus_topic_name`                          | `schemachangedtopic`                                                | Service bus topic name                                                                                             | no         | --                                                                     |
-| `KEYVAULT_URI`                                   | ex `https://foo-keyvault.vault.azure.net/`                          | URI of KeyVault that holds application secrets                                                                     | no         | output of infrastructure deployment (central resources kv)             |
-| `AZURE_CLIENT_ID`                                | `********`                                                          | Identity to run the service locally. This enables access to Azure resources. You only need this if running locally | yes        | keyvault secret: `$KEYVAULT_URI/secrets/app-dev-sp-username`           |
-| `AZURE_TENANT_ID`                                | `********`                                                          | AD tenant to authenticate users from                                                                               | yes        | keyvault secret: `$KEYVAULT_URI/secrets/app-dev-sp-tenant-id`          |
-| `AZURE_CLIENT_SECRET`                            | `********`                                                          | Secret for `$AZURE_CLIENT_ID`                                                                                      | yes        | keyvault secret: `$KEYVAULT_URI/secrets/app-dev-sp-password`           |
-| `azure_istioauth_enabled`                        | `true`                                                              | Flag to Disable AAD auth                                                                                           | no         | --                                                                     |
-| `azure_localhosttesting_auth_enabled`            | `false`                                                             | Flag to Enable AAD auth for localhost testing                                                                                        | no         | --                                                                     |
-| `shared_partition`                               | `opendes`                                                           | Default Partition for Public Shared Schemas                                                                        | no         | --                                                                     |
-| `server.port`                                    | ex `8085`                                                           | port for schema service                                                                                            | no         | --                                                                     |
-
-
-**Required to run integration tests**
-
-| name | value | description | sensitive? | source |
-| ---  | ---   | ---         | ---        | ---    |
-| `AZURE_AD_APP_RESOURCE_ID` | `********` | AAD client application ID | yes | output of infrastructure deployment |
-| `AZURE_AD_TENANT_ID` | `********` | AD tenant to authenticate users from | yes | -- |
-| `INTEGRATION_TESTER` | `********` | System identity to assume for API calls. Note: this user must have entitlements configured already | no | -- |
-| `PRIVATE_TENANT1` | `opendes` | OSDU tenant used for testing | no | -- |
-| `PRIVATE_TENANT2` | `tenant2` | OSDU tenant used for testing | no | -- |
-| `SHARED_TENANT` | `common` | OSDU tenant used for testing | no | -- |
-| `VENDOR` | `azure` | cloud provider name | no | -- |
-| `HOST` | ex: `http://localhost:8080` | local service endpoint | no | -- |
-| `TESTER_SERVICEPRINCIPAL_SECRET` | `********` | Secret for `$INTEGRATION_TESTER` | yes | -- |
-
-### Configure Maven
-
-The OSDU dependencies resolve from the public OSDU community package registry. Pass the settings file in `.mvn` to Maven:
-```bash
-mvn --settings .mvn/community-maven.settings.xml <goals>
-```
-
-### Build and run the application
-
-After configuring your environment as specified above, you can follow these steps to build and run the application.
-1. Navigate to the root of the schema project, os-schema. For building the project from the command line, run the command below:
-    ```bash
-    mvn -P core,azure clean install
-    ```
-2. Run the service from the command line:
-    ```bash
-    java -jar provider/schema-azure/target/os-schema-azure-*-spring-boot.jar --add-opens java.base/java.lang=ALL-UNNAMED --add-opens  java.base/java.lang.reflect=ALL-UNNAMED -javaagent:<<Absolute file path to application-insights-agent jar>> -DAPPINSIGHTS_LOGGING_ENABLED=true
-3. The port and path for the service endpoint can be configured in ```application.properties``` in the provider folder as following. If not specified, then  the web container (ex. Tomcat) default is used:
-    ```bash
-    server.servlet.contextPath=/api/schema-service/v1/
-    server.port=8080
-    ```
-
-
-### Test the application
-
-After the service has started it should be accessible via a web browser by visiting [http://localhost:8080/api/schema-service/v1/swagger](http://localhost:8080/api/schema-service/v1/swagger). If the request does not fail, you can then run the integration tests.
-
-They can then be run/debugged directly in your IDE of choice using the GUI or via the commandline using below command from schema-core project.
+Requires Java 17 and Maven 3.8+. OSDU dependencies resolve from the public community registry through the settings file in `.mvn`:
 
 ```bash
-# build + run Azure integration tests.
-#
-# Note: this assumes that the environment variables for integration tests as outlined
-#       above are already exported in your environment.
-$ (cd testing/schema-test-core && mvn clean verify)
+mvn --settings .mvn/community-maven.settings.xml -P core,azure clean install
 ```
 
-Additionally if you were trying to isolate specific variables the following can be executed
+The runnable jar lands at `provider/schema-azure/target/os-schema-azure-*-spring-boot.jar`.
+
+## Configuration
+
+SPI Stack sets the service's environment from two places: the shared `osdu-config` ConfigMap and the service's own entry in [`services/schema.yaml`](https://github.com/Azure/osdu-spi-stack/blob/main/software/stacks/osdu/services/schema.yaml). Those files are the contract; the tables below list what Schema actually reads from them.
+
+**Shared, from `osdu-config`:**
+
+| Variable | Purpose |
+|---|---|
+| `AZURE_TENANT_ID` | Entra tenant |
+| `AAD_CLIENT_ID` | Application ID that caller tokens are issued for |
+| `KEYVAULT_URI` | Central Key Vault |
+| `APPINSIGHTS_KEY` | Telemetry |
+
+**Specific to Schema**, from `services/schema.yaml`:
+
+| Variable | Value on SPI Stack | Purpose |
+|---|---|---|
+| `SERVER_SERVLET_CONTEXTPATH` | `/api/schema-service/v1/` | API base path |
+| `AZURE_ISTIOAUTH_ENABLED` | `true` | Trust the mesh's token validation |
+| `AZURE_PAAS_WORKLOADIDENTITY_ISENABLED` | `true` | Authenticate to Azure with workload identity |
+| `SERVER_PORT` | `8080` | HTTP port |
+| `PARTITION_SERVICE_ENDPOINT` | `http://partition/api/partition/v1` | Per-partition resource lookup |
+| `ENTITLEMENTS_SERVICE_ENDPOINT` | `http://entitlements/api/entitlements/v2` | Caller authorization |
+| `COSMOSDB_DATABASE` | `osdu-db` | Database inside each partition's Cosmos DB account |
+| `AZURE_SYSTEM_STORAGECONTAINERNAME` | `system` | Container in the system storage account for shared schemas |
+| `SERVICE_BUS_ENABLED` | `true` | Publish schema change events to Service Bus |
+| `SERVICEBUS_TOPIC_NAME` | `schemachangedtopic` | Topic for schema change events |
+| `EVENT_GRID_ENABLED` | `false` | Event Grid publishing is off on SPI Stack |
+
+The service authenticates to Azure with workload identity, which injects `AZURE_CLIENT_ID` and a federated token; there are no client secrets. Per-partition resources are resolved at request time through the Partition service. Shared schemas live in the system Cosmos DB database `osdu-system-db` and the system storage account, whose endpoints come from the Key Vault secrets `system-cosmos-endpoint` and `system-storage`.
+
+## Test
+
+| Suite | Where | Runs in CI | Run it yourself |
+|---|---|---|---|
+| Unit | `schema-core`, `provider/schema-azure` | Pull requests (Java Build) | `mvn ... install` from [Build](#build) |
+| Acceptance | [`schema-acceptance-test`](../../schema-acceptance-test/README.md) | Pull requests, against SPI Stack (Deploy and Test) | `spi test schema` |
+| Integration | `testing/schema-test-core`, `testing/schema-test-azure` | No | See below |
+
+CI runs these on pull requests from this repository that change code. Documentation-only changes skip the build, and pull requests from forks build without deploying.
+
+**Acceptance** proves a change on real infrastructure before it merges. It calls the deployed service through the gateway as a privileged test identity, and the bindings in `.spi/service.yaml` supply its host, partition, shared tenant, and token. Against an environment you are connected to:
 
 ```bash
-cd testing/schema-test-core
-    mvn verify -DVENDOR=azure -DHOST=http://localhost:8080 -DPRIVATE_TENANT1=opendes -DPRIVATE_TENANT2=tenant2 -DSHARED_TENANT=common -Dcucumber.options="--tags @SchemaService"
+spi test schema                   # the image and suite the environment is running
+spi test schema --source .        # this checkout's suite and descriptor
 ```
 
-Tests against a deployed environment live in [`schema-acceptance-test`](../../schema-acceptance-test/README.md).
+**Integration** is the older suite carried from upstream. It sits outside the root Maven build and CI does not run it. It accepts a bearer token in `INTEGRATION_TESTER_ACCESS_TOKEN`, so `spi token` can supply one, but it has not been proven against SPI Stack. Acceptance covers the same API surface.
 
-## Open API 3.0 - Swagger
-- Swagger UI:  http://localhost:8080/api/schema-service/v1/swagger (will redirect to  http://localhost:8080/api/schema-service/v1/swagger-ui/index.html)
-- api-docs (JSON) :  http://localhost:8080/api/schema-service/v1/api-docs
-- api-docs (YAML) :  http://localhost:8080/api/schema-service/v1/api-docs.yaml
+To call the API by hand, `spi token` mints a bearer token:
 
-All the Swagger and OpenAPI related common properties are managed here [swagger.properties](../../schema-core/src/main/resources/swagger.properties)
+```bash
+curl -H "Authorization: Bearer $(spi token)" -H "data-partition-id: <partition>" \
+  https://<gateway>/api/schema-service/v1/schema?limit=10
+```
 
+## Deploy
 
-## Debugging
+For a pull request from this repository that changes code, CI publishes two images to GHCR: the service, `osdu-spi-schema`, and its loader, `osdu-spi-schema-load`, built from `build/load.Dockerfile` with the schemas in `deployments/shared-schemas/`. The Deploy and Test lane then borrows an SPI Stack environment, pins both images from the same commit, proves them with the acceptance suite, and restores the environment's own images, so code merged to `main` has already passed on real infrastructure. This repository does not own infrastructure; SPI Stack does.
 
-Jet Brains - the authors of Intellij IDEA, have written an [excellent guide](https://www.jetbrains.com/help/idea/debugging-your-first-java-application.html) on how to debug java programs.
+To try a build by hand on an environment you are connected to, pin it by digest and release the pin when done:
 
+```bash
+spi service pin schema --image ghcr.io/azure/osdu-spi-schema@sha256:<digest>
+spi service reset schema
+```
 
-## Deploying service to Azure
+A pin made this way moves only the service. The loader is paired only on the ephemeral pins CI makes, and `schema-load` cannot be pinned on its own.
 
-Environments and service deployments are provisioned by [OSDU SPI Stack](https://github.com/Azure/osdu-spi-stack). This repository builds the service image and runs the acceptance tests against a deployed environment; see [`schema-acceptance-test`](../../schema-acceptance-test/README.md).
+## Service notes
 
+**Shared schemas and the loader.** SPI Stack runs a one-shot `schema-load` Job that waits for the service, then publishes the shared schemas into the primary partition through the API. The loader image must come from the same commit as the service so the schemas match the code serving them, which is why CI pairs the two. To rerun the load on an environment, delete the Job and let Flux recreate it: `kubectl delete job schema-load -n osdu`.
+
+**Event Grid and Service Bus.** The provider can publish schema change events to either. SPI Stack turns Service Bus on and Event Grid off; `EVENT_GRID_TOPIC` is still set but unused while Event Grid is off.
 
 ## License
+
 Copyright © Microsoft Corporation
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Licensed under the [Apache License 2.0](../../LICENSE).
