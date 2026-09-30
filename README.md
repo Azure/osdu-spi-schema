@@ -58,21 +58,21 @@ SPI Stack sets the service's environment from two places: the shared `osdu-confi
 
 **Specific to Schema**, from `services/schema.yaml`:
 
-| Variable | Value on SPI Stack | Purpose |
-|---|---|---|
-| `SERVER_SERVLET_CONTEXTPATH` | `/api/schema-service/v1/` | API base path |
-| `AZURE_ISTIOAUTH_ENABLED` | `true` | Trust the mesh's token validation |
-| `AZURE_PAAS_WORKLOADIDENTITY_ISENABLED` | `true` | Authenticate to Azure with workload identity |
-| `SERVER_PORT` | `8080` | HTTP port |
-| `PARTITION_SERVICE_ENDPOINT` | `http://partition/api/partition/v1` | Per-partition resource lookup |
-| `ENTITLEMENTS_SERVICE_ENDPOINT` | `http://entitlements/api/entitlements/v2` | Caller authorization |
-| `ENTITLEMENTS_SERVICE_API_KEY` | `OBSOLETE` | Legacy API key passed to the Entitlements client; SPI Stack sets a placeholder, and the property has no default, so it must be set |
-| `COSMOSDB_DATABASE` | `osdu-db` | Database inside each partition's Cosmos DB account |
-| `AZURE_SYSTEM_STORAGECONTAINERNAME` | `system` | Container in the system storage account for shared schemas |
-| `SERVICE_BUS_ENABLED` | `true` | Publish schema change events to Service Bus |
-| `SERVICEBUS_TOPIC_NAME` | `schemachangedtopic` | Topic for schema change events |
-| `EVENT_GRID_ENABLED` | `false` | Event Grid publishing is off on SPI Stack |
-| `EVENT_GRID_TOPIC` | `schemachangedtopic` | Resolved at startup even while Event Grid is off |
+| Variable and value on SPI Stack | Purpose |
+|---|---|
+| `SERVER_SERVLET_CONTEXTPATH`<br>`/api/schema-service/v1/` | API base path |
+| `AZURE_ISTIOAUTH_ENABLED`<br>`true` | Trust the mesh's token validation |
+| `AZURE_PAAS_WORKLOADIDENTITY_ISENABLED`<br>`true` | Authenticate to Azure with workload identity |
+| `SERVER_PORT`<br>`8080` | HTTP port |
+| `PARTITION_SERVICE_ENDPOINT`<br>`http://partition/api/partition/v1` | Per-partition resource lookup |
+| `ENTITLEMENTS_SERVICE_ENDPOINT`<br>`http://entitlements/api/entitlements/v2` | Caller authorization |
+| `ENTITLEMENTS_SERVICE_API_KEY`<br>`OBSOLETE` | Legacy key passed to the Entitlements client; the property has no default, so the placeholder must stay set |
+| `COSMOSDB_DATABASE`<br>`osdu-db` | Database inside each partition's Cosmos DB account |
+| `AZURE_SYSTEM_STORAGECONTAINERNAME`<br>`system` | Container in the system storage account for shared schemas |
+| `SERVICE_BUS_ENABLED`<br>`true` | Publish schema change events to Service Bus |
+| `SERVICEBUS_TOPIC_NAME`<br>`schemachangedtopic` | Topic for schema change events |
+| `EVENT_GRID_ENABLED`<br>`false` | Event Grid publishing is off on SPI Stack |
+| `EVENT_GRID_TOPIC`<br>`schemachangedtopic` | Resolved at startup even while Event Grid is off |
 
 The service authenticates to Azure with workload identity, which injects `AZURE_CLIENT_ID` and a federated token; there are no client secrets. Per-partition resources are resolved at request time through the Partition service. Shared schemas live in the system Cosmos DB database `osdu-system-db` and the system storage account, whose endpoints come from the Key Vault secrets `system-cosmos-endpoint` and `system-storage`.
 
