@@ -63,7 +63,9 @@ The following software have components provided under the terms of this license:
 - Google Auth Library for Java - OAuth2 HTTP (from https://github.com/googleapis/google-cloud-java, https://repo1.maven.org/maven2/com/google/auth/google-auth-library-oauth2-http)
 - Google Cloud Core (from https://github.com/googleapis/google-cloud-java/tree/main/sdk-platform-java, https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-core, https://github.com/googleapis/java-core)
 - Google Cloud Core HTTP (from https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-core-http, https://github.com/googleapis/google-cloud-java/tree/main/sdk-platform-java, https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-core-http, https://github.com/googleapis/java-core)
+- Google Cloud Core gRPC (from https://github.com/googleapis/google-cloud-java/tree/main/sdk-platform-java, https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-core-grpc, https://github.com/googleapis/java-core)
 - Google Cloud Datastore (from https://github.com/googleapis/google-cloud-java, https://github.com/googleapis/google-cloud-java/tree/master/google-cloud-clients/google-cloud-datastore, https://github.com/googleapis/java-datastore)
+- Google Cloud Monitoring (from https://github.com/GoogleCloudPlatform/google-cloud-java/tree/master/google-cloud-monitoring, https://github.com/googleapis/google-cloud-java, https://github.com/googleapis/java-monitoring)
 - Google Guice - Core Library (from https://github.com/google/guice)
 - Google HTTP Client Library for Java (from https://github.com/googleapis/google-http-java-client, https://repo1.maven.org/maven2/com/google/http-client/google-http-client)
 - Google OAuth Client Library for Java (from https://github.com/googleapis/google-oauth-java-client, https://repo1.maven.org/maven2/com/google/oauth-client/google-oauth-client)
@@ -94,7 +96,7 @@ The following software have components provided under the terms of this license:
 - Jackson datatype: JSR310 (from http://wiki.fasterxml.com/JacksonModuleJSR310, https://github.com/FasterXML/jackson-modules-java8, https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jsr310)
 - Jackson datatype: Joda (from http://wiki.fasterxml.com/JacksonModuleJoda, https://github.com/FasterXML/jackson-datatype-joda)
 - Jackson datatype: jdk8 (from https://github.com/FasterXML/jackson-modules-java8, https://repo1.maven.org/maven2/com/fasterxml/jackson/datatype/jackson-datatype-jdk8)
-- Jackson-annotations (from http://github.com/FasterXML/jackson, http://wiki.fasterxml.com/JacksonHome, https://github.com/FasterXML/jackson)
+- Jackson-annotations (from http://github.com/FasterXML/jackson, http://wiki.fasterxml.com/JacksonHome)
 - Jackson-core (from http://wiki.fasterxml.com/JacksonHome, https://github.com/FasterXML/jackson-core)
 - Jackson-dataformat-YAML (from https://github.com/FasterXML/jackson, https://github.com/FasterXML/jackson-dataformats-text)
 - Jackson-module-parameter-names (from https://github.com/FasterXML/jackson-modules-java8, https://repo1.maven.org/maven2/com/fasterxml/jackson/module/jackson-module-parameter-names)
@@ -152,7 +154,9 @@ The following software have components provided under the terms of this license:
 - OkHttp URLConnection (from https://lysine.dev/okhttp/, https://repo1.maven.org/maven2/com/squareup/okhttp3/okhttp-urlconnection, https://square.github.io/okhttp/)
 - Okio (from https://github.com/lysine-dev/okio/, https://github.com/square/okio/, https://repo1.maven.org/maven2/com/squareup/okio/okio)
 - OpenCensus (from https://github.com/census-instrumentation/opencensus-java)
+- OpenTelemetry Instrumentation for Java (from https://github.com/open-telemetry/opentelemetry-java-instrumentation)
 - OpenTelemetry Java (from https://github.com/open-telemetry/opentelemetry-java)
+- OpenTelemetry Semantic Conventions Java (from https://github.com/open-telemetry/semantic-conventions-java)
 - Prometheus Metrics Config (from http://github.com/prometheus/client_java)
 - Prometheus Metrics Core (from http://github.com/prometheus/client_java)
 - Prometheus Metrics Exposition Formats (from http://github.com/prometheus/client_java)
@@ -205,13 +209,13 @@ The following software have components provided under the terms of this license:
 - error-prone annotations (from https://errorprone.info/, https://repo1.maven.org/maven2/com/google/errorprone/error_prone_annotations)
 - google-auth (from https://github.com/GoogleCloudPlatform/google-auth-library-python, https://github.com/googleapis/google-auth-library-python, https://github.com/googleapis/google-cloud-python/tree/main/packages/google-auth)
 - grpc-google-cloud-datastore-admin-v1 (from https://github.com/googleapis/google-cloud-java)
+- grpc-google-cloud-datastore-v1 (from https://github.com/googleapis/google-cloud-java)
 - io.grpc:grpc-alts (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-api (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-auth (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-context (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-core (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-googleapis (from https://github.com/grpc/grpc-java)
-- io.grpc:grpc-grpclb (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-inprocess (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-netty-shaded (from https://github.com/grpc/grpc-java)
 - io.grpc:grpc-protobuf (from https://github.com/grpc/grpc-java)
@@ -227,12 +231,12 @@ The following software have components provided under the terms of this license:
 - javax.annotation API (from http://jcp.org/en/jsr/detail?id=250)
 - javax.inject (from http://code.google.com/p/atinject/, https://repo1.maven.org/maven2/org/glassfish/hk2/external/javax.inject)
 - json-path (from http://code.google.com/p/json-path/, https://github.com/jayway/JsonPath)
-- micrometer-commons (from https://github.com/micrometer-metrics/micrometer-commercial)
-- micrometer-core (from https://github.com/micrometer-metrics/micrometer, https://github.com/micrometer-metrics/micrometer-commercial)
-- micrometer-jakarta9 (from https://github.com/micrometer-metrics/micrometer-commercial)
-- micrometer-observation (from https://github.com/micrometer-metrics/micrometer-commercial)
-- micrometer-registry-azure-monitor (from https://github.com/micrometer-metrics/micrometer, https://github.com/micrometer-metrics/micrometer-commercial)
-- micrometer-registry-prometheus (from <https://github.com/micrometer-metrics/micrometer>, https://github.com/micrometer-metrics/micrometer, https://github.com/micrometer-metrics/micrometer-commercial)
+- micrometer-commons (from https://github.com/micrometer-metrics/micrometer)
+- micrometer-core (from https://github.com/micrometer-metrics/micrometer)
+- micrometer-jakarta9 (from https://github.com/micrometer-metrics/micrometer)
+- micrometer-observation (from https://github.com/micrometer-metrics/micrometer)
+- micrometer-registry-azure-monitor (from https://github.com/micrometer-metrics/micrometer)
+- micrometer-registry-prometheus (from <https://github.com/micrometer-metrics/micrometer>, https://github.com/micrometer-metrics/micrometer)
 - org.apiguardian:apiguardian-api (from https://github.com/apiguardian-team/apiguardian)
 - org.conscrypt:conscrypt-openjdk-uber (from https://conscrypt.org/)
 - org.opentest4j:opentest4j (from https://github.com/ota4j-team/opentest4j)
@@ -240,7 +244,8 @@ The following software have components provided under the terms of this license:
 - perfmark:perfmark-api (from https://github.com/perfmark/perfmark)
 - proto-google-cloud-datastore-admin-v1 (from https://github.com/googleapis/google-cloud-java)
 - proto-google-cloud-datastore-v1 (from https://github.com/googleapis/google-cloud-java, https://github.com/googleapis/googleapis, https://github.com/googleapis/java-datastore/proto-google-cloud-datastore-v1)
-- proto-google-common-protos (from https://github.com/googleapis/api-client-staging, https://github.com/googleapis/googleapis, https://github.com/googleapis/java-iam/proto-google-common-protos, https://github.com/googleapis/sdk-platform-java)
+- proto-google-cloud-monitoring-v3 (from https://github.com/googleapis/google-cloud-java, https://github.com/googleapis/java-monitoring/proto-google-cloud-monitoring-v3, https://repo1.maven.org/maven2/com/google/api/grpc/proto-google-cloud-monitoring-v3)
+- proto-google-common-protos (from https://github.com/googleapis/api-client-staging, https://github.com/googleapis/google-cloud-java/tree/main/sdk-platform-java, https://github.com/googleapis/googleapis, https://github.com/googleapis/java-iam/proto-google-common-protos)
 - proto-google-iam-v1 (from https://github.com/googleapis/google-cloud-java/tree/main/sdk-platform-java, https://github.com/googleapis/googleapis, https://github.com/googleapis/java-iam/proto-google-iam-v1)
 - requests (from http://python-requests.org, https://requests.readthedocs.io)
 - resilience4j (from https://github.com/resilience4j/resilience4j, https://resilience4j.readme.io/, ttps://resilience4j.readme.io)
@@ -407,6 +412,7 @@ The following software have components provided under the terms of this license:
 - Jakarta JSON Processing API (from https://github.com/eclipse-ee4j/jsonp, https://javaee.github.io/jsonp)
 - Jakarta Messaging API (from https://projects.eclipse.org/projects/ee4j.jms)
 - Jakarta Servlet (from https://projects.eclipse.org/projects/ee4j.servlet)
+- Jakarta Validation API (from https://beanvalidation.org, https://beanvalidation.org/)
 - Jakarta XML Binding API (from https://repo1.maven.org/maven2/jakarta/xml/bind/jakarta.xml.bind-api, https://repo1.maven.org/maven2/org/jboss/spec/javax/xml/bind/jboss-jaxb-api_2.3_spec)
 - Old JAXB Core (from <https://eclipse-ee4j.github.io/jaxb-ri/>, https://eclipse-ee4j.github.io/jaxb-ri/, https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-impl)
 
@@ -477,7 +483,6 @@ The following software have components provided under the terms of this license:
 - Azure Java Client Authentication Library for AutoRest (from https://github.com/Azure/autorest-clientruntime-for-java)
 - Azure Java Client Runtime for ARM (from https://github.com/Azure/autorest-clientruntime-for-java)
 - Azure Java Client Runtime for AutoRest (from https://github.com/Azure/autorest-clientruntime-for-java)
-- Checker Qual (from https://checkerframework.org)
 - Cucumber CiEnvironment (from https://github.com/cucumber/ci-environment)
 - Cucumber Expressions (from https://github.com/cucumber/cucumber-expressions-java)
 - Cucumber HTML Formatter (from https://github.com/cucumber/html-formatter)
@@ -537,6 +542,7 @@ The following software have components provided under the terms of this license:
 - Netty/Codec/HTTP (from http://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-codec-http)
 - Netty/Common (from http://netty.io/, https://repo1.maven.org/maven2/io/netty/netty-common)
 - Project Lombok (from http://projectlombok.org, https://projectlombok.org, https://projectlombok.org/)
+- Redis AuthX Core (from https://github.com/redis/redis-authx-core)
 - SLF4J API Module (from http://www.slf4j.org, http://www.slf4j.org/)
 - Spring Cloud Azure AutoConfigure (from https://microsoft.github.io/spring-cloud-azure)
 - Spring Cloud Azure Core (from https://microsoft.github.io/spring-cloud-azure)
@@ -548,14 +554,13 @@ The following software have components provided under the terms of this license:
 - adal4j (from https://github.com/AzureAD/azure-activedirectory-library-for-java)
 - javamsalruntime (from https://github.com/AzureAD/microsoft-authentication-library-for-cpp)
 - jwks-rsa-java (from https://github.com/auth0/jwks-rsa-java)
-- micrometer-commons (from https://github.com/micrometer-metrics/micrometer-commercial)
-- micrometer-core (from https://github.com/micrometer-metrics/micrometer, https://github.com/micrometer-metrics/micrometer-commercial)
+- micrometer-commons (from https://github.com/micrometer-metrics/micrometer)
+- micrometer-core (from https://github.com/micrometer-metrics/micrometer)
 - mockito-junit-jupiter (from https://github.com/mockito/mockito)
 - msal (from <https://github.com/AzureAD/microsoft-authentication-library-for-python>, https://github.com/AzureAD/microsoft-authentication-library-for-python)
 - msal4j (from https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - msal4j-brokers (from https://github.com/AzureAD/microsoft-authentication-library-for-java)
 - msal4j-persistence-extension (from https://github.com/AzureAD/microsoft-authentication-extensions-for-java, https://github.com/AzureAD/microsoft-authentication-library-for-java)
-- redis-authx-core (from https://github.com/redis/redis-authx-core)
 - webjars-locator-lite (from https://webjars.org/)
 
 ========================================================================
@@ -564,13 +569,6 @@ SAX-PD
 The following software have components provided under the terms of this license:
 
 - Old JAXB Core (from <https://eclipse-ee4j.github.io/jaxb-ri/>, https://eclipse-ee4j.github.io/jaxb-ri/, https://repo1.maven.org/maven2/com/sun/xml/bind/jaxb-impl)
-
-========================================================================
-SPL-1.0
-========================================================================
-The following software have components provided under the terms of this license:
-
-- Checker Qual (from https://checkerframework.org)
 
 ========================================================================
 WTFPL
