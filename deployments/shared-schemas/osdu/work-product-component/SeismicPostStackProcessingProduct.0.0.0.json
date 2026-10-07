@@ -3,38 +3,38 @@
     "schemaIdentity": {
       "authority": "{{schema-authority}}",
       "source": "wks",
-      "entityType": "work-product-component--SeismicTraceData",
-      "schemaVersionMajor": 1,
-      "schemaVersionMinor": 7,
+      "entityType": "work-product-component--SeismicPostStackProcessingProduct",
+      "schemaVersionMajor": 0,
+      "schemaVersionMinor": 0,
       "schemaVersionPatch": 0,
-      "id": "{{schema-authority}}:wks:work-product-component--SeismicTraceData:1.7.0"
+      "id": "{{schema-authority}}:wks:work-product-component--SeismicPostStackProcessingProduct:0.0.0"
     },
     "createdBy": "OSDU Data Definition Group",
     "scope": "SHARED",
-    "status": "PUBLISHED"
+    "status": "DEVELOPMENT"
   },
   "schema": {
     "x-osdu-license": "Copyright 2026, The Open Group \\nLicensed under the Apache License, Version 2.0 (the \"License\"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 . Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.",
-    "$id": "https://schema.osdu.opengroup.org/json/work-product-component/SeismicTraceData.1.7.0.json",
+    "$id": "https://schema.osdu.opengroup.org/json/work-product-component/SeismicPostStackProcessingProduct.0.0.0.json",
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "x-osdu-schema-source": "osdu:wks:work-product-component--SeismicTraceData:1.7.0",
-    "title": "SeismicTraceData",
-    "description": "A single logical dataset containing seismic samples.",
+    "x-osdu-schema-source": "osdu:wks:work-product-component--SeismicPostStackProcessingProduct:0.0.0",
+    "title": "SeismicPostStackProcessingProduct",
+    "description": "A singular post stack output from a seismic processing project, encompassing one or many sections and/or volumes.",
     "type": "object",
     "properties": {
       "id": {
         "description": "Previously called ResourceID or SRN which identifies this OSDU resource object without version.",
         "title": "Entity ID",
         "type": "string",
-        "pattern": "^[\\w\\-\\.]+:work-product-component\\-\\-SeismicTraceData:[\\w\\-\\.\\:\\%]+$",
-        "example": "namespace:work-product-component--SeismicTraceData:0410593c-c897-5cdb-a617-1b75c7670f99"
+        "pattern": "^[\\w\\-\\.]+:work-product-component\\-\\-SeismicPostStackProcessingProduct:[\\w\\-\\.\\:\\%]+$",
+        "example": "namespace:work-product-component--SeismicPostStackProcessingProduct:e34b2b9f-9bde-51ee-8232-3d07960a8b95"
       },
       "kind": {
         "description": "The schema identification for the OSDU resource object following the pattern {Namespace}:{Source}:{Type}:{VersionMajor}.{VersionMinor}.{VersionPatch}. The versioning scheme follows the semantic versioning, https://semver.org/.",
         "title": "Entity Kind",
         "type": "string",
         "pattern": "^[\\w\\-\\.]+:[\\w\\-\\.]+:[\\w\\-\\.]+:[0-9]+.[0-9]+.[0-9]+$",
-        "example": "osdu:wks:work-product-component--SeismicTraceData:1.7.0"
+        "example": "osdu:wks:work-product-component--SeismicPostStackProcessingProduct:0.0.0"
       },
       "version": {
         "description": "The version number of this OSDU resource; set by the framework.",
@@ -106,7 +106,7 @@
       "data": {
         "allOf": [
           {
-            "$ref": "{{schema-authority}}:wks:AbstractCommonResources:1.0.1"
+            "$ref": "{{schema-authority}}:wks:AbstractCommonResources:1.0.0"
           },
           {
             "$ref": "{{schema-authority}}:wks:AbstractWPCGroupType:1.2.0"
@@ -117,53 +117,6 @@
           {
             "type": "object",
             "properties": {
-              "LiveTraceOutline": {
-                "$ref": "{{schema-authority}}:wks:AbstractSpatialLocation:1.1.0",
-                "description": "Polygon showing the coverage of live traces in the trace dataset"
-              },
-              "BinGridID": {
-                "type": "string",
-                "description": "Reference to the WPC which describes the node positions of the processed bin centers.  These are indexed from the trace file using inline and crossline.",
-                "pattern": "^[\\w\\-\\.]+:work-product-component\\-\\-SeismicBinGrid:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "work-product-component",
-                    "EntityType": "SeismicBinGrid"
-                  }
-                ]
-              },
-              "HorizontalCRSID": {
-                "type": "string",
-                "description": "Coordinate reference system of positions in trace header, which matches what is described in BinGrid but is repeated here for convenience and in case bin grid is not defined.  In case of conflict with Bin Grid, this value applies to the coordinates as written into CMPX, CMPY headers. Nevertheless, Bin Grid should be used for mapping purposes.",
-                "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-CoordinateReferenceSystem:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "reference-data",
-                    "EntityType": "CoordinateReferenceSystem"
-                  }
-                ]
-              },
-              "SeismicLineGeometryID": {
-                "type": "string",
-                "description": "Reference to Seismic Line Geometry for 2D seismic processing which describes the node positions of the processed bin centers.  These are indexed from the trace file using CMP (not trace number).",
-                "pattern": "^[\\w\\-\\.]+:work-product-component\\-\\-SeismicLineGeometry:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "work-product-component",
-                    "EntityType": "SeismicLineGeometry"
-                  }
-                ]
-              },
-              "TraceRelationFileID": {
-                "type": "string",
-                "description": "The SRN of a file within the WPC that shows the relationship between trace index and CMP number if the trace data file CMP header is unreliable (for 2D).",
-                "pattern": "^[\\w\\-\\.]+:dataset\\-\\-[\\w\\-\\.]+:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "dataset"
-                  }
-                ]
-              },
               "PrincipalAcquisitionProjectID": {
                 "type": "string",
                 "description": "For most datasets, the acquisition project that generated the underlying field data.  For merges, probably absent (see processing project for set of acquisition projects used in processing this dataset).",
@@ -186,28 +139,6 @@
                   }
                 ]
               },
-              "Preferred3DInterpretationSetID": {
-                "type": "string",
-                "description": "For a 3D volume (including linear subsets), the id of the Seismic3DInterpretationSet which can be considered the master for the area and of which this trace dataset is a privileged member.  It defines the set of trace datasets of a particular bin grid that form the best set for interpretation (not an acquisition survey).",
-                "pattern": "^[\\w\\-\\.]+:master-data\\-\\-Seismic3DInterpretationSet:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "master-data",
-                    "EntityType": "Seismic3DInterpretationSet"
-                  }
-                ]
-              },
-              "Preferred2DInterpretationSetID": {
-                "type": "string",
-                "description": "For a 2D line section, SRN of the Seismic2DInterpretationSet which can be considered the master for the area and of which this trace dataset is a privileged member.  It defines the set of trace datasets of a particular cohesive set of 2D processing geometries in a survey area that form the best set for interpretation (not an acquisition survey).",
-                "pattern": "^[\\w\\-\\.]+:master-data\\-\\-Seismic2DInterpretationSet:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "master-data",
-                    "EntityType": "Seismic2DInterpretationSet"
-                  }
-                ]
-              },
               "SeismicTraceDataDimensionalityTypeID": {
                 "type": "string",
                 "description": "The dimensionality of trace data sets (not as acquired but as in the dataset), such as 2D, 3D, 4D.",
@@ -221,7 +152,7 @@
               },
               "SeismicDomainTypeID": {
                 "type": "string",
-                "description": "DEPRECATED: Use the \"DomainType\" property instead. ID of the nature of the vertical axis in the trace data set, usually Depth or Time.",
+                "description": "ID of the nature of the vertical axis in the trace data set, usually Depth or Time.",
                 "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-SeismicDomainType:[\\w\\-\\.\\:\\%]+:[0-9]*$",
                 "x-osdu-relationship": [
                   {
@@ -229,10 +160,6 @@
                     "EntityType": "SeismicDomainType"
                   }
                 ]
-              },
-              "Seismic2DName": {
-                "type": "string",
-                "description": "2D line name or survey name for the 2D group"
               },
               "SeismicMigrationTypeID": {
                 "type": "string",
@@ -277,14 +204,6 @@
                     "EntityType": "SeismicFilteringType"
                   }
                 ]
-              },
-              "Phase": {
-                "type": "string",
-                "description": "DEPRECATED: Please use SeismicPhaseID for better interoperability. Amount of phase rotation applied to data"
-              },
-              "Polarity": {
-                "type": "string",
-                "description": "DEPRECATED: Please use SeismicPolarityID for better interoperability.  Reflection polarity of embedded wavelet.  Normal, Reverse, Plus 90, Minus 90 according to SEG standard."
               },
               "SeismicPhaseID": {
                 "type": "string",
@@ -334,25 +253,15 @@
                 "type": "boolean",
                 "description": "Indicates if the volume is a product of the difference between 4D surveys"
               },
-              "StartTime": {
+              "StartVerticalIndex": {
                 "type": "number",
-                "description": "The sample axis value in the vertical dimension at which Time formatted data starts. Use SeismicDomainType to know which of time or depth pairs is the actual range vs. what is estimated.",
-                "x-osdu-frame-of-reference": "UOM:time"
+                "description": "The sample axis value in the vertical dimension at which the data starts. Use SeismicDomainType to know if data is in time or depth.",
+                "x-osdu-frame-of-reference": "UOM_via_property:TraceDomainUOM"
               },
-              "EndTime": {
+              "EndVerticalIndex": {
                 "type": "number",
-                "description": "The sample axis value in the vertical dimension at which Time formatted data starts. Use SeismicDomainType to know which of time or depth pairs is the actual range vs. what is estimated.",
-                "x-osdu-frame-of-reference": "UOM:time"
-              },
-              "StartDepth": {
-                "type": "number",
-                "description": "The sample axis value in the vertical dimension at which Depth formatted data starts. Use SeismicDomainType to know which of time or depth pairs is the actual range vs. what is estimated.",
-                "x-osdu-frame-of-reference": "UOM:length"
-              },
-              "EndDepth": {
-                "type": "number",
-                "description": "The sample axis value in the vertical dimension at which Depth formatted data ends. Use SeismicDomainType to know which of time or depth pairs is the actual range vs. what is estimated.",
-                "x-osdu-frame-of-reference": "UOM:length"
+                "description": "The sample axis value in the vertical dimension at which the data ends. Use SeismicDomainType to know if data is in time or depth.",
+                "x-osdu-frame-of-reference": "UOM_via_property:TraceDomainUOM"
               },
               "TraceCount": {
                 "type": "integer",
@@ -373,46 +282,6 @@
                     "EntityType": "UnitOfMeasure"
                   }
                 ]
-              },
-              "FirstShotPoint": {
-                "type": "number",
-                "description": "The shotpoint that came before all others"
-              },
-              "LastShotPoint": {
-                "type": "number",
-                "description": "The last shotpoint represented by the data"
-              },
-              "FirstCMP": {
-                "type": "number",
-                "description": "First Common Mid Point"
-              },
-              "LastCMP": {
-                "type": "number",
-                "description": "Last Common Mid Point"
-              },
-              "InlineMin": {
-                "type": "number",
-                "description": "Smallest Inline/Line/Track value"
-              },
-              "InlineMax": {
-                "type": "number",
-                "description": "Largest Inline/Line/Track value"
-              },
-              "CrosslineMin": {
-                "type": "number",
-                "description": "Smallest Xline/Cross line/Bin Value"
-              },
-              "CrosslineMax": {
-                "type": "number",
-                "description": "Largest Xline/Cross line/Bin Value"
-              },
-              "InlineIncrement": {
-                "type": "number",
-                "description": "Sampling interval of inlines in this dataset (difference in labels between neighboring inlines)."
-              },
-              "CrosslineIncrement": {
-                "type": "number",
-                "description": "Sampling interval of crosslines in this dataset (difference in labels between neighboring crosslines)."
               },
               "VerticalDatumOffset": {
                 "type": "number",
@@ -439,28 +308,6 @@
                 "type": "number",
                 "description": "Indicates how much the data has been shifted from the Vertical Datum (seismic reference datum) in the domain and units of SeismicDomainType and in the sense that a positive number causes a sample to move downward in physical space (lower elevation).",
                 "x-osdu-frame-of-reference": "UOM_via_property:TraceDomainUOM"
-              },
-              "Precision": {
-                "type": "object",
-                "title": "Precision",
-                "description": "Sample data format in terms of sample value precision 8bit Integer, 16bit Floating Point etc.",
-                "properties": {
-                  "WordFormat": {
-                    "type": "string",
-                    "description": "SRN of a reference value for binary data types, such as INT, UINT, FLOAT, IBM_FLOAT, ASCII, EBCDIC.",
-                    "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-WordFormatType:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                    "x-osdu-relationship": [
-                      {
-                        "GroupType": "reference-data",
-                        "EntityType": "WordFormatType"
-                      }
-                    ]
-                  },
-                  "WordWidth": {
-                    "type": "integer",
-                    "description": "Size of the word in bytes."
-                  }
-                }
               },
               "ProcessingParameters": {
                 "type": "array",
@@ -491,13 +338,6 @@
               "CoveragePercent": {
                 "type": "number",
                 "description": "Actual nominal fold of the trace data set as processed, expressed as the mode in percentage points (60 fold = 6000%)."
-              },
-              "TextualFileHeader": {
-                "type": "array",
-                "description": "Character metadata from headers inside file, such as the EBCDIC header of SEGY.  This is an array to capture each stanza separately.",
-                "items": {
-                  "type": "string"
-                }
               },
               "RangeAmplitudeMax": {
                 "type": "number",
@@ -551,158 +391,47 @@
                   }
                 ]
               },
-              "StackAngleRanges": {
+              "Contracts": {
                 "type": "array",
-                "title": "Stack Angle Ranges",
-                "description": "Pre-stack: Sets of trace angle ranges contained within this data set.",
+                "description": "References to applicable agreements in external contract database system of record.",
                 "items": {
-                  "type": "object",
-                  "title": "AngleRange",
-                  "description": "A range container carrying minimum/maximum angle values.",
-                  "properties": {
-                    "Minimum": {
-                      "type": "number",
-                      "title": "Minimum Angle",
-                      "description": "The minimum angle value.",
-                      "x-osdu-frame-of-reference": "UOM:plane angle"
-                    },
-                    "Maximum": {
-                      "type": "number",
-                      "title": "Maximum Angle",
-                      "description": "The maximum angle value.",
-                      "x-osdu-frame-of-reference": "UOM:plane angle"
+                  "type": "string",
+                  "pattern": "^[\\w\\-\\.]+:master-data\\-\\-Agreement:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+                  "x-osdu-relationship": [
+                    {
+                      "GroupType": "master-data",
+                      "EntityType": "Agreement"
                     }
-                  }
+                  ]
                 }
               },
-              "StackAzimuthRanges": {
+              "DefinitiveProducts": {
                 "type": "array",
-                "title": "Stack Azimuth Ranges",
-                "description": "Pre-stack: Sets of trace azimuth ranges contained within this data set.",
+                "description": "References to the volume, volumes, and sections that represent the definitive collection. Generally will be the highest fidelity and largest coverage.",
                 "items": {
-                  "type": "object",
-                  "title": "AngleRange",
-                  "description": "A range container carrying minimum/maximum angle values.",
-                  "properties": {
-                    "Minimum": {
-                      "type": "number",
-                      "title": "Minimum Angle",
-                      "description": "The minimum angle value.",
-                      "x-osdu-frame-of-reference": "UOM:plane angle"
+                  "type": "string",
+                  "pattern": "^[\\w\\-\\.]+:(work-product-component\\-\\-SeismicPostStackTrace2DSection|work-product-component\\-\\-SeismicPostStackTrace3DVolume):[\\w\\-\\.\\:\\%]+:[0-9]*$",
+                  "x-osdu-relationship": [
+                    {
+                      "GroupType": "work-product-component",
+                      "EntityType": "SeismicPostStackTrace2DSection"
                     },
-                    "Maximum": {
-                      "type": "number",
-                      "title": "Maximum Angle",
-                      "description": "The maximum angle value.",
-                      "x-osdu-frame-of-reference": "UOM:plane angle"
+                    {
+                      "GroupType": "work-product-component",
+                      "EntityType": "SeismicPostStackTrace3DVolume"
                     }
-                  }
+                  ]
                 }
               },
-              "StackOffsetRanges": {
-                "type": "array",
-                "title": "Stack Offset Ranges",
-                "description": "Pre-stack: Sets of trace offset ranges contained within this data set.",
-                "items": {
-                  "type": "object",
-                  "title": "LengthRange",
-                  "description": "A range container carrying minimum/maximum angle values.",
-                  "properties": {
-                    "Minimum": {
-                      "type": "number",
-                      "title": "Minimum Length",
-                      "description": "The minimum length value.",
-                      "x-osdu-frame-of-reference": "UOM:length"
-                    },
-                    "Maximum": {
-                      "type": "number",
-                      "title": "Maximum Length",
-                      "description": "The maximum length value.",
-                      "x-osdu-frame-of-reference": "UOM:length"
-                    }
-                  }
-                }
-              },
-              "SortOrderID": {
+              "VelocityModelID": {
                 "type": "string",
-                "title": "Sort Order ID",
-                "description": "Defines the sorting order of the trace data as stored in the file(s).",
-                "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-SeismicTraceSortOrder:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "reference-data",
-                    "EntityType": "SeismicTraceSortOrder"
-                  }
-                ]
-              },
-              "GatherTypeID": {
-                "type": "string",
-                "title": "Gather Type ID",
-                "description": "Pre-stack: the type of gathers in this dataset.",
-                "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-SeismicGatherType:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "reference-data",
-                    "EntityType": "SeismicGatherType"
-                  }
-                ]
-              },
-              "TimeLapse": {
-                "type": "object",
-                "title": "Time Lapse",
-                "description": "DEPRECATED: Use  the \"TimeLapseAssociations\" property instead. The contents positions the SeismicTraceData record in context of a time series. This is to be used for time lapse or 4D SeismicTraceData. This structure is optional and absent for SeismicTraceData not part of a time series.",
-                "properties": {
-                  "TimeSeriesID": {
-                    "type": "string",
-                    "title": "Time Series ID",
-                    "description": "The relationship to a TimeSeries work-product-component.",
-                    "pattern": "^[\\w\\-\\.]+:work-product-component\\-\\-TimeSeries:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                    "x-osdu-relationship": [
-                      {
-                        "GroupType": "work-product-component",
-                        "EntityType": "TimeSeries"
-                      }
-                    ]
-                  },
-                  "TimeIndex": {
-                    "type": "integer",
-                    "title": "Time Index",
-                    "description": "The index into the TimeSeriesID's data.UTCDateTimeValues[] or data.GeologicTimeValues[] arrays."
-                  }
-                }
-              },
-              "TimeLapseAssociations": {
-                "type": "array",
-                "title": "Time Lapse Associations",
-                "description": "The contents positions the SeismicTraceData record in context of one or more time series. This is to be used for time lapse or 4D SeismicTraceData. This structure is optional and absent for SeismicTraceData not part of a time series.",
-                "items": {
-                  "$ref": "{{schema-authority}}:wks:AbstractTimeSeriesLink:1.0.0"
-                }
-              },
-              "NotionalSeismicProcessingProductID": {
-                "type": "string",
-                "description": "Bundling concept used to tie multiple Seismic Trace Datas that are related to the same seismic processing output.",
-                "pattern": "^[\\w\\-\\.]+:work-product-component\\-\\-NotionalSeismicProcessingProduct:[\\w\\-\\.\\:\\%]+:[0-9]*$",
+                "title": "Velocity Model ID",
+                "description": "The velocity model used in the creation of this trace dataset",
+                "pattern": "^[\\w\\-\\.]+:work-product-component\\-\\-VelocityModeling:[\\w\\-\\.\\:\\%]+:[0-9]*$",
                 "x-osdu-relationship": [
                   {
                     "GroupType": "work-product-component",
-                    "EntityType": "NotionalSeismicProcessingProduct"
-                  }
-                ]
-              },
-              "IsPreStack": {
-                "type": "boolean",
-                "description": "Indicates if the volume has not been stacked"
-              },
-              "DomainTypeID": {
-                "type": "string",
-                "title": "Domain Type ID",
-                "description": "The nature of the vertical axis in the trace data set, usually Depth or Time.",
-                "pattern": "^[\\w\\-\\.]+:reference-data\\-\\-DomainType:[\\w\\-\\.\\:\\%]+:[0-9]*$",
-                "x-osdu-relationship": [
-                  {
-                    "GroupType": "reference-data",
-                    "EntityType": "DomainType"
+                    "EntityType": "VelocityModeling"
                   }
                 ]
               }
@@ -731,23 +460,13 @@
     "x-osdu-supported-file-formats": [
       "SEGY",
       "OpenVDS",
-      "OpenZGY"
+      "OpenZGY ",
+      "MDIO ",
+      " TIFF ",
+      " JPEG ",
+      " PNG"
     ],
     "x-osdu-virtual-properties": {
-      "data.VirtualProperties.DefaultLocation": {
-        "type": "object",
-        "priority": [
-          {
-            "path": "data.LiveTraceOutline"
-          },
-          {
-            "path": "data.SpatialArea"
-          },
-          {
-            "path": "data.SpatialPoint"
-          }
-        ]
-      },
       "data.VirtualProperties.DefaultName": {
         "type": "string",
         "priority": [
