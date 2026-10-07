@@ -1,0 +1,15 @@
+schemaVersion: 3
+service:
+  name: schema
+  archetype: java-maven-azure
+tests:
+  acceptance:
+    type: maven
+    path: schema-acceptance-test
+    mavenArguments: [verify]
+    timeoutMinutes: 20
+    bindings:
+      HOST: { source: gateway }
+      DATA_PARTITION_ID: { source: partition }
+      SHARED_TENANT: { source: static, value: osdu }
+      PRIVILEGED_USER_TOKEN: { source: token }

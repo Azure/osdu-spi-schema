@@ -68,6 +68,13 @@
 			<groupId>org.opengroup.osdu</groupId>
 			<artifactId>os-schema-core</artifactId>
 			<version>${project.version}</version>
+			<exclusions>
+				<!-- jsonassert brings android-json, a partial org.json that shadows org.json:json when it sorts first -->
+				<exclusion>
+					<groupId>com.vaadin.external.google</groupId>
+					<artifactId>android-json</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>
