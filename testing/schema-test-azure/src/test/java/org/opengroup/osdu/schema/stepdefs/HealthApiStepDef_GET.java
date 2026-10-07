@@ -35,7 +35,6 @@ public class HealthApiStepDef_GET {
         HttpRequest httpRequest = HttpRequest.builder()
             .url(TestConstants.HOST + TestConstants.GET_LIVENESS_ENDPOINT)
             .httpMethod(HttpRequest.GET)
-            .requestHeaders(this.context.getAuthHeaders())
             .build();
         HttpResponse response = HttpClientFactory.getInstance().send(httpRequest);
         this.context.setHttpResponse(response);
