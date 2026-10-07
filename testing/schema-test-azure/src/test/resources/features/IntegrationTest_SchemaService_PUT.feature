@@ -29,7 +29,7 @@ Feature: To verify functionality of PUT schema Service
       | InputPayload                                                | ReponseStatusCodeForPUT | ReponseStatusCodeForGET | ResponseMessageforGET                         | UpdatedInputPayload                                      |
       | "/input_payloads/postInPrivateScope_positiveScenario.json"  | "200"                   | "200"                   | "/output_payloads/UpdatedResolvedSchema.json" | "/input_payloads/putUpdatedSchema_positiveScenario.json" |
 
-  @SchemaServiceAzure
+  @SchemaServiceAzure @SystemApiConflict
   Scenario Outline: Verify that Schema Service's PUT API throws error if put request tries to create new record without development status
     Given I hit schema service PUT API with <InputPayload> and mark schema as <status> for next major version
     Then service should respond back with error <ReponseStatusCode> and <ResponseMessage>
@@ -99,7 +99,7 @@ Feature: To verify functionality of PUT schema Service
   #@SchemaServiceAzure Commenting this tag for now since this scenario for "common" is failing
   Scenario Outline: Verify that Schema Service's PUT API registers authority, source, entity and creates a private schema correctly with $ref attribute
     Given I hit schema service PUT API with <InputPayload>
-    Then service should respond back with <ReponseStatusCode> and <ResponseMessage> and scope whould be <responceScope>
+    Then service should respond back with <ReponseStatusCode> and <ResponseMessage> and scope would be <responceScope>
 
     Examples:
       | InputPayload                                                         | ReponseStatusCode | ResponseMessage                                                    | responceScope |
@@ -108,7 +108,7 @@ Feature: To verify functionality of PUT schema Service
   @SchemaServiceAzure
   Scenario Outline: Verify that Schema Service's PUT API registers authority, source, entity and creates a private schema correctly with $ref attribute
     Given I hit schema service PUT API with <InputPayload> with next major version
-    Then service should respond back with <ReponseStatusCode> and <ResponseMessage> and scope whould be <responceScope>
+    Then service should respond back with <ReponseStatusCode> and <ResponseMessage> and scope would be <responceScope>
 
     Examples:
       | parameter   | value              | latestVersion | InputPayload                                                         | otherTenant | ReponseStatusCode | ResponseMessage                                                    | responceScope |
@@ -123,7 +123,7 @@ Feature: To verify functionality of PUT schema Service
       | InputPayload                                               | ReponseStatusCode |
       | "/input_payloads/supercededInputPayload_positive.json"  | "201"             |
 
-  @SchemaServiceAzure
+  @SchemaServiceAzure @SystemApiConflict
   Scenario Outline: Verify that update Schema Service supersededBy functionality work correctly
     Given I hit schema service PUT API with <InputPayload> for superceded input
     Then the put service for supersededBy should respond back with <ReponseStatusCode>
@@ -152,7 +152,7 @@ Feature: To verify functionality of PUT schema Service
       | "/input_payloads/postSchema_withEntityAttributeInPayload.json"  | "400"             | "/output_payloads/PostSchema_EntityNotAllowedError.json"   |
       | "/input_payloads/postSchema_flattenedSchemaAsInput.json"        | "400"             | "/output_payloads/PostSchema_InvalidInputSchemaError.json" |
 
-  @SchemaServiceAzure
+  @SchemaServiceAzure @SystemApiConflict
   Scenario Outline: Verify whether schema can not be registered with already existing major, but increased minor version
     Given I hit schema service PUT API with <InputPayload>
     Given I hit schema service PUT API with <EmptyInputPayload> with increased minor version only

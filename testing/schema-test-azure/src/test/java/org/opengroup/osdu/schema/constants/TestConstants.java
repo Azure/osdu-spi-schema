@@ -22,6 +22,7 @@ public class TestConstants {
     public static final String GET_ENDPOINT = "/api/schema-service/v1/schema/";
     public static final String GET_FLATTENED_ENDPOINT = "/api/schema-service/v1/schema/{id}/IndexerSchemaV1";
     public static final String GET_INFO_ENDPOINT = "/api/schema-service/v1/info";
+    public static final String GET_LIVENESS_ENDPOINT = "/api/schema-service/v1/liveness_check";
     //public static final String HOST = "http://localhost:8080";
     public static final String INTERNAL_SERVER_ERROR = "internal server error";
     public static final String INTERNAL = "INTERNAL";

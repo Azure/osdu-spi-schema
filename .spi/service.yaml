@@ -13,3 +13,15 @@ tests:
       DATA_PARTITION_ID: { source: partition }
       SHARED_TENANT: { source: static, value: osdu }
       PRIVILEGED_USER_TOKEN: { source: token }
+  integration:
+    type: maven
+    path: testing
+    mavenArguments: [-pl, schema-test-azure, -am, verify]
+    timeoutMinutes: 20
+    bindings:
+      HOST: { source: gateway }
+      PRIVATE_TENANT1: { source: partition }
+      PRIVATE_TENANT2: { source: partition }
+      SHARED_TENANT: { source: static, value: osdu }
+      VENDOR: { source: static, value: azure }
+      INTEGRATION_TESTER_ACCESS_TOKEN: { source: token }
