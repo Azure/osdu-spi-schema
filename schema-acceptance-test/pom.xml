@@ -78,10 +78,9 @@
     </dependencies>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <os-core-test.version>0.2.10</os-core-test.version>
+        <os-core-test.version>1.1.1</os-core-test.version>
         <cucumber.version>7.34.3</cucumber.version>
         <allure.version>2.34.0</allure.version>
         <lombok.version>1.18.46</lombok.version>
