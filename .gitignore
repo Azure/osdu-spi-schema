@@ -25,6 +25,7 @@
 
 ### STS ###
 target/
+.flattened-pom.xml
 .settings/
 .apt_generated
 .classpath
