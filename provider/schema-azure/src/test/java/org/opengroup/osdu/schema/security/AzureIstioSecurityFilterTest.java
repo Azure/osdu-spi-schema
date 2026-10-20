@@ -30,6 +30,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Collections;
@@ -47,6 +48,7 @@ import static org.mockito.Mockito.when;
 public class AzureIstioSecurityFilterTest {
     private static final String X_ISTIO_CLAIMS_PAYLOAD = "x-payload";
     private static final String ISTIO_PAYLOAD = "{\"aud\":\"aud1\",\"iss\":\"https://iss1\",\"ver\":\"1.0\",\"roles\":[\"role1\",\"role2\",\"role3\"]}";
+    private static final String ISTIO_URL_SAFE_PAYLOAD = "{\"aud\":\"aud1\",\"iss\":\"https://iss1\",\"ver\":\"1.0\",\"name\":\"~?>>>\"}";
     private static final String INVALID_ISTIO_PAYLOAD = "\"aud\":\"aud1\",\"iss\":\"https://iss1\",\"ver\":\"1.0\"";
 
     @InjectMocks
@@ -71,6 +73,30 @@ public class AzureIstioSecurityFilterTest {
         assert_UserPrincipal((UserPrincipal) auth.getPrincipal());
         assertNull(auth.getCredentials());
         assertEquals(Collections.EMPTY_LIST, auth.getAuthorities());
+        verify(filterChain).doFilter(httpServletRequest, httpServletResponse);
+    }
+
+    @Test
+    public void should_setCorrectAuthentication_when_istioPayloadIsBase64UrlEncoded() throws IOException, ServletException {
+        ArgumentCaptor<PreAuthenticatedAuthenticationToken> authCaptor = ArgumentCaptor.forClass(PreAuthenticatedAuthenticationToken.class);
+        HttpServletRequest httpServletRequest = mock(HttpServletRequest.class);
+        HttpServletResponse httpServletResponse = mock(HttpServletResponse.class);
+        SecurityContext securityContext = Mockito.mock(SecurityContext.class);
+        FilterChain filterChain = Mockito.mock(FilterChain.class);
+        Enumeration<String> headerNames = Collections.enumeration(Arrays.asList("Content-Type", "header1"));
+        SecurityContextHolder.setContext(securityContext);
+        String encodedPayload = Base64.getUrlEncoder().withoutPadding().encodeToString(ISTIO_URL_SAFE_PAYLOAD.getBytes(StandardCharsets.UTF_8));
+        assertTrue(encodedPayload.contains("-"));
+        assertTrue(encodedPayload.contains("_"));
+        when(httpServletRequest.getHeaderNames()).thenReturn(headerNames);
+        when(httpServletRequest.getHeader(X_ISTIO_CLAIMS_PAYLOAD)).thenReturn(encodedPayload);
+
+        azureIstioSecurityFilter.doFilter(httpServletRequest, httpServletResponse, filterChain);
+
+        verify(securityContext).setAuthentication(authCaptor.capture());
+        UserPrincipal principal = (UserPrincipal) authCaptor.getValue().getPrincipal();
+        assertEquals(Arrays.asList("aud1"), principal.getClaims().get("aud"));
+        assertEquals("~?>>>", principal.getClaims().get("name"));
         verify(filterChain).doFilter(httpServletRequest, httpServletResponse);
     }
 
