@@ -10,18 +10,7 @@ variables:
   GCP_DEPLOY_ENV: p4d
   GCP_DOMAIN: cloud.slb-ds.com
 
-  AZURE_SERVICE: schema
-  AZURE_BUILD_SUBDIR: provider/schema-azure
-  AZURE_TEST_SUBDIR: testing/schema-test-core
-  AZURE_ONLY_TEST_SUBDIR: testing/schema-test-azure
-  AZURE_DEPLOYMENTS_SUBDIR: deployments/scripts/azure
-  AZURE_DEPLOYMENTS_SCRIPTS_SUBDIR: deployments/scripts
-  AZURE_CLIENT_ID: $AZURE_PRINCIPAL_ID
-  AZURE_CLIENT_SECRET: $AZURE_PRINCIPAL_SECRET
   DATA_PARTITION: opendes
-  AZURE_AD_APP_RESOURCE_ID: $AZURE_APP_ID
-  AZURE_STORAGE_CONNECTION_STRING: DefaultEndpointsProtocol=https;AccountName=${AZURE_BASE}data;AccountKey=${AZURE_STORAGE_KEY};EndpointSuffix=core.windows.net
-  AZURE_COVERAGE_THRESHOLD: $AZURE_CODE_COVERAGE_THRESHOLD
 
   # Full Docker Hub tag after "maven:" (Java 25 compile/test).
   # Keep in sync with SERVICE_JAVA_VERSION (plugin-download jobs).
@@ -57,9 +46,6 @@ include:
     file: "scanners/sbom-maven.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
-    file: "cloud-providers/azure.yml"
-
-  - project: "osdu/platform/ci-cd-pipelines"
     file: "cloud-providers/gc-global.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
@@ -68,18 +54,12 @@ include:
   - local: "devops/core-plus/pipeline/override-stages.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
-    file: "cloud-providers/azure-one-pipeline.yml"
-
-  - project: "osdu/platform/ci-cd-pipelines"
     file: "cloud-providers/gc-one-pipeline.yml"
 
   - project: "osdu/platform/ci-cd-pipelines"
     file: "reporting/schemathesis.yml"
 
   - local: "devops/gc/pipeline/override-stages.yml"
-
-  - local: "/devops/azure/gitlab-bootstrap.yml"
-  - local: "/devops/azure/override-stages.yml"
 
 # Java 25 FOSSA image (divido/fossa-with-cache!19). Shared fossa-maven.yml still
 # defaults to v0.10 (JDK 17); override until ci-cd-pipelines bumps the default.
