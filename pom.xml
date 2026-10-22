@@ -273,7 +273,6 @@
                                         <exclude>org.opengroup.osdu:os-schema</exclude>
                                         <exclude>org.opengroup.osdu:os-schema-core</exclude>
                                         <exclude>org.opengroup.osdu:schema-core-plus</exclude>
-                                        <exclude>org.opengroup.osdu:os-schema-azure</exclude>
                                         <exclude>org.opengroup.osdu:os-schema-gc</exclude>
                                         <exclude>org.opengroup.osdu:os-schema-ibm</exclude>
                                     </excludes>
