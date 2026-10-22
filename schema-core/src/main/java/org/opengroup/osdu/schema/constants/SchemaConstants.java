@@ -97,6 +97,10 @@ public class SchemaConstants {
     public static final String INVALID_INPUT = "The input is invalid. Object is invalid";
     public static final String INVALID_SCHEMA_INPUT = "The input is invalid. Schema is not a valid JSON Object";
     public static final String SOURCE_EXISTS_EXCEPTION = "Source already registered with Id: {0}";
+    public static final int MAX_QUERY_LIMIT = 100;
+    public static final String INVALID_OFFSET = "offset must be greater than or equal to 0";
+    public static final String INVALID_LIMIT = "limit must be greater than or equal to 0";
+    public static final String INVALID_LIMIT_MAX = "limit must be less than or equal to " + MAX_QUERY_LIMIT;
     public static final String LATESTVERSION_MINORFILTER_WITHOUT_MAJOR = "MinorVersion Filter is invalid without giving MajorVersion when LatestVersion Schema is required";
     public static final String LATESTVERSION_PATCHFILTER_WITHOUT_MINOR = "PatchVersion Filter is invalid without giving MinorVersion when LatestVersion Schema is required";
     public static final String SCHEMA_CREATE_CLEAN = "Cleaned partial data created by current schema create operation";

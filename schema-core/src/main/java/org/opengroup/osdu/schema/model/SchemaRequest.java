@@ -25,7 +25,8 @@ public class SchemaRequest {
 
 	@NotNull(message = "schema must not be null")
 	@SchemaRequestConstraint
-	@Schema(description = "The JSON Schema definition as a JSON object", type = "object", example = "{\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"title\":\"Wellbore\",\"type\":\"object\"}")
+	@Schema(description = "The JSON Schema definition as a JSON object", type = "object", types = {"object"},
+			example = "{\"title\":\"Wellbore\",\"type\":\"object\"}")
 	private Object schema;
 
 }
