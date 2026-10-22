@@ -743,6 +743,30 @@ public class SchemaServiceTest {
 	}
 
 	@Test
+	public void testGetSchemaInfoList_NegativeOffset() throws ApplicationException {
+		QueryParams queryParams = QueryParams.builder().offset(-1).limit(10).build();
+		BadRequestException exception = Assertions.assertThrows(BadRequestException.class,
+				() -> schemaService.getSchemaInfoList(queryParams));
+		assertEquals(SchemaConstants.INVALID_OFFSET, exception.getMessage());
+	}
+
+	@Test
+	public void testGetSchemaInfoList_NegativeLimit() throws ApplicationException {
+		QueryParams queryParams = QueryParams.builder().offset(0).limit(-1).build();
+		BadRequestException exception = Assertions.assertThrows(BadRequestException.class,
+				() -> schemaService.getSchemaInfoList(queryParams));
+		assertEquals(SchemaConstants.INVALID_LIMIT, exception.getMessage());
+	}
+
+	@Test
+	public void testGetSchemaInfoList_LimitAboveMaximum() throws ApplicationException {
+		QueryParams queryParams = QueryParams.builder().offset(0).limit(SchemaConstants.MAX_QUERY_LIMIT + 1).build();
+		BadRequestException exception = Assertions.assertThrows(BadRequestException.class,
+				() -> schemaService.getSchemaInfoList(queryParams));
+		assertEquals(SchemaConstants.INVALID_LIMIT_MAX, exception.getMessage());
+	}
+
+	@Test
 	public void testGetSchemaInfoList_LatestVersion_MajorMinorPatch_NoLatestVersion()
 			throws ApplicationException, NotFoundException, BadRequestException {
 		List<SchemaInfo> schemaInfos = new LinkedList<SchemaInfo>();
