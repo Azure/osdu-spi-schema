@@ -7,6 +7,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.media.StringSchema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
@@ -14,6 +15,7 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.tags.Tag;
 
+import org.springdoc.core.customizers.OpenApiCustomizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -21,7 +23,9 @@ import org.springframework.context.annotation.Profile;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Configuration
 @Profile("!noswagger")
@@ -52,6 +56,30 @@ public class SwaggerDocumentationConfig {
                         return openAPI;
                 return openAPI
                         .servers(Arrays.asList(new Server().url(configurationProperties.getApiServerUrl())));
+        }
+
+        /**
+         * {@code SchemaRequest.schema} is a JSON object. A string {@code @Schema} example makes
+         * springdoc emit {@code type: string}, so Schemathesis treats {@code ""} as valid and the
+         * service rejects it. Force the published contract to {@code type: object}.
+         */
+        @Bean
+        public OpenApiCustomizer schemaRequestObjectCustomizer() {
+                return openApi -> {
+                        if (openApi.getComponents() == null || openApi.getComponents().getSchemas() == null) {
+                                return;
+                        }
+                        Schema<?> schemaRequest = openApi.getComponents().getSchemas().get("SchemaRequest");
+                        if (schemaRequest == null || schemaRequest.getProperties() == null) {
+                                return;
+                        }
+                        Object rawProperty = schemaRequest.getProperties().get("schema");
+                        if (!(rawProperty instanceof Schema<?> schemaProperty)) {
+                                return;
+                        }
+                        schemaProperty.setType("object");
+                        schemaProperty.setTypes(new LinkedHashSet<>(Set.of("object")));
+                };
         }
 
         @Bean
