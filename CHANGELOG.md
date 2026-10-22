@@ -1,5 +1,45 @@
 # Changelog
 
+## [1.2.1](https://github.com/Azure/osdu-spi-schema/compare/v1.2.0...v1.2.1) (2026-10-22)
+
+
+### 🐛 Bug Fixes
+
+* [Venus] CI-friendly Maven versions for Schema ([#466](https://github.com/Azure/osdu-spi-schema/issues/466)) ([7e9183b](https://github.com/Azure/osdu-spi-schema/commit/7e9183b9660b92e8626da2c4937929eeac736176))
+* [Venus] Verify the deployed revision in Schema acceptance tests ([#472](https://github.com/Azure/osdu-spi-schema/issues/472)) ([0c0f9a4](https://github.com/Azure/osdu-spi-schema/commit/0c0f9a43dff3c0627703db625dd81ead9440607a))
+* **azure:** Decode istio x-payload as base64url ([003f4ee](https://github.com/Azure/osdu-spi-schema/commit/003f4ee462f5fd3422a12d429b680bbe80387a2b))
+* **azure:** Decode istio x-payload as base64url ([60631e0](https://github.com/Azure/osdu-spi-schema/commit/60631e05d7cb30f97afaf697ae10e420fd62e691))
+* Sync upstream changes from 2188aeb0 ([35d13c1](https://github.com/Azure/osdu-spi-schema/commit/35d13c1d42de5b6ad6c3a498c7b6d5f7c0524549))
+* Sync upstream changes from 2c840b40 ([1650905](https://github.com/Azure/osdu-spi-schema/commit/1650905ab3b6eac2ff5f7762e09ee81d29aff866))
+* Sync upstream changes from 30a22735 ([46bb5c6](https://github.com/Azure/osdu-spi-schema/commit/46bb5c6ed6aba04cd8b5a5d1ec9035b0a1f690dc))
+* Sync upstream changes from c6adbaa2 ([cf15403](https://github.com/Azure/osdu-spi-schema/commit/cf1540301377e376a4c4bba1970dbfa05e006518))
+
+
+### 🔧 Miscellaneous
+
+* Generate filtered upstream tree ([1657c60](https://github.com/Azure/osdu-spi-schema/commit/1657c60036ba7142a868d366471e8cfb12915fe4))
+* Generate filtered upstream tree ([dc5f89d](https://github.com/Azure/osdu-spi-schema/commit/dc5f89da709a1aa71c700fbe739248470375753a))
+* Generate filtered upstream tree ([3c23154](https://github.com/Azure/osdu-spi-schema/commit/3c23154141c9d797680cd01208f6af39c06e5cca))
+* Generate filtered upstream tree ([066a518](https://github.com/Azure/osdu-spi-schema/commit/066a518df3acafa1fb169a5f8610d5a8b9dc1332))
+* Remove Azure provider and Azure CI/CD ([c6adbaa](https://github.com/Azure/osdu-spi-schema/commit/c6adbaa2998346b42191a9e93ddf226b593c1ff8))
+* Remove Azure provider and Azure CI/CD ([f16577f](https://github.com/Azure/osdu-spi-schema/commit/f16577fa3ff4687c84393554bcf81da1db65c762))
+* Stamp fork-owned pom versions ([8413c05](https://github.com/Azure/osdu-spi-schema/commit/8413c059ad7b0cd79e9bf47831ba9922423dff69))
+* Sync template updates ([4e02a39](https://github.com/Azure/osdu-spi-schema/commit/4e02a3914ec0f7e942d640b6b751e182f570f339))
+* Sync template updates ([ff146d4](https://github.com/Azure/osdu-spi-schema/commit/ff146d437a95704677c73169f249a47cd9260e46))
+* Sync template updates ([619bed9](https://github.com/Azure/osdu-spi-schema/commit/619bed92b63782ce78f528bf782c67efabc226f6))
+* **template-sync:** Sync template updates (updated 2026-10-13) ([1a811ec](https://github.com/Azure/osdu-spi-schema/commit/1a811ec4aa8985b41bdf14a446a1d9e22951c8f4))
+* **template-sync:** Sync template updates 2026-10-14 ([3f040fb](https://github.com/Azure/osdu-spi-schema/commit/3f040fbf66084bc9b276525b6f257aef60e32221))
+* **template-sync:** Sync template updates 2026-10-20 ([c50e0e8](https://github.com/Azure/osdu-spi-schema/commit/c50e0e8bf8cf9fd9d3f64b169749934e29e191e9))
+* Update NOTICE from fossa-check-notice ([52371fa](https://github.com/Azure/osdu-spi-schema/commit/52371fa1e37158784cbf5813174cd79d527545f0))
+* **upstream:** Keep schemathesis-tests in upstream filter ([d435756](https://github.com/Azure/osdu-spi-schema/commit/d435756f68e2ca65c445f58f45022a3a838a5d75))
+* **upstream:** Keep schemathesis-tests in upstream filter ([107a1c6](https://github.com/Azure/osdu-spi-schema/commit/107a1c6b963320bbd4fff3fb5b55d671bb2aea5e))
+
+
+### 🔨 Build System
+
+* **deps:** Bump core-lib-azure to 4.0.0 in schema-azure ([67c11d9](https://github.com/Azure/osdu-spi-schema/commit/67c11d961fdc1f93bd209e35b1f4b8b58b78e8bb))
+* **deps:** Bump core-lib-azure to 4.0.0 in schema-azure ([4155610](https://github.com/Azure/osdu-spi-schema/commit/41556100e192283213ef6e8389e3f801abca671d))
+
 ## [1.2.0](https://github.com/Azure/osdu-spi-schema/compare/v1.1.0...v1.2.0) (2026-10-07)
 
 
