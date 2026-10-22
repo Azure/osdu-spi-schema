@@ -28,6 +28,7 @@ top_level:
   maven: keep
   pom.xml: keep
   publish.yml: strip
+  schemathesis-tests: keep
   schema-acceptance-test: keep
   schema-core: keep
   schema-core-plus: strip
