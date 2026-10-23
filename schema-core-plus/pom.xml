@@ -19,16 +19,6 @@
 				<artifactId>okhttp</artifactId>
 				<version>4.12.0</version>
 			</dependency>
-			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-classic</artifactId>
-				<version>1.5.25</version>
-			</dependency>
-			<dependency>
-				<groupId>ch.qos.logback</groupId>
-				<artifactId>logback-core</artifactId>
-				<version>1.5.25</version>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
 
@@ -50,7 +40,7 @@
 		<dependency>
 			<groupId>org.opengroup.osdu</groupId>
 			<artifactId>core-plus-common-lib</artifactId>
-			<version>0.24.0-rc2</version>
+			<version>0.27.3</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.opengroup.osdu</groupId>
@@ -113,7 +103,7 @@
 		<dependency>
 			<groupId>org.opengroup.osdu</groupId>
 			<artifactId>os-oqm-core</artifactId>
-			<version>0.25.0-rc1</version>
+			<version>0.29.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.opengroup.osdu</groupId>
@@ -124,7 +114,7 @@
 		<dependency>
 			<groupId>org.opengroup.osdu</groupId>
 			<artifactId>os-osm-core</artifactId>
-			<version>0.27.3</version>
+			<version>0.28.0</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.opengroup.osdu</groupId>
@@ -135,7 +125,7 @@
 		<dependency>
 			<groupId>org.opengroup.osdu</groupId>
 			<artifactId>os-obm-core</artifactId>
-			<version>0.30.5</version>
+			<version>0.30.7</version>
 			<exclusions>
 				<exclusion>
 					<groupId>org.opengroup.osdu</groupId>
