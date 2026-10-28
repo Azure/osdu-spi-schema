@@ -14,9 +14,12 @@
 
 package org.opengroup.osdu.schema.security;
 
+import org.opengroup.osdu.core.common.model.http.AppException;
 import org.opengroup.osdu.core.common.model.http.DpsHeaders;
 import org.opengroup.osdu.core.common.provider.interfaces.IAuthorizationService;
 import org.opengroup.osdu.schema.constants.SchemaConstants;
+import org.opengroup.osdu.schema.exceptions.BadRequestException;
+import org.opengroup.osdu.schema.exceptions.UnauthorizedException;
 import org.opengroup.osdu.schema.provider.interfaces.authorization.SystemPartitionAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -42,9 +45,20 @@ public class AzSystemPartitionAuthServiceImpl implements SystemPartitionAuthServ
                 ? authorizationPartition
                 : SchemaConstants.SYSTEM_PARTITION_NAME;
         headers.put(SchemaConstants.DATA_PARTITION_ID, partition);
-        String user = entitlementsService
-                .authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS)
-                .getUser();
+        String user;
+        try {
+            user = entitlementsService
+                    .authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS)
+                    .getUser();
+        } catch (AppException e) {
+            int status = e.getError() != null ? e.getError().getCode() : 0;
+            if (status == 400) {
+                throw new BadRequestException(SchemaConstants.BAD_INPUT, e);
+            } else if (status == 401 || status == 403) {
+                throw new UnauthorizedException(SchemaConstants.UNAUTHORIZED_EXCEPTION, e);
+            }
+            throw e;
+        }
 
         headers.put(DpsHeaders.USER_EMAIL, user);
         headers.put(DpsHeaders.USER_AUTHORIZED_GROUP_NAME, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS);
