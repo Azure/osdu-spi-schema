@@ -69,6 +69,7 @@ SPI Stack sets the service's environment from two places: the shared `osdu-confi
 | `ENTITLEMENTS_SERVICE_API_KEY`<br>`OBSOLETE` | Legacy key passed to the Entitlements client; the property has no default, so the placeholder must stay set |
 | `COSMOSDB_DATABASE`<br>`osdu-db` | Database inside each partition's Cosmos DB account |
 | `AZURE_SYSTEM_STORAGECONTAINERNAME`<br>`system` | Container in the system storage account for shared schemas |
+| `AZURE_SYSTEM_AUTHORIZATIONPARTITION`<br>`PRIMARY_PARTITION` from `osdu-config` | Partition whose `service.system-schema-service.editors` group authorizes system schema writes; `system` when unset or blank |
 | `SERVICE_BUS_ENABLED`<br>`true` | Publish schema change events to Service Bus |
 | `SERVICEBUS_TOPIC_NAME`<br>`schemachangedtopic` | Topic for schema change events |
 | `EVENT_GRID_ENABLED`<br>`false` | Event Grid publishing is off on SPI Stack |
@@ -118,6 +119,8 @@ A pin made this way moves only the service. The loader is paired only on the eph
 ## Service notes
 
 **Shared schemas and the loader.** SPI Stack runs a one-shot `schema-load` Job that waits for the service, then publishes the shared schemas into the primary partition through the API. The loader image must come from the same commit as the service so the schemas match the code serving them, which is why CI pairs the two. To rerun the load on an environment, delete the Job and let Flux recreate it: `kubectl delete job schema-load -n osdu`.
+
+**System schema access.** Writes to `/schemas/system` are authorized through entitlements only; nothing in the caller's token grants them. The caller must be a member of `service.system-schema-service.editors` in the partition named by `AZURE_SYSTEM_AUTHORIZATIONPARTITION`, which is `system` when the variable is unset, as in deployments with a real system partition. SPI Stack has no `system` partition, so it points the variable at the primary partition and creates the group there as the workload identity that runs `schema-load`. Any other identity that registers system schemas needs the same membership.
 
 **Event Grid and Service Bus.** The provider can publish schema change events to either. SPI Stack turns Service Bus on and Event Grid off; `EVENT_GRID_TOPIC` is still required, though unused while Event Grid is off.
 

@@ -19,8 +19,10 @@ import org.opengroup.osdu.core.common.provider.interfaces.IAuthorizationService;
 import org.opengroup.osdu.schema.constants.SchemaConstants;
 import org.opengroup.osdu.schema.provider.interfaces.authorization.SystemPartitionAuthService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 @Component
 @Primary
@@ -31,9 +33,15 @@ public class AzSystemPartitionAuthServiceImpl implements SystemPartitionAuthServ
     @Autowired
     private IAuthorizationService entitlementsService;
 
+    @Value("${azure.system.authorizationPartition:" + SchemaConstants.SYSTEM_PARTITION_NAME + "}")
+    private String authorizationPartition;
+
     @Override
     public boolean hasSystemLevelPermissions() {
-        headers.put(SchemaConstants.DATA_PARTITION_ID, SchemaConstants.SYSTEM_PARTITION_NAME);
+        String partition = StringUtils.hasText(authorizationPartition)
+                ? authorizationPartition
+                : SchemaConstants.SYSTEM_PARTITION_NAME;
+        headers.put(SchemaConstants.DATA_PARTITION_ID, partition);
         String user = entitlementsService
                 .authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS)
                 .getUser();
