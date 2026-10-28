@@ -22,6 +22,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -61,6 +63,9 @@ import com.cloudant.client.org.lightcouch.DocumentConflictException;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class IbmSchemaInfoStoreTest {
+
+	@Rule
+	public MockitoRule mockitoRule = MockitoJUnit.rule();
 
 	@InjectMocks
 	IbmSchemaInfoStore schemaInfoStore;

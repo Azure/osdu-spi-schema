@@ -13,6 +13,9 @@ import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Rule;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -45,6 +48,9 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class IbmEntityTypeStoreTest {
+
+    @Rule
+    public MockitoRule mockitoRule = MockitoJUnit.rule();
 
     @InjectMocks
 	IbmEntityTypeStore mockIbmEntityStore;
