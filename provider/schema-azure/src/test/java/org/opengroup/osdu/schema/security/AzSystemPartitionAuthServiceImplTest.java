@@ -28,6 +28,7 @@ import org.opengroup.osdu.core.common.model.entitlements.AuthorizationResponse;
 import org.opengroup.osdu.core.common.model.http.DpsHeaders;
 import org.opengroup.osdu.core.common.provider.interfaces.IAuthorizationService;
 import org.opengroup.osdu.schema.constants.SchemaConstants;
+import org.springframework.test.util.ReflectionTestUtils;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AzSystemPartitionAuthServiceImplTest {
@@ -41,7 +42,22 @@ public class AzSystemPartitionAuthServiceImplTest {
     AzSystemPartitionAuthServiceImpl sut;
 
     @Test
+    public void shouldCallEntitlementsWithConfiguredPartition_when_hasPermissionsIsCalled() {
+        ReflectionTestUtils.setField(sut, "authorizationPartition", "opendes");
+        AuthorizationResponse authorizationResponse = mock(AuthorizationResponse.class);
+        when(authorizationResponse.getUser()).thenReturn("user");
+        when(entitlementsService.authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS)).thenReturn(authorizationResponse);
+
+        boolean hasPermissions = sut.hasSystemLevelPermissions();
+
+        assertEquals("opendes", headers.getPartitionId());
+        assertEquals("user", headers.getUserEmail());
+        assertTrue(hasPermissions);
+    }
+
+    @Test
     public void shouldCallEntitlementsWithSystemPartition_when_hasPermissionsIsCalled() {
+        ReflectionTestUtils.setField(sut, "authorizationPartition", SchemaConstants.SYSTEM_PARTITION_NAME);
         AuthorizationResponse authorizationResponse = mock(AuthorizationResponse.class);
         when(authorizationResponse.getUser()).thenReturn("user");
         when(entitlementsService.authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS)).thenReturn(authorizationResponse);
