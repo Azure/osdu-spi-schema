@@ -15,6 +15,8 @@
 package org.opengroup.osdu.schema.security;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,9 +29,12 @@ import static org.mockito.Mockito.when;
 import org.mockito.Spy;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.opengroup.osdu.core.common.model.entitlements.AuthorizationResponse;
+import org.opengroup.osdu.core.common.model.http.AppException;
 import org.opengroup.osdu.core.common.model.http.DpsHeaders;
 import org.opengroup.osdu.core.common.provider.interfaces.IAuthorizationService;
 import org.opengroup.osdu.schema.constants.SchemaConstants;
+import org.opengroup.osdu.schema.exceptions.BadRequestException;
+import org.opengroup.osdu.schema.exceptions.UnauthorizedException;
 import org.springframework.boot.test.context.assertj.AssertableApplicationContext;
 import org.springframework.boot.test.context.runner.ApplicationContextRunner;
 import org.springframework.test.util.ReflectionTestUtils;
@@ -84,6 +89,52 @@ public class AzSystemPartitionAuthServiceImplTest {
         sut.hasSystemLevelPermissions();
 
         assertEquals("system", headers.getPartitionId());
+    }
+
+    @Test
+    public void shouldThrowUnauthorized_when_entitlementsReturnsForbidden() {
+        ReflectionTestUtils.setField(sut, "authorizationPartition", SchemaConstants.SYSTEM_PARTITION_NAME);
+        when(entitlementsService.authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS))
+                .thenThrow(new AppException(403, "Access denied", "The user is not authorized to perform this action"));
+
+        UnauthorizedException exception = assertThrows(UnauthorizedException.class, () -> sut.hasSystemLevelPermissions());
+
+        assertEquals(SchemaConstants.UNAUTHORIZED_EXCEPTION, exception.getErrorMsg());
+    }
+
+    @Test
+    public void shouldThrowUnauthorized_when_entitlementsReturnsUnauthorized() {
+        ReflectionTestUtils.setField(sut, "authorizationPartition", SchemaConstants.SYSTEM_PARTITION_NAME);
+        when(entitlementsService.authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS))
+                .thenThrow(new AppException(401, "Unauthorized", "Invalid token"));
+
+        UnauthorizedException exception = assertThrows(UnauthorizedException.class, () -> sut.hasSystemLevelPermissions());
+
+        assertEquals(SchemaConstants.UNAUTHORIZED_EXCEPTION, exception.getErrorMsg());
+    }
+
+    @Test
+    public void shouldThrowBadRequest_when_entitlementsReturnsBadRequest() {
+        ReflectionTestUtils.setField(sut, "authorizationPartition", SchemaConstants.SYSTEM_PARTITION_NAME);
+        when(entitlementsService.authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS))
+                .thenThrow(new AppException(400, "Bad Request", "Invalid data partition id"));
+
+        BadRequestException exception = assertThrows(BadRequestException.class, () -> sut.hasSystemLevelPermissions());
+
+        assertEquals(SchemaConstants.BAD_INPUT, exception.getErrorMsg());
+    }
+
+    @Test
+    public void shouldRethrowAppException_when_entitlementsIsUnavailable() {
+        ReflectionTestUtils.setField(sut, "authorizationPartition", SchemaConstants.SYSTEM_PARTITION_NAME);
+        AppException unavailable = new AppException(503, "Service Unavailable", "Entitlements is unavailable");
+        when(entitlementsService.authorizeAny(headers, SchemaConstants.ENTITLEMENT_SERVICE_SYSTEM_SCHEMA_EDITORS))
+                .thenThrow(unavailable);
+
+        AppException exception = assertThrows(AppException.class, () -> sut.hasSystemLevelPermissions());
+
+        assertSame(unavailable, exception);
+        assertEquals(503, exception.getError().getCode());
     }
 
     @Test
