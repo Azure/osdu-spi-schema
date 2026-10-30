@@ -2,7 +2,6 @@ package org.opengroup.osdu.schema.util;
 
 import com.google.common.base.Strings;
 import org.opengroup.osdu.azure.util.AzureServicePrincipal;
-import org.opengroup.osdu.core.ibm.util.IdentityClient;
 import org.opengroup.osdu.schema.constants.TestConstants;
 import org.opengroup.osdu.schema.util.gcp.GoogleServiceAccount;
 import org.opengroup.osdu.schema.util.gcp.OpenIDTokenProvider;
@@ -49,8 +48,6 @@ public class AuthUtil {
                     throw new Exception("Error generating the user token",e);
                 }
             }
-        } else if (Strings.isNullOrEmpty(token) && "ibm".equals(vendor)) {
-            token = IdentityClient.getTokenForUserWithAccess();
         } else if (Strings.isNullOrEmpty(token) && "anthos".equals(vendor)){
             token = new OpenIDTokenProvider().getToken();
         }
