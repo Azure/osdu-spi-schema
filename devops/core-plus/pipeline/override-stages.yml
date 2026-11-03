@@ -6,6 +6,7 @@ variables:
   CIMPL_ENABLE_BOOTSTRAP: "true"
   CIMPL_HELM_TIMEOUT: "--timeout 15m"
   DISABLE_INTEGRATION_TEST: true
+  CIMPL_INFO_PATH: "/api/schema-service/v1/info"
 
 cimpl-containerize-bootstrap-gitlab:
   tags: ["osdu-medium"]
