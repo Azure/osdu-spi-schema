@@ -18,12 +18,12 @@
     <parent>
         <artifactId>os-schema</artifactId>
         <groupId>org.opengroup.osdu</groupId>
-        <version>0.30.4-SNAPSHOT</version>
+        <version>0.31.0-SNAPSHOT</version>
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
     <artifactId>os-schema-aws</artifactId>
-    <version>0.30.4-SNAPSHOT</version>
+    <version>0.31.0-SNAPSHOT</version>
     <description>AWS implementation of the OSDU Schema Service</description>
     <packaging>jar</packaging>
 
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>org.opengroup.osdu</groupId>
             <artifactId>os-schema-core</artifactId>
-            <version>0.30.4-SNAPSHOT</version>
+            <version>0.31.0-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework.boot</groupId>
