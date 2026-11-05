@@ -6,27 +6,26 @@ variables:
   CIMPL_ENABLE_BOOTSTRAP: "true"
   CIMPL_HELM_TIMEOUT: "--timeout 15m"
   DISABLE_INTEGRATION_TEST: true
+  CIMPL_INFO_PATH: "/api/schema-service/v1/info"
 
 cimpl-containerize-bootstrap-gitlab:
   tags: ["osdu-medium"]
   variables:
     CIMPL_IMAGE_BOOTSTRAP_NAME: "core-plus-bootstrap-schema"
 
-cimpl-acceptance-test:
-  variables:
-    ROOT_USER_OPENID_PROVIDER_CLIENT_ID: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_ID
-    ROOT_USER_OPENID_PROVIDER_CLIENT_SECRET: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_SECRET
-  
-#dev2 jobs
+#osdu-main jobs
 
-cimpl-dev2-acceptance-test:
+cimpl-dev-acceptance-test:
   variables:
     ROOT_USER_OPENID_PROVIDER_CLIENT_ID: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_ID
     ROOT_USER_OPENID_PROVIDER_CLIENT_SECRET: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_SECRET
 
-#standby (Blue-Green) jobs
+cimpl-dev-backup-acceptance-test:
+  variables:
+    ROOT_USER_OPENID_PROVIDER_CLIENT_ID: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_ID
+    ROOT_USER_OPENID_PROVIDER_CLIENT_SECRET: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_SECRET
 
-cimpl-standby-acceptance-test:
+cimpl-prod-acceptance-test:
   variables:
     ROOT_USER_OPENID_PROVIDER_CLIENT_ID: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_ID
     ROOT_USER_OPENID_PROVIDER_CLIENT_SECRET: $PRIVILEGED_USER_OPENID_PROVIDER_CLIENT_SECRET

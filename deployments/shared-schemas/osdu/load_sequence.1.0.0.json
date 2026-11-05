@@ -1120,6 +1120,10 @@
     "relativePath": "shared-schemas/osdu/reference-data/ChronoStratigraphy.1.1.0.json"
   },
   {
+    "kind": "{{schema-authority}}:wks:reference-data--CoilTubingWrapType:1.0.0",
+    "relativePath": "shared-schemas/osdu/reference-data/CoilTubingWrapType.1.0.0.json"
+  },
+  {
     "kind": "{{schema-authority}}:wks:master-data--CollaborationProject:1.0.0",
     "relativePath": "shared-schemas/osdu/master-data/CollaborationProject.1.0.0.json"
   },
@@ -1662,6 +1666,10 @@
   {
     "kind": "{{schema-authority}}:wks:master-data--EquipmentInventory:1.0.0",
     "relativePath": "shared-schemas/osdu/master-data/EquipmentInventory.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--EquipmentInventory:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/EquipmentInventory.1.1.0.json"
   },
   {
     "kind": "{{schema-authority}}:wks:master-data--EvaluationPlan:1.0.0",
@@ -3636,20 +3644,68 @@
     "relativePath": "shared-schemas/osdu/master-data/Rig.2.0.0.json"
   },
   {
+    "kind": "{{schema-authority}}:wks:master-data--RigAnchor:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigAnchor.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigBoiler:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigBoiler.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigCementUnit:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigCementUnit.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigCentrifuge:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigCentrifuge.1.0.0.json"
+  },
+  {
     "kind": "{{schema-authority}}:wks:master-data--RigCirculatingSystem:1.0.0",
     "relativePath": "shared-schemas/osdu/master-data/RigCirculatingSystem.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigCoilTubingReel:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigCoilTubingReel.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigCrane:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigCrane.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigDegasser:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigDegasser.1.0.0.json"
   },
   {
     "kind": "{{schema-authority}}:wks:master-data--RigDerrick:1.0.0",
     "relativePath": "shared-schemas/osdu/master-data/RigDerrick.1.0.0.json"
   },
   {
+    "kind": "{{schema-authority}}:wks:master-data--RigHydrocyclone:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigHydrocyclone.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigMotor:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigMotor.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigPit:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigPit.1.0.0.json"
+  },
+  {
     "kind": "{{schema-authority}}:wks:master-data--RigPump:1.0.0",
     "relativePath": "shared-schemas/osdu/master-data/RigPump.1.0.0.json"
   },
   {
+    "kind": "{{schema-authority}}:wks:master-data--RigPump:1.1.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigPump.1.1.0.json"
+  },
+  {
     "kind": "{{schema-authority}}:wks:master-data--RigRiser:1.0.0",
     "relativePath": "shared-schemas/osdu/master-data/RigRiser.1.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--RigShaker:1.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/RigShaker.1.0.0.json"
   },
   {
     "kind": "{{schema-authority}}:wks:master-data--RigSpecifications:1.0.0",
@@ -3686,6 +3742,10 @@
   {
     "kind": "{{schema-authority}}:wks:master-data--Risk:1.2.0",
     "relativePath": "shared-schemas/osdu/master-data/Risk.1.2.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Risk:2.0.0",
+    "relativePath": "shared-schemas/osdu/master-data/Risk.2.0.0.json"
   },
   {
     "kind": "{{schema-authority}}:wks:reference-data--RiskCategory:1.0.0",
@@ -4356,6 +4416,30 @@
     "relativePath": "shared-schemas/osdu/reference-data/SeismicPolarity.1.0.0.json"
   },
   {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicPostStackProcessingProduct:0.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicPostStackProcessingProduct.0.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicPostStackTrace2DSection:0.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicPostStackTrace2DSection.0.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicPostStackTrace3DVolume:0.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicPostStackTrace3DVolume.0.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicPreStackProcessingProduct:0.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicPreStackProcessingProduct.0.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicPreStackTrace2DSection:0.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicPreStackTrace2DSection.0.0.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicPreStackTrace3DVolume:0.0.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicPreStackTrace3DVolume.0.0.0.json"
+  },
+  {
     "kind": "{{schema-authority}}:wks:master-data--SeismicProcessingProject:1.0.0",
     "relativePath": "shared-schemas/osdu/master-data/SeismicProcessingProject.1.0.0.json"
   },
@@ -4430,6 +4514,10 @@
   {
     "kind": "{{schema-authority}}:wks:work-product-component--SeismicTraceData:1.7.0",
     "relativePath": "shared-schemas/osdu/work-product-component/SeismicTraceData.1.7.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:work-product-component--SeismicTraceData:1.8.0",
+    "relativePath": "shared-schemas/osdu/work-product-component/SeismicTraceData.1.8.0.json"
   },
   {
     "kind": "{{schema-authority}}:wks:reference-data--SeismicTraceDataDimensionalityType:1.0.0",
@@ -5154,6 +5242,10 @@
   {
     "kind": "{{schema-authority}}:wks:master-data--Well:1.4.0",
     "relativePath": "shared-schemas/osdu/master-data/Well.1.4.0.json"
+  },
+  {
+    "kind": "{{schema-authority}}:wks:master-data--Well:1.5.0",
+    "relativePath": "shared-schemas/osdu/master-data/Well.1.5.0.json"
   },
   {
     "kind": "{{schema-authority}}:wks:master-data--WellActivity:1.0.0",

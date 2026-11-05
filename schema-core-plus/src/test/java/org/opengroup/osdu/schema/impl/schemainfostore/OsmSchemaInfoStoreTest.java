@@ -16,8 +16,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
-import org.mockito.junit.MockitoJUnit;
-import org.mockito.junit.MockitoRule;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -50,9 +48,6 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class OsmSchemaInfoStoreTest {
-
-  @Rule
-  public MockitoRule mockitoRule = MockitoJUnit.rule();
 
   private static final String COMMON_TENANT_ID = "common";
   private static final Destination DESTINATION = Destination.builder()

@@ -25,6 +25,7 @@
 
 ### STS ###
 target/
+.flattened-pom.xml
 .settings/
 .apt_generated
 .classpath
@@ -49,10 +50,6 @@ dist/
 
 # Python gen files
 *.pyc
-
-#ibm helm chart manifest
-devops/ibm/ibm-schema-config/manifests
-devops/ibm/ibm-schema-deploy/manifests
 
 # VS Code
 .vscode/

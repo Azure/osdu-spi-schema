@@ -9,10 +9,6 @@ The Schema Service is a Maven multi-module project with each cloud implemention 
 
 Instructions for running the Google Cloud implementation in the cloud can be found [here](./provider/schema-gc/README.md).
 
-## 2. Azure deployment
-
-Instructions for running the Azure implementation in the cloud can be found [here](https://community.opengroup.org/osdu/platform/system/schema-service/-/blob/master/provider/schema-azure/README.md).
-
 ## Running Automated Integration Test
 
 DevSanity tests are located in a schema-core project in testing directory under the project root directory.
@@ -25,10 +21,6 @@ Below command has to be run post building complete project.
 
 Instructions for running the Google Cloud integration tests can be found [here](./provider/schema-gc/README.md).
 
-Below command can be run through azure-pipeline.yml after setting environment variables in the pipeline.
-
- verify
- 
 ## Deploy Shared Schemas
 
 Schema service as part of deployment deploys pre-defined OSDU schemas so end users can get community accepted schemas to refer. Such schemas are present in [folder](./deployments/shared-schemas/osdu) and script to deploy the schema are present [here](deployments/scripts).
@@ -37,7 +29,7 @@ Details to deploy shared schemas can be found under [README.md](./deployments/sh
   
 ## AWS
 
-Instructions for running and testing this service can be found [here](./provider/schema-aws/README.md)  
+The AWS provider has been removed from this repository.
 
 ## Open API 3.0 - Swagger
 - Swagger UI : https://host/context-path/swagger (will redirect to https://host/context-path/swagger-ui/index.html)
@@ -49,7 +41,7 @@ All the Swagger and OpenAPI related common properties are managed here [swagger.
 #### Server Url(full path vs relative path) configuration
 - `api.server.fullUrl.enabled=true` It will generate full server url in the OpenAPI swagger
 - `api.server.fullUrl.enabled=false` It will generate only the contextPath only
-- default value is false (Currently only in Azure it is enabled)
+- default value is false
 [Reference]:(https://springdoc.org/faq.html#_how_is_server_url_generated)
 
 ## License

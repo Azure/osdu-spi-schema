@@ -104,10 +104,6 @@
     "relativePath": "shared-schemas/osdu/master-data/RigSpecifications.1.0.0.json"
   },
   {
-    "kind": "{{schema-authority}}:wks:reference-data--RigType:1.0.0",
-    "relativePath": "shared-schemas/osdu/reference-data/RigType.1.0.0.json"
-  },
-  {
     "kind": "{{schema-authority}}:wks:reference-data--RigType:1.0.1",
     "relativePath": "shared-schemas/osdu/reference-data/RigType.1.0.1.json"
   },

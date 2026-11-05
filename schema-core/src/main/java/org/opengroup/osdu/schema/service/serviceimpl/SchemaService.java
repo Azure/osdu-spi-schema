@@ -282,6 +282,7 @@ public class SchemaService implements ISchemaService {
 
         List<SchemaInfo> schemaList = new LinkedList<>();
 
+        validatePagination(queryParams);
         latestVersionMajorMinorFiltersCheck(queryParams);
 
         if (queryParams.getScope() != null) {
@@ -370,6 +371,18 @@ public class SchemaService implements ISchemaService {
         } else {
             String tenant = headers.getPartitionId();
             schemaInfoStore.getSchemaInfoList(queryParams, tenant).forEach(schemaList::add);
+        }
+    }
+
+    private void validatePagination(QueryParams queryParams) throws BadRequestException {
+        if (queryParams.getOffset() < 0) {
+            throw new BadRequestException(SchemaConstants.INVALID_OFFSET);
+        }
+        if (queryParams.getLimit() < 0) {
+            throw new BadRequestException(SchemaConstants.INVALID_LIMIT);
+        }
+        if (queryParams.getLimit() > SchemaConstants.MAX_QUERY_LIMIT) {
+            throw new BadRequestException(SchemaConstants.INVALID_LIMIT_MAX);
         }
     }
 
