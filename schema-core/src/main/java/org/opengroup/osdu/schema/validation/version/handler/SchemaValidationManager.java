@@ -15,7 +15,7 @@ import org.opengroup.osdu.schema.validation.version.model.SchemaPatchRefComp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import tools.jackson.core.JacksonException;
 
 @Service
 public class SchemaValidationManager {
@@ -51,7 +51,7 @@ public class SchemaValidationManager {
 				if(schemaBreakingChanges.size() >0)
 					return;
 			}
-		} catch ( JsonProcessingException e) {
+		} catch ( JacksonException e) {
 			throw new ApplicationException("Failed to process schema validation.");
 		}
 
