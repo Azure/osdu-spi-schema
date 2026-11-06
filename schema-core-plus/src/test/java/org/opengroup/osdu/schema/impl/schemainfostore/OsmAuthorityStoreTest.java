@@ -12,6 +12,9 @@ import java.util.Optional;
 import org.apache.logging.log4j.util.Strings;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Rule;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -38,6 +41,9 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class OsmAuthorityStoreTest {
+
+  @Rule
+  public MockitoRule mockitoRule = MockitoJUnit.rule();
 
   private static final String COMMON_TENANT_ID = "common";
   private static final String AUTHORITY_ID = "testAuthorityId";

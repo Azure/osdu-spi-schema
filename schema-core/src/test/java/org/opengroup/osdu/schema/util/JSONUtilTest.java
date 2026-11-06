@@ -18,11 +18,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.node.ArrayNode;
+import tools.jackson.databind.node.ObjectNode;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -40,7 +40,7 @@ public class JSONUtilTest {
 		assertTrue(verifyCleanJSON(cleanJSON));
 	}
 	
-	public boolean verifyCleanJSON(JsonNode inputJSON) throws JsonMappingException, JsonProcessingException {
+	public boolean verifyCleanJSON(JsonNode inputJSON) throws DatabindException, JacksonException {
 		EnumSet<SkipTags> skipTags = EnumSet.allOf(SkipTags.class);
 		Map<String, JsonNode> flattenedJSON = new JSONFlattener(inputJSON).flatten();
 		
@@ -81,7 +81,7 @@ public class JSONUtilTest {
 			if (node.isObject()) {
 				ObjectNode object = (ObjectNode) node;
 				object
-				.fields()
+				.properties().iterator()
 				.forEachRemaining(
 						entry -> {
 							process(entry.getValue(), prefix + "/" + entry.getKey());
@@ -90,7 +90,7 @@ public class JSONUtilTest {
 				ArrayNode array = (ArrayNode) node;
 				AtomicInteger counter = new AtomicInteger();
 				array
-				.elements()
+				.values().iterator()
 				.forEachRemaining(
 						item -> {
 							process(item, prefix + "/" + counter.getAndIncrement());

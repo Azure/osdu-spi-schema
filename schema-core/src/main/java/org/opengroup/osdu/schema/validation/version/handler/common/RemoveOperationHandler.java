@@ -66,13 +66,13 @@ public class RemoveOperationHandler implements SchemaValidationHandler{
 		Iterator<String> fieldNameItr;
 		if (isInDefinitions(path)) {
 			// For paths like /definitions/osdu:wks:..., look inside the definitions object
-			com.fasterxml.jackson.databind.JsonNode definitions = schemaDiff.getTargetSchema().get(SchemaConstants.DEFINITIONS);
+			tools.jackson.databind.JsonNode definitions = schemaDiff.getTargetSchema().get(SchemaConstants.DEFINITIONS);
 			if (definitions == null) {
 				return false;
 			}
-			fieldNameItr = definitions.fieldNames();
+			fieldNameItr = definitions.propertyNames().iterator();
 		} else {
-			fieldNameItr = schemaDiff.getTargetSchema().fieldNames();
+			fieldNameItr = schemaDiff.getTargetSchema().propertyNames().iterator();
 		}
 
 		while(fieldNameItr.hasNext()) {

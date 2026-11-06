@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.TreeMap;
+import com.google.gson.Gson;
 import org.apache.commons.lang3.ObjectUtils;
 import org.apache.http.HttpStatus;
 import org.opengroup.osdu.core.common.logging.JaxRsDpsLog;
@@ -42,6 +43,7 @@ import org.opengroup.osdu.core.osm.core.model.query.GetQuery;
 import org.opengroup.osdu.core.osm.core.model.where.Where;
 import org.opengroup.osdu.core.osm.core.model.where.predicate.Eq;
 import org.opengroup.osdu.core.osm.core.service.Context;
+import org.opengroup.osdu.core.osm.core.translate.ViewResult;
 import org.opengroup.osdu.core.osm.core.translate.TranslatorException;
 import org.opengroup.osdu.core.osm.core.translate.TranslatorRuntimeException;
 import org.opengroup.osdu.schema.configuration.PropertiesConfiguration;
@@ -65,6 +67,7 @@ public class OsmSchemaInfoStore implements ISchemaInfoStore {
 
   private static final String SYSTEM_SCHEMA_KIND = "system_schema";
   private static final String SCHEMA_INFO_PREFIX = "schemaInfo.%s";
+  private static final String SCHEMA_INFO = "schemaInfo";
   private static final String SCHEMA_IDENTITY_PREFIX = String.format(SCHEMA_INFO_PREFIX,
       "schemaIdentity.%s");
   private static final String SCHEMA_ID = String.format(SCHEMA_IDENTITY_PREFIX, "id");
@@ -311,7 +314,6 @@ public class OsmSchemaInfoStore implements ISchemaInfoStore {
   @Override
   public List<SchemaInfo> getSchemaInfoList(QueryParams queryParams, String tenantId)
       throws ApplicationException {
-    List<SchemaInfo> schemaList = new LinkedList<>();
     List<Eq> filterList = getFilters(queryParams);
 
     GetQuery<SchemaRequest>.GetQueryBuilder<SchemaRequest> queryBuilder = new GetQuery<>(
@@ -320,11 +322,7 @@ public class OsmSchemaInfoStore implements ISchemaInfoStore {
     if (!filterList.isEmpty()) {
       queryBuilder.where(buildFiltersFromList(filterList));
     }
-    for (SchemaRequest entity : context.getResultsAsList(queryBuilder.build())) {
-      schemaList.add(entity.getSchemaInfo());
-    }
-
-    return schemaList;
+    return getSchemaInfoList(queryBuilder.build());
   }
 
   /**
@@ -337,7 +335,6 @@ public class OsmSchemaInfoStore implements ISchemaInfoStore {
   @Override
   public List<SchemaInfo> getSystemSchemaInfoList(QueryParams queryParams)
       throws ApplicationException {
-    List<SchemaInfo> schemaList = new LinkedList<>();
     List<Eq> filterList = getFilters(queryParams);
 
     GetQuery<SchemaRequest>.GetQueryBuilder<SchemaRequest> queryBuilder = new GetQuery<>(
@@ -345,10 +342,20 @@ public class OsmSchemaInfoStore implements ISchemaInfoStore {
     if (!filterList.isEmpty()) {
       queryBuilder.where(buildFiltersFromList(filterList));
     }
-    for (SchemaRequest entity : context.getResultsAsList(queryBuilder.build())) {
-      schemaList.add(entity.getSchemaInfo());
-    }
+    return getSchemaInfoList(queryBuilder.build());
+  }
 
+  private List<SchemaInfo> getSchemaInfoList(GetQuery<SchemaRequest> query) {
+    Gson gson = new Gson();
+    List<SchemaInfo> schemaList = new LinkedList<>();
+    for (ViewResult result : context.getViewResultsAsList(query,
+        Collections.singletonList(SCHEMA_INFO), false)) {
+      SchemaInfo schemaInfo = gson.fromJson(gson.toJson(result.get(SCHEMA_INFO)), SchemaInfo.class);
+      if (schemaInfo == null) {
+        throw new IllegalStateException("Schema info projection returned no schema info");
+      }
+      schemaList.add(schemaInfo);
+    }
     return schemaList;
   }
 

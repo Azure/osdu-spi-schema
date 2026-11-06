@@ -6,8 +6,8 @@ import jakarta.validation.ConstraintValidatorContext;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 
 /**
  * Method to validate if field with SchemaConstraint annotation is in form of
@@ -21,7 +21,7 @@ public class SchemaRequestValidator implements ConstraintValidator<SchemaRequest
         try {
             String schemaString = mapper.writeValueAsString(value);
             new JSONObject(schemaString);
-        } catch (JsonProcessingException e) {
+        } catch (JacksonException e) {
             return false;
         } catch (JSONException e) {
             return false;

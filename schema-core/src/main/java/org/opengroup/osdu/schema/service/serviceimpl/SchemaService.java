@@ -45,9 +45,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
+import tools.jackson.core.exc.StreamReadException;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DatabindException;
 import com.google.gson.Gson;
 
 import lombok.RequiredArgsConstructor;
@@ -126,7 +126,7 @@ public class SchemaService implements ISchemaService {
      * @param schemaRequest request
      * @return schemaInfo.
      * @throws JSONException
-     * @throws JsonProcessingException
+     * @throws JacksonException
      */
     @Override
     public SchemaInfo createSchema(SchemaRequest schemaRequest) throws ApplicationException, BadRequestException {
@@ -196,10 +196,10 @@ public class SchemaService implements ISchemaService {
      * @param schemaRequest
      * @return schemaInfo.
      * @throws IOException
-     * @throws JsonProcessingException
+     * @throws JacksonException
      * @throws JSONException
-     * @throws JsonMappingException
-     * @throws JsonParseException
+     * @throws DatabindException
+     * @throws StreamReadException
      */
     @Override
     public SchemaInfo updateSchema(SchemaRequest schemaRequest) throws ApplicationException, BadRequestException {

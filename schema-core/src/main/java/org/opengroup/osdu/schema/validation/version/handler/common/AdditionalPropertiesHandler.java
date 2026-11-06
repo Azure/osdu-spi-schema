@@ -14,8 +14,8 @@ import org.opengroup.osdu.schema.validation.version.model.SchemaPatch;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonPointer;
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.core.JsonPointer;
+import tools.jackson.databind.JsonNode;
 
 @Order(2)
 @Component
@@ -35,13 +35,13 @@ public class AdditionalPropertiesHandler implements SchemaValidationHandler{
 		//Changing state of "additionalProperties" is only permitted when it was not present and added as true
 		//or it is present as true but removed now
 		if("additionalProperties".equals(attributeName)) {
-			if(SchemaConstants.OP_ADD.equals(patch.getOp()) && "true".equals(patch.getValue().asText())) {
+			if(SchemaConstants.OP_ADD.equals(patch.getOp()) && "true".equals(patch.getValue().asString(""))) {
 				return;
 			}else if(SchemaConstants.OP_REMOVE.equals(patch.getOp())) {
 				JsonPointer pointer = JsonPointer.valueOf(patch.getPath());
 				JsonNode originalValue = schemaDiff.getSourceSchema().at(pointer);
 				
-				if("true".equals(originalValue.asText()))
+				if("true".equals(originalValue.asString("")))
 					return;
 			}
 

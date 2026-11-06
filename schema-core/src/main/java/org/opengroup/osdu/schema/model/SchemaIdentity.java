@@ -10,11 +10,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.opengroup.osdu.schema.constants.SchemaConstants;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(title = "SchemaIdentity", description = "Schema authority source and type description")
+@JsonPropertyOrder({"authority", "source", "entityType", "schemaVersionMajor", "schemaVersionMinor", "schemaVersionPatch", "id"})
 public class SchemaIdentity {
 
     @Schema(description = "Entity authority", example = "osdu")

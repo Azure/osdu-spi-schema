@@ -9,8 +9,11 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import org.opengroup.osdu.schema.enums.SchemaScope;
 import org.opengroup.osdu.schema.enums.SchemaStatus;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import org.opengroup.osdu.schema.util.ZeroOffsetDateSerializer;
+import tools.jackson.databind.annotation.JsonSerialize;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +25,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Schema(title = "Schema Info", description = "Represents a model to Schema Info including status, creation and schemaIdentity")
+@JsonPropertyOrder({"schemaIdentity", "createdBy", "dateCreated", "status", "scope", "supersededBy"})
 public class SchemaInfo {
 
 	@NotNull(message = "schemaIdentity must not be null")
@@ -33,6 +37,7 @@ public class SchemaInfo {
 	private String createdBy;
 
 	@Schema(description = "The UTC date time of the entity creation", example = "2019-05-23T11:16:03Z")
+	@JsonSerialize(using = ZeroOffsetDateSerializer.class)
 	private Date dateCreated;
 
 	@NotNull(message = "status must not be null")
