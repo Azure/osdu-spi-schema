@@ -2,6 +2,9 @@ schemaVersion: 3
 service:
   name: schema
   archetype: java-maven-azure
+componentGovernance:
+  upstream: https://community.opengroup.org/osdu/platform/system/schema-service
+  ignoreDirectories: [deployments/scripts/google, deployments/scripts/schema-cleaner]
 tests:
   acceptance:
     type: maven
