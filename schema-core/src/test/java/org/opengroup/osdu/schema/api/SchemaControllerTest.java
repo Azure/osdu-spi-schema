@@ -27,7 +27,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
-import com.fasterxml.jackson.core.JsonProcessingException;
+import tools.jackson.core.JacksonException;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -58,7 +58,7 @@ public class SchemaControllerTest {
 
     @Test
     public void testCreateSchema()
-            throws ApplicationException, NotFoundException, BadRequestException, JsonProcessingException {
+            throws ApplicationException, NotFoundException, BadRequestException, JacksonException {
         schemaRequest = getSchemaRequestObject();
 
         when(schemaService.createSchema(schemaRequest)).thenReturn(getSchemaInfoObject());

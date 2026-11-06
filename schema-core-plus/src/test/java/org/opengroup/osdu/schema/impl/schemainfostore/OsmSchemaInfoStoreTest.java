@@ -6,9 +6,14 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyBoolean;
+import static org.mockito.ArgumentMatchers.anyList;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import com.google.gson.Gson;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -16,6 +21,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
 import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -31,6 +38,7 @@ import org.opengroup.osdu.core.osm.core.model.Namespace;
 import org.opengroup.osdu.core.osm.core.service.Context;
 import org.opengroup.osdu.core.osm.core.translate.TranslatorException;
 import org.opengroup.osdu.core.osm.core.translate.TranslatorRuntimeException;
+import org.opengroup.osdu.core.osm.core.translate.ViewResult;
 import org.opengroup.osdu.schema.configuration.PropertiesConfiguration;
 import org.opengroup.osdu.schema.constants.SchemaConstants;
 import org.opengroup.osdu.schema.destination.provider.impl.OsmDestinationProvider;
@@ -48,6 +56,9 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 public class OsmSchemaInfoStoreTest {
+
+  @Rule
+  public MockitoRule mockitoRule = MockitoJUnit.rule();
 
   private static final String COMMON_TENANT_ID = "common";
   private static final Destination DESTINATION = Destination.builder()
@@ -425,11 +436,14 @@ public class OsmSchemaInfoStoreTest {
     when(headers.getPartitionId()).thenReturn("test");
     when(tenantFactory.getTenantInfo("test")).thenReturn(tenantInfo);
     when(tenantInfo.getName()).thenReturn("test");
-    when(context.getResultsAsList(any())).thenReturn(
-        Collections.singletonList(getMockSchemaObject_Published()));
-    assertEquals(1,
-        schemaInfoStore.getSchemaInfoList(QueryParams.builder().limit(100).offset(0).build(),
-            "test").size());
+    when(context.getViewResultsAsList(any(), anyList(), anyBoolean())).thenReturn(
+        Collections.singletonList(getSchemaInfoViewResult(getMockSchemaInfo())));
+    List<SchemaInfo> schemaInfos = schemaInfoStore.getSchemaInfoList(
+        QueryParams.builder().limit(100).offset(0).build(), "test");
+
+    assertEquals(Collections.singletonList(getMockSchemaInfo()), schemaInfos);
+    verify(context).getViewResultsAsList(any(),
+        eq(Collections.singletonList("schemaInfo")), eq(false));
   }
 
   @Test
@@ -439,8 +453,8 @@ public class OsmSchemaInfoStoreTest {
     when(headers.getPartitionId()).thenReturn(COMMON_TENANT_ID);
     when(tenantFactory.getTenantInfo(COMMON_TENANT_ID)).thenReturn(tenantInfo);
     when(tenantInfo.getName()).thenReturn(COMMON_TENANT_ID);
-    when(context.getResultsAsList(any())).thenReturn(
-        Collections.singletonList(getMockSchemaObject_Published()));
+    when(context.getViewResultsAsList(any(), anyList(), anyBoolean())).thenReturn(
+        Collections.singletonList(getSchemaInfoViewResult(getMockSchemaInfo())));
     assertEquals(1,
         schemaInfoStore.getSystemSchemaInfoList(QueryParams.builder().limit(100).offset(0).build())
             .size());
@@ -453,8 +467,8 @@ public class OsmSchemaInfoStoreTest {
     when(headers.getPartitionId()).thenReturn("test");
     when(tenantFactory.getTenantInfo("test")).thenReturn(tenantInfo);
     when(tenantInfo.getName()).thenReturn("test");
-    when(context.getResultsAsList(any())).thenReturn(
-        Collections.singletonList(getMockSchemaObject_Published()));
+    when(context.getViewResultsAsList(any(), anyList(), anyBoolean())).thenReturn(
+        Collections.singletonList(getSchemaInfoViewResult(getMockSchemaInfo())));
     assertEquals(1,
         schemaInfoStore.getSchemaInfoList(QueryParams.builder().authority("test").source("test")
             .entityType("test").schemaVersionMajor(1l).schemaVersionMinor(1l).scope("test")
@@ -529,6 +543,13 @@ public class OsmSchemaInfoStoreTest {
 
         .build();
 
+  }
+
+  private ViewResult getSchemaInfoViewResult(SchemaInfo schemaInfo) {
+    ViewResult result = new ViewResult();
+    Gson gson = new Gson();
+    result.put("schemaInfo", gson.fromJson(gson.toJson(schemaInfo), Object.class));
+    return result;
   }
 
   private SchemaRequest getMockSchemaObject_SuperSededBy() {

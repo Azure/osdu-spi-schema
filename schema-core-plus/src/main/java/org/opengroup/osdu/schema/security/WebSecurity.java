@@ -17,6 +17,8 @@
 
 package org.opengroup.osdu.schema.security;
 
+import static org.springframework.security.config.Customizer.withDefaults;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
@@ -38,8 +40,7 @@ public class WebSecurity {
         .csrf(AbstractHttpConfigurer::disable)
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(authorize -> authorize.anyRequest().permitAll())
-        // AuthN is handled by sidecar / mesh; httpBasic defaults break Boot 4 (SecurityProperties).
-        .httpBasic(httpBasic -> httpBasic.disable());
+        .httpBasic(withDefaults());
     return http.build();
     }
 }

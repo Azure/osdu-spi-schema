@@ -23,10 +23,7 @@ import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
-@SpringBootApplication(exclude = {
-    // Mesh/sidecar handles AuthN; default in-memory users need SecurityProperties and break Boot 4 startup.
-    org.springframework.boot.security.autoconfigure.UserDetailsServiceAutoConfiguration.class
-})
+@SpringBootApplication
 @ComponentScan({"org.opengroup.osdu"})
 @ConfigurationPropertiesScan
 @PropertySource("classpath:swagger.properties")
