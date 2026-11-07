@@ -73,13 +73,13 @@ public class AddOperationHandler implements SchemaValidationHandler{
 		Iterator<String> fieldNameItr;
 		if (isInDefinitions(path)) {
 			// For paths like /definitions/osdu:wks:..., look inside the definitions object
-			com.fasterxml.jackson.databind.JsonNode definitions = schemaDiff.getSourceSchema().get(SchemaConstants.DEFINITIONS);
+			tools.jackson.databind.JsonNode definitions = schemaDiff.getSourceSchema().get(SchemaConstants.DEFINITIONS);
 			if (definitions == null) {
 				return false;
 			}
-			fieldNameItr = definitions.fieldNames();
+			fieldNameItr = definitions.propertyNames().iterator();
 		} else {
-			fieldNameItr = schemaDiff.getSourceSchema().fieldNames();
+			fieldNameItr = schemaDiff.getSourceSchema().propertyNames().iterator();
 		}
 
 		while(fieldNameItr.hasNext()) {

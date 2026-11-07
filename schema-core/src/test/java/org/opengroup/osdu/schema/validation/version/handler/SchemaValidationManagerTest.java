@@ -27,9 +27,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -112,7 +112,7 @@ public class SchemaValidationManagerTest {
 	public void testInitiateValidationProcess_Exception() throws IOException {
 		List<SchemaBreakingChanges> schemaBreakingChanges = new ArrayList<>();
 		Mockito.when(handlers.getFirstHandler()).thenReturn( new AdditionalPropertiesHandler() );
-		Mockito.when(jsonUtil.findJSONDiff(Mockito.any(JsonNode.class), Mockito.any(JsonNode.class))).thenThrow(JsonProcessingException.class);
+		Mockito.when(jsonUtil.findJSONDiff(Mockito.any(JsonNode.class), Mockito.any(JsonNode.class))).thenThrow(JacksonException.class);
 
 		assertThrows(ApplicationException.class,
 				() -> schemaValidationManager.initiateValidationProcess(getEmptySchemaHandlerVO(), schemaBreakingChanges));
