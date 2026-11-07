@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonPointer;
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.core.JsonPointer;
+import tools.jackson.databind.JsonNode;
 
 
 @Order(4)
@@ -64,8 +64,8 @@ public class ReferenceAttributeHandler implements SchemaValidationHandler{
 		JsonPointer pointer = JsonPointer.valueOf(patch.getPath());
 		JsonNode oldRefValue = schemaDiff.getSourceSchema().at(pointer);
 		JsonNode newRefValue = schemaDiff.getTargetSchema().at(pointer);
-		String oldRefId = StringUtils.substringAfterLast(oldRefValue.asText(), "/");
-		String newRefId = StringUtils.substringAfterLast(newRefValue.asText(), "/");
+		String oldRefId = StringUtils.substringAfterLast(oldRefValue.asString(""), "/");
+		String newRefId = StringUtils.substringAfterLast(newRefValue.asString(""), "/");
 
 		if(schemaUtil.isValidSchemaVersionChange(oldRefId, newRefId, schemaDiff.getValidationType()) == false) {
 			schemaBreakingChanges.add(new SchemaBreakingChanges(patch, "Invalid \"$ref\" version change."));

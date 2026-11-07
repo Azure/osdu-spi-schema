@@ -7,9 +7,12 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Builder;
 import lombok.Data;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
 @Data
 @Builder
 @Schema(title = "Schema Info Response", description = "The response for a GET schema request")
+@JsonPropertyOrder({"schemaInfos", "offset", "count", "totalCount"})
 public class SchemaInfoResponse {
 
     @ArraySchema(schema = @Schema(implementation = SchemaInfo.class))

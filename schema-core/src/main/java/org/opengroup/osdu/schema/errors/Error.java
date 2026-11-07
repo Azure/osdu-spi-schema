@@ -7,6 +7,7 @@ import org.opengroup.osdu.schema.errors.model.BadRequestError;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -21,6 +22,7 @@ import lombok.Setter;
 @JsonInclude(Include.NON_NULL)
 @JsonTypeInfo(include = JsonTypeInfo.As.WRAPPER_OBJECT, use = JsonTypeInfo.Id.NAME, visible = true)
 @JsonTypeName("error")
+@JsonPropertyOrder({"code", "message", "errors"})
 public class Error {
 
     @JsonIgnore

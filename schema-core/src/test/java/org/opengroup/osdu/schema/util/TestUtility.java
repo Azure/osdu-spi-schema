@@ -10,11 +10,11 @@ import jakarta.json.JsonValue;
 
 import org.opengroup.osdu.schema.validation.version.model.SchemaPatch;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.type.TypeFactory;
 
 public class TestUtility {
 	
@@ -23,11 +23,11 @@ public class TestUtility {
 		return new ObjectMapper().readTree(schema);
 	}
 	
-	public static List<SchemaPatch> findSchemaPatch(JsonNode source, JsonNode target) throws JsonMappingException, JsonProcessingException {
+	public static List<SchemaPatch> findSchemaPatch(JsonNode source, JsonNode target) throws DatabindException, JacksonException {
 		JsonValue sourceValue = Json.createReader(new StringReader(source.toString())).readValue();
 		JsonValue targetValue = Json.createReader(new StringReader(target.toString())).readValue();
 		JsonPatch diff = Json.createDiff(sourceValue.asJsonObject(), targetValue.asJsonObject());
-		return new ObjectMapper().readValue(diff.toString(), TypeFactory.defaultInstance().constructCollectionType(List.class,  
+		return new ObjectMapper().readValue(diff.toString(), TypeFactory.createDefaultInstance().constructCollectionType(List.class,  
 				SchemaPatch.class));
 
 	}
