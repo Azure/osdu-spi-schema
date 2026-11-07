@@ -60,9 +60,9 @@ import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 import org.springframework.test.util.ReflectionTestUtils;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.ObjectMapper;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -164,7 +164,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_withPrivateSchema()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, JacksonException {
 		String dataPartitionId = "tenant";
 		String schemaId = "os:wks:well:1.1.1";
 
@@ -199,7 +199,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_SuccessScenario()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, JacksonException {
 		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
 		String schemaId = "os:wks:well:1.1.1";
 
@@ -234,7 +234,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_FailScenario_CleanUpScenario()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, JacksonException {
 		SchemaRequest schReq = getMockSchemaObject_published_InternalScope();
 
 		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
@@ -265,7 +265,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_SharedSchema()
-			throws JsonProcessingException, ApplicationException, BadRequestException, NotFoundException {
+			throws JacksonException, ApplicationException, BadRequestException, NotFoundException {
 		String dataPartitionId = "common";
 
 		SchemaRequest  schReqInt = getMockSchemaObject_published_InternalScope();
@@ -299,7 +299,7 @@ public class SchemaServiceTest {
 	}
 
 	public void testCreateSchema_Private_SchemaAlreadyRegistered()
-			throws JsonProcessingException, ApplicationException, BadRequestException, NotFoundException {
+			throws JacksonException, ApplicationException, BadRequestException, NotFoundException {
 		BadRequestException exception = Assertions.assertThrows(BadRequestException.class,
 				() -> schemaService.createSchema(getMockSchemaObject_published()));
 		assertEquals(SchemaConstants.SCHEMA_ID_EXISTS, exception.getMessage());
@@ -381,7 +381,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_ApplicationException_Entity_PrivateSchema()
-			throws JsonProcessingException, ApplicationException, BadRequestException, NotFoundException {
+			throws JacksonException, ApplicationException, BadRequestException, NotFoundException {
 		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
 		when(schemaInfoStore.isUniqueSystemSchema("os:wks:well:1.1.1")).thenReturn(true);
 		when(schemaInfoStore.isUnique("os:wks:well:1.1.1", "tenant")).thenReturn(true);
@@ -408,7 +408,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_ApplicationException_Authority_PrivateSchema()
-			throws NotFoundException, BadRequestException, ApplicationException, JsonProcessingException {
+			throws NotFoundException, BadRequestException, ApplicationException, JacksonException {
 		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
 		when(schemaInfoStore.isUniqueSystemSchema("os:wks:well:1.1.1")).thenReturn(true);
 		when(schemaInfoStore.isUnique("os:wks:well:1.1.1", "tenant")).thenReturn(true);
@@ -434,7 +434,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_ApplicationException_Source_PrivateSchema()
-			throws JsonProcessingException, ApplicationException, BadRequestException, NotFoundException {
+			throws JacksonException, ApplicationException, BadRequestException, NotFoundException {
 		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
 		when(schemaInfoStore.isUniqueSystemSchema("os:wks:well:1.1.1")).thenReturn(true);
 		when(schemaInfoStore.isUnique("os:wks:well:1.1.1", "tenant")).thenReturn(true);
@@ -460,7 +460,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testCreateSchema_schemaExists()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, JacksonException {
 		String dataPartitionId = "common";
 		String schemaId = "os:wks:well:1.1.1";
 		Mockito.when(headers.getPartitionId()).thenReturn(dataPartitionId);
@@ -578,7 +578,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testUpdateSchema_DevelopmentState() throws ApplicationException, NotFoundException, BadRequestException,
-			JSONException, JsonProcessingException {
+			JSONException, JacksonException {
 		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
 		SchemaInfo input = getMockSchemaInfo_development_status();
 		SchemaInfo[] schemaInfoArr = new SchemaInfo [2];
@@ -960,7 +960,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testUpsertSchema_SuccessfullUpdate()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonMappingException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, DatabindException, JacksonException {
 
 		SchemaInfo schInfo = getMockSchemaInfo_development_status();
 		SchemaRequest schReq = getMockSchemaObject_Development();
@@ -981,7 +981,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testUpsertSchema_SuccessfullCreate()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonMappingException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, DatabindException, JacksonException {
 
 		//throw exception while updating the schema
 		SchemaRequest schReq = getMockSchemaObject_Development();
@@ -1043,7 +1043,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testSchemaCreate_Patch_BreakingChanges()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonMappingException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, DatabindException, JacksonException {
 		SchemaRequest schReq = getMockSchemaObject_Development();
 		SchemaInfo[] schemaInfoArr = new SchemaInfo [2];
 		schemaInfoArr[1]=schReq.getSchemaInfo();
@@ -1062,7 +1062,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testSchemaCreate_WhenMajorVersionIsGreater_BreakingChanges()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonMappingException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, DatabindException, JacksonException {
 		SchemaRequest schReq = getMockSchemaObject_Development();
 
 		SchemaInfo latestFoundInSystem = SchemaInfo.builder()
@@ -1088,7 +1088,7 @@ public class SchemaServiceTest {
 
 	@Test
 	public void testSchemaCreate_WhenMajorVersionIsLesser_BreakingChanges()
-			throws ApplicationException, NotFoundException, BadRequestException, JsonMappingException, JsonProcessingException {
+			throws ApplicationException, NotFoundException, BadRequestException, DatabindException, JacksonException {
 		SchemaRequest schReq = getMockSchemaObject_Development();
 
 		SchemaInfo latestFoundInSystem = SchemaInfo.builder()
