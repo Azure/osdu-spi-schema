@@ -1,6 +1,6 @@
 package org.opengroup.osdu.schema.validation.version.model;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 
 import lombok.Data;
 

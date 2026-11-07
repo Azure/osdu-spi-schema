@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import tools.jackson.databind.JsonNode;
 
 @Order(3)
 @Component
@@ -101,10 +101,10 @@ public class CompositionPropertiesHandler implements SchemaValidationHandler{
 
 			//Check Ref and Title attribute is present inside the array
 			if(oldValue.has("title")) {
-				oldTitle = oldValue.get("title").asText();
+				oldTitle = oldValue.get("title").asString("");
 			}
 			if(oldValue.has("$ref")) {
-				oldRef = oldValue.get("$ref").asText();
+				oldRef = oldValue.get("$ref").asString("");
 			}
 
 			//If both the elements are missing then compare the value at respective index
@@ -123,7 +123,7 @@ public class CompositionPropertiesHandler implements SchemaValidationHandler{
 				while(newItr.hasNext()) {
 					JsonNode newValue = newItr.next();
 					if(null != oldTitle && newValue.has("title")) {
-						newTitle = newValue.get("title").asText();
+						newTitle = newValue.get("title").asString("");
 						if(oldTitle.equals(newTitle)) {
 							
 							SchemaHandlerVO newSchemaDiff = new SchemaHandlerVO(oldValue, newValue, schemaDiff.getSourceDefinition(), schemaDiff.getTargetDefinition(), schemaDiff.getValidationType());
@@ -134,7 +134,7 @@ public class CompositionPropertiesHandler implements SchemaValidationHandler{
 						}
 
 					}else if(null != oldRef && newValue.has("$ref")) {
-						newRef = newValue.get("$ref").asText();
+						newRef = newValue.get("$ref").asString("");
 						String oldRefId = StringUtils.substringAfterLast(oldRef, "/");
 						String newRefId = StringUtils.substringAfterLast(newRef, "/");
 						if(schemaUtil.isValidSchemaVersionChange(oldRefId, newRefId, schemaDiff.getValidationType()) && schemaDiff.getTargetDefinition().has(newRefId)) {
