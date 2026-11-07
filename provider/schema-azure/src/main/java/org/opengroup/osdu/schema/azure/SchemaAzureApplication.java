@@ -25,7 +25,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication(exclude = {
-        org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class})
+        org.springframework.boot.security.autoconfigure.SecurityAutoConfiguration.class})
 @ComponentScan({ "org.opengroup" })
 @PropertySource("classpath:swagger.properties")
 public class SchemaAzureApplication {
