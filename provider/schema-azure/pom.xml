@@ -31,7 +31,7 @@
 	</parent>
 
 	<properties>
-		<core-lib-azure.version>4.0.0</core-lib-azure.version>
+		<core-lib-azure.version>5.0.0</core-lib-azure.version>
 		<!-- Root pom pins lettuce explicitly, which beats the core-lib-azure BOM; match the library here -->
 		<lettuce.version>7.9.0.RELEASE</lettuce.version>
 		<jakarta.json.version>2.1.3</jakarta.json.version>
@@ -49,7 +49,7 @@
 <!-- Core Azure Library -->
       <dependency>
         <groupId>org.opengroup.osdu</groupId>
-        <artifactId>core-lib-azure</artifactId>
+        <artifactId>core-lib-azure-bom</artifactId>
         <version>${core-lib-azure.version}</version>
         <type>pom</type>
         <scope>import</scope>
@@ -79,7 +79,6 @@
 		<dependency>
 			<groupId>org.opengroup.osdu</groupId>
 			<artifactId>core-lib-azure</artifactId>
-			<version>${core-lib-azure.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>io.lettuce</groupId>
@@ -111,10 +110,6 @@
           <artifactId>log4j-to-slf4j</artifactId>
         </exclusion>
       </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
     </dependency>
 
     <!-- Azure Dependencies -->

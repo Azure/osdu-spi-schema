@@ -28,13 +28,13 @@ import org.opengroup.osdu.schema.constants.SchemaConstants.SkipTags;
 import org.opengroup.osdu.schema.validation.version.model.SchemaPatch;
 import org.springframework.stereotype.Component;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.type.TypeFactory;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.ObjectMapper;
+import tools.jackson.databind.node.ArrayNode;
+import tools.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.type.TypeFactory;
 
 import lombok.RequiredArgsConstructor;
 
@@ -45,7 +45,7 @@ public class JSONUtil {
 	private EnumSet<SkipTags> skipTags = EnumSet.allOf(SkipTags.class);
 	private EnumSet<CompositionTags> compositionTags = EnumSet.allOf(CompositionTags.class);
 
-	public JsonNode getCleanJSON(String inputJSON) throws JsonMappingException, JsonProcessingException {
+	public JsonNode getCleanJSON(String inputJSON) throws DatabindException, JacksonException {
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode root = mapper.readTree(inputJSON);
 		clean(root, "");
@@ -70,11 +70,11 @@ public class JSONUtil {
 		return isCompositionTag;
 	}
 
-	public  List<SchemaPatch> findJSONDiff(JsonNode source, JsonNode target) throws JsonMappingException, JsonProcessingException {
+	public  List<SchemaPatch> findJSONDiff(JsonNode source, JsonNode target) throws DatabindException, JacksonException {
 		JsonValue sourceValue = Json.createReader(new StringReader(source.toString())).readValue();
 		JsonValue targetValue = Json.createReader(new StringReader(target.toString())).readValue();
 		JsonPatch diff = Json.createDiff(sourceValue.asJsonObject(), targetValue.asJsonObject());
-		return new ObjectMapper().readValue(diff.toString(), TypeFactory.defaultInstance().constructCollectionType(List.class,  
+		return new ObjectMapper().readValue(diff.toString(), TypeFactory.createDefaultInstance().constructCollectionType(List.class,  
 				SchemaPatch.class));
 
 	}
@@ -91,7 +91,7 @@ public class JSONUtil {
 	private void clean(JsonNode node, String path) {
 		if (node.isObject()) {
 			ObjectNode object = (ObjectNode) node;
-			Iterator<Entry<String, JsonNode>> itr = object.fields();
+			Iterator<Entry<String, JsonNode>> itr = object.properties().iterator();
 			while(itr.hasNext()) {
 
 				Entry<String, JsonNode> entry = itr.next();
@@ -110,12 +110,12 @@ public class JSONUtil {
 			}
 		} else if (node.isArray()) {
 			ArrayNode array = (ArrayNode) node;
-			Iterator<JsonNode> itr = array.elements();
+			Iterator<JsonNode> itr = array.values().iterator();
 			AtomicInteger counter = new AtomicInteger();
 			while(itr.hasNext()) {
 				JsonNode entry = itr.next();
 				if(skipTags.stream().anyMatch(tag -> tag.getValue().equals(entry))
-						|| entry.asText().startsWith(SchemaConstants.TRANSFORMATION_TAG)) {
+						|| entry.asString("").startsWith(SchemaConstants.TRANSFORMATION_TAG)) {
 					itr.remove();
 				}
 				clean(entry, path + "/" + counter.getAndIncrement());
@@ -139,7 +139,7 @@ public class JSONUtil {
 		private void process(JsonNode node, String path) {
 			if (node.isObject()) {
 				ObjectNode object = (ObjectNode) node;
-				Iterator<Entry<String, JsonNode>> itr = object.fields();
+				Iterator<Entry<String, JsonNode>> itr = object.properties().iterator();
 				while(itr.hasNext()) {
 
 					Entry<String, JsonNode> entry = itr.next();
@@ -158,12 +158,12 @@ public class JSONUtil {
 				}
 			} else if (node.isArray()) {
 				ArrayNode array = (ArrayNode) node;
-				Iterator<JsonNode> itr = array.elements();
+				Iterator<JsonNode> itr = array.values().iterator();
 				AtomicInteger counter = new AtomicInteger();
 				while(itr.hasNext()) {
 					JsonNode entry = itr.next();
 					if(skipTags.stream().anyMatch(tag -> tag.getValue().equals(entry))
-							|| entry.asText().startsWith(SchemaConstants.TRANSFORMATION_TAG)) {
+							|| entry.asString("").startsWith(SchemaConstants.TRANSFORMATION_TAG)) {
 						itr.remove();
 					}
 					process(entry, path + "/" + counter.getAndIncrement());

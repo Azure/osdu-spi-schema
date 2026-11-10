@@ -13,9 +13,9 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.mockito.junit.jupiter.MockitoSettings;
 import org.mockito.quality.Strictness;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.DatabindException;
+import tools.jackson.databind.ObjectMapper;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
@@ -32,13 +32,13 @@ public class SchemaRequestValidatorTest {
     private ObjectMapper mapper = new ObjectMapper();
 
     @Test
-    public void test_JsonArrayAsInput_Schema() throws JsonMappingException, JsonProcessingException {
+    public void test_JsonArrayAsInput_Schema() throws DatabindException, JacksonException {
         schemaInputObject = mapper.readValue("[{}]", Object.class);
         assertEquals(false, schemaValidator.isValid(schemaInputObject, constraintValidatorContext));
     }
 
     @Test
-    public void test_JsonObjectAsInput_Schema() throws JsonMappingException, JsonProcessingException {
+    public void test_JsonObjectAsInput_Schema() throws DatabindException, JacksonException {
         schemaInputObject = mapper.readValue("{}", Object.class);
         assertEquals(true, schemaValidator.isValid(schemaInputObject, constraintValidatorContext));
     }
