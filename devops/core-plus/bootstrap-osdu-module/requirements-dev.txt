@@ -1,0 +1,4 @@
+# Test dependencies. This file does not include requirements.txt: that file uses hashes, and pip then
+# requires hashes for every package of the same installation.
+requests>=2.34,<3
+pytest>=8,<9

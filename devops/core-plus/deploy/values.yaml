@@ -20,6 +20,24 @@ data:
   limitsMemory: "2.5G"
   bootstrapImage: ""
   bootstrapServiceAccountName: ""
+  # Authority the bootstrap job registers the shared schemas under (the first part of a schema
+  # kind, "osdu" in osdu:wks:...). Only letters, digits, "_" and "-" are allowed.
+  schemaAuthority: "osdu"
+  # Threads used by the bootstrap job to register independent schemas (1 = sequential, max 8).
+  bootstrapWorkers: 4
+  # Schema override for the bootstrap job. By default the schemas bundled in the
+  # bootstrap image are used. Set schemaPackageVersion ("27.1.0", "27.1" for the newest 27.1.x,
+  # or "27" for the newest 27.x.x) to download the schemas of that released version of the
+  # bootstrap bundle from the GitLab package registry instead. Keep it in quotes: YAML turns
+  # 27.10 into 27.1, and the chart rejects a number.
+  schemaPackageVersion: ""
+  # Base URL of the generic package registry; empty uses the URL recorded in the image.
+  schemaPackageUrl: ""
+  # Optional sha256 of the downloaded bundle file, as GitLab shows it in the package's
+  # Assets (Deploy > Package registry). The bundle is rejected if it differs.
+  schemaPackageSha256: ""
+  # Use the bundled schemas if the download fails instead of failing the job.
+  schemaPackageFallback: false
   image: ""
   imagePullPolicy: "IfNotPresent"
   serviceAccountName: "schema"

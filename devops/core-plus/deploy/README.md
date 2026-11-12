@@ -57,9 +57,49 @@ First you need to set variables in **values.yaml** file using any code editor. S
 **data.limitsMemory** | memory limit | string | 2.5G | only if `global.limitsEnabled` is true
 **data.bootstrapImage** | bootstrap image | string | - | yes
 **data.bootstrapServiceAccountName** | bootstrap service account name | string | - | yes
+**data.schemaAuthority** | authority the bootstrap job registers the shared schemas under, the first part of a kind (`osdu` in `osdu:wks:...`); only letters, digits, `_` and `-` | string | `osdu` | no
+**data.bootstrapWorkers** | threads used by the bootstrap job to register schemas, from 1 (sequential) to 8 | integer | 4 | no
+**data.schemaPackageVersion** | version of the bootstrap bundle whose schemas are downloaded from the GitLab package registry instead of using the schemas bundled in the bootstrap image, ex `27.1.0`, `27.1` (newest 27.1.x), `27` (newest 27.x.x); write it in quotes in the values file, a number is rejected | string | "" (use the bundled schemas) | no
+**data.schemaPackageUrl** | base URL of the generic package registry used for the download; empty uses the URL recorded in the bootstrap image | string | "" | no
+**data.schemaPackageSha256** | optional sha256 of the downloaded bundle file, as GitLab shows it in the package's Assets | string | "" | no
+**data.schemaPackageFallback** | use the bundled schemas if the schema package download fails, instead of failing the bootstrap job | boolean | false | no
 **data.image** | service image | string | - | yes
 **data.imagePullPolicy** | when to pull image | string | IfNotPresent | yes
 **data.serviceAccountName** | name of your service account | string | schema | yes
+
+### Bootstrap schema loading
+
+The bootstrap job registers the shared OSDU schemas with the Schema service. The bootstrap image
+(`data.bootstrapImage`) is built from a versioned bootstrap bundle (code, pinned libraries and schemas), and the same
+bundle is published to the GitLab package registry. By default the job uses the schemas of the image and needs no
+network access to the registry.
+
+* To load the schemas of another published version without rebuilding the image, set `data.schemaPackageVersion`.
+  The job downloads that bundle, checks it against `data.schemaPackageSha256` (if set), extracts only its schemas
+  and uses them instead of the bundled ones. If the download fails the job fails,
+  unless `data.schemaPackageFallback` is `true`.
+  If the registry is not readable anonymously (for example a private project), add a `SCHEMA_PACKAGE_TOKEN` key to the
+  secret named by `conf.bootstrapSecretName`; see
+  [Loading schemas from a private GitLab project](../bootstrap-osdu-module/README.md#loading-schemas-from-a-private-gitlab-project).
+* `data.bootstrapWorkers` (default `4`, maximum `8`) sets how many threads register schemas. The abstract schemas are
+  registered first, one at a time, then independent schemas in parallel. Set it to `1` to register strictly one schema
+  after another. More threads do not always help: in a test on one environment 4 threads was the fastest, because
+  Postgres ran out of CPU.
+* `data.schemaAuthority` (default `osdu`) is the authority the schemas are registered under, so the kinds become
+  `<authority>:wks:...`. A value other than `osdu` creates a second set of schemas next to any existing ones; see
+  [Registering under another authority](../bootstrap-osdu-module/README.md#registering-under-another-authority).
+
+Example:
+
+```console
+helm upgrade --install core-plus-schema-deploy . \
+  --set data.bootstrapWorkers=2 \
+  --set data.schemaAuthority=acme \
+  --set-string data.schemaPackageVersion=27.1.0
+```
+
+See the [bootstrap module README](../bootstrap-osdu-module/README.md) for the package versions and the environment
+variables behind these values.
 
 ### Configuration variables
 

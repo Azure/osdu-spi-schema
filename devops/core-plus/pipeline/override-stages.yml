@@ -8,10 +8,90 @@ variables:
   DISABLE_INTEGRATION_TEST: true
   CIMPL_INFO_PATH: "/api/schema-service/v1/info"
 
+.schema-package-python:
+  image: python:3.10-alpine3.24
+  tags: ["osdu-small"]
+  cache: {}
+  variables:
+    BOOTSTRAP_MODULE_DIR: "devops/core-plus/bootstrap-osdu-module"
+
+# Bundle = bootstrap code + libraries pinned in requirements.txt + the schemas (*.json) and VERSION. The bootstrap
+# image is built from the same file. The manifest records the version, the commit and the registry URL.
+#
+# The version is the content of deployments/shared-schemas/VERSION (MAJOR.MINOR.PATCH) and nothing else: tags,
+# release branches and pom.xml of the service play no part in it. See deployments/shared-schemas/RELEASE.md.
+#
+# SCHEMA_PUBLISH (set by the rules below) decides what the job uploads to the GitLab Generic Package Registry
+# (package schema-bootstrap). Only a release is published; merge requests, tags and other pushes upload nothing:
+#   release  a push to the default branch that changed VERSION or the schemas: the same bundle is uploaded as
+#            X.Y.Z, X.Y and X (for VERSION 27.1.1: 27.1.1, 27.1 and 27). X and X.Y only move forward: an alias is
+#            skipped when a newer X.Y.Z of its series is already published (a hotfix of an older minor, a re-run of
+#            an old pipeline). X.Y.Z always
+#            means one set of schemas: the job fails, before anything is uploaded, when X.Y.Z already exists with
+#            different schemas (bump VERSION), and does not upload it again when the schemas are the same. The job
+#            runs after the merge, so a failure there leaves the merged schemas unpublished until VERSION is raised;
+#            the check below catches it earlier.
+#   check    every other pipeline (a merge request, a trusted or other branch, ...): the bundle is built for the
+#            image only (and kept as a job artifact) and nothing is uploaded, but the same comparison with the
+#            published X.Y.Z runs, so the job fails in the merge request, before the merge. The pipeline source and
+#            the changed files play no part: a merge request may run as a branch pipeline, and when the schemas
+#            are unchanged they are the published ones, so the check passes.
+# The logic is in deployments/scripts/schema-package.py.
+schema-package:
+  extends: .schema-package-python
+  stage: build
+  retry:
+    max: 1
+  needs:
+    - job: bootstrap-module-tests
+      artifacts: false
+  script:
+    - python3 deployments/scripts/schema-package.py
+  artifacts:
+    paths:
+      - dist/schema-package/
+    expire_in: 7 days
+  rules:
+    # only the default branch is released, by the push pipeline or by the pipeline it triggers (source "pipeline")
+    - if: '$CIMPL_STACK == "1" && $CI_COMMIT_BRANCH && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE =~ /^(push|pipeline)$/'
+      changes:
+        - deployments/shared-schemas/VERSION
+        - deployments/shared-schemas/**/*.json
+      variables:
+        SCHEMA_PUBLISH: "release"
+    # every other pipeline (the pipelines of a merge request, of a trusted branch, ...) still builds the bundle (the
+    # image needs it) and publishes nothing, but fails when VERSION is already published with different schemas. This
+    # does not depend on the pipeline source or on changed files, because a merge request may run as a branch pipeline.
+    - if: '$CIMPL == "1" || $CIMPL_STACK == "1"'
+      variables:
+        SCHEMA_PUBLISH: "check"
+
+bootstrap-module-tests:
+  extends: .schema-package-python
+  stage: build
+  needs: []
+  script:
+    - pip install --no-cache-dir -r $BOOTSTRAP_MODULE_DIR/requirements-dev.txt
+    - cd $BOOTSTRAP_MODULE_DIR && python -m pytest tests -q --junitxml=$CI_PROJECT_DIR/bootstrap-module-tests.xml
+  artifacts:
+    when: always
+    expire_in: 7 days
+    reports:
+      junit: bootstrap-module-tests.xml
+  rules:
+    - if: '$CIMPL == "1" || $CIMPL_STACK == "1"'
+
 cimpl-containerize-bootstrap-gitlab:
   tags: ["osdu-medium"]
+  # Restates the shared job's needs and adds the schema package built above.
+  needs:
+    - job: compile-and-unit-test
+    - job: schema-package
+      artifacts: true
   variables:
     CIMPL_IMAGE_BOOTSTRAP_NAME: "core-plus-bootstrap-schema"
+    # build the image from the bundle of schema-package instead of building one in the Dockerfile
+    CIMPL_BUILD_ARGS: "--build-arg BUNDLE=prebuilt"
 
 #osdu-main jobs
 

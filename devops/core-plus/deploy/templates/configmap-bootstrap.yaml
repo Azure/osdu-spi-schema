@@ -1,3 +1,8 @@
+{{- $authority := .Values.data.schemaAuthority | default "osdu" | toString | trim }}
+{{- if not (regexMatch "^[A-Za-z0-9_-]+$" $authority) }}
+{{- fail (printf "data.schemaAuthority %q is invalid: use only letters, digits, '_' and '-' (no '.', ':' or spaces)" $authority) }}
+{{- end }}
+{{- include "deploy.validateSchemaPackageVersion" . }}
 apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -11,3 +16,19 @@ data:
   ENABLE_CLEANUP: {{ .Values.data.enableCleanup | quote }}
   SCHEMA_URL: {{ .Values.data.schemaHost | quote }}
   ENTITLEMENTS_HOST: {{ .Values.data.entitlementsHost | quote }}
+  SCHEMA_AUTHORITY: {{ $authority | quote }}
+  {{- if .Values.data.bootstrapWorkers }}
+  BOOTSTRAP_WORKERS: {{ .Values.data.bootstrapWorkers | quote }}
+  {{- end }}
+  {{- if .Values.data.schemaPackageVersion }}
+  SCHEMA_PACKAGE_VERSION: {{ .Values.data.schemaPackageVersion | quote }}
+  {{- if .Values.data.schemaPackageUrl }}
+  SCHEMA_PACKAGE_URL: {{ .Values.data.schemaPackageUrl | quote }}
+  {{- end }}
+  {{- if .Values.data.schemaPackageSha256 }}
+  SCHEMA_PACKAGE_SHA256: {{ .Values.data.schemaPackageSha256 | quote }}
+  {{- end }}
+  {{- if .Values.data.schemaPackageFallback }}
+  SCHEMA_PACKAGE_FALLBACK: "true"
+  {{- end }}
+  {{- end }}
