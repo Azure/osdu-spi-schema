@@ -57,7 +57,7 @@
              4.2.18.Final remediates CVE-2026-89044 (HTTP request smuggling via Transfer-Encoding)
              and other findings still present on 4.2.13–4.2.17. -->
         <netty.version>4.2.19.Final</netty.version>
-        <spring-security.version>7.0.7</spring-security.version>
+        <spring-security.version>7.0.8</spring-security.version>
         <spring-framework.version>7.0.10</spring-framework.version>
         <!-- Boot 4.0.9 still manages Logback 1.5.x; 1.6.5 fixes CVE-2026-104721 (SiftingAppender path traversal) -->
         <logback.version>1.6.5</logback.version>
