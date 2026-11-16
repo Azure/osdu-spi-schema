@@ -71,12 +71,14 @@ public class JSONUtil {
 	}
 
 	public  List<SchemaPatch> findJSONDiff(JsonNode source, JsonNode target) throws DatabindException, JacksonException {
-		JsonValue sourceValue = Json.createReader(new StringReader(source.toString())).readValue();
-		JsonValue targetValue = Json.createReader(new StringReader(target.toString())).readValue();
-		JsonPatch diff = Json.createDiff(sourceValue.asJsonObject(), targetValue.asJsonObject());
-		return new ObjectMapper().readValue(diff.toString(), TypeFactory.createDefaultInstance().constructCollectionType(List.class,  
-				SchemaPatch.class));
-
+		try (JsonReader sourceReader = Json.createReader(new StringReader(source.toString()));
+				JsonReader targetReader = Json.createReader(new StringReader(target.toString()))) {
+			JsonValue sourceValue = sourceReader.readValue();
+			JsonValue targetValue = targetReader.readValue();
+			JsonPatch diff = Json.createDiff(sourceValue.asJsonObject(), targetValue.asJsonObject());
+			return new ObjectMapper().readValue(diff.toString(), TypeFactory.createDefaultInstance().constructCollectionType(List.class,
+					SchemaPatch.class));
+		}
 	}
 
 	public  JsonArray getJsonArrayFromGivenPath(String jsonString, String rootPath) {
