@@ -46,7 +46,7 @@
              have no 6.2.x fix. -->
         <spring-boot.version>4.0.9</spring-boot.version>
         <!-- Tomcat 11.0.26 (patched). Explicit dependencyManagement is required (BOM import, no spring-boot-starter-parent). -->
-        <tomcat.version>11.0.27</tomcat.version>
+        <tomcat.version>11.0.29</tomcat.version>
         <!-- Jackson 2 (HTTP JSON mapper, kept for API compatibility) and Jackson 3 (Boot 4 default).
              Imported ahead of spring-boot-dependencies so the patched versions win. -->
         <jackson2.version>2.21.8</jackson2.version>
