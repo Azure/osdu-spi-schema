@@ -474,29 +474,24 @@ public class SchemaServiceTest {
 	}
 
 	@Test
-	public void testUpdateSchema_WithPublishedState() {
-		try {
-			Mockito.when(headers.getPartitionId()).thenReturn("tenant");
-			SchemaRequest schReqPub = getMockSchemaObject_published();
+	public void testUpdateSchema_WithPublishedState() throws ApplicationException, NotFoundException {
+		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
+		SchemaRequest schReqPub = getMockSchemaObject_published();
 
-			Mockito.when(authorityService.checkAndRegisterAuthorityIfNotPresent(
-							schReqPub.getSchemaInfo().getSchemaIdentity().getAuthority()))
-					.thenReturn(true);
-			Mockito.when(sourceService.checkAndRegisterSourceIfNotPresent(
-					schReqPub.getSchemaInfo().getSchemaIdentity().getSource())).thenReturn(true);
-			Mockito.when(entityTypeService.checkAndRegisterEntityTypeIfNotPresent(
-							schReqPub.getSchemaInfo().getSchemaIdentity().getEntityType()))
-					.thenReturn(true);
-			Mockito.when(schemaInfoStore.getSchemaInfo("os:wks:well:1.1.1")).thenReturn(getMockSchemaInfo());
-			schemaService.updateSchema(schReqPub);
-			fail("Should not succeed");
+		Mockito.when(authorityService.checkAndRegisterAuthorityIfNotPresent(
+						schReqPub.getSchemaInfo().getSchemaIdentity().getAuthority()))
+				.thenReturn(true);
+		Mockito.when(sourceService.checkAndRegisterSourceIfNotPresent(
+				schReqPub.getSchemaInfo().getSchemaIdentity().getSource())).thenReturn(true);
+		Mockito.when(entityTypeService.checkAndRegisterEntityTypeIfNotPresent(
+						schReqPub.getSchemaInfo().getSchemaIdentity().getEntityType()))
+				.thenReturn(true);
+		Mockito.when(schemaInfoStore.getSchemaInfo("os:wks:well:1.1.1")).thenReturn(getMockSchemaInfo());
 
-		} catch (BadRequestException e) {
-			verify(messageBus, times(0)).publishMessage( anyString(), anyString());
-			assertEquals(SchemaConstants.SCHEMA_UPDATE_EXCEPTION, e.getMessage());
-		} catch (Exception e) {
-			fail("Should not get different exception");
-		}
+		BadRequestException exception = Assertions.assertThrows(BadRequestException.class,
+				() -> schemaService.updateSchema(schReqPub));
+		verify(messageBus, times(0)).publishMessage(anyString(), anyString());
+		assertEquals(SchemaConstants.SCHEMA_UPDATE_EXCEPTION, exception.getMessage());
 	}
 
 	@Test
@@ -550,30 +545,25 @@ public class SchemaServiceTest {
 	}
 
 	@Test
-	public void testUpdateSchema_withUnregisteredSchema() {
-		try {
-			Mockito.when(headers.getPartitionId()).thenReturn("tenant");
-			when(schemaInfoStore.isUniqueSystemSchema("os:wks:well:1.1.1")).thenReturn(true);
-			when(schemaInfoStore.isUnique("os:wks:well:1.1.1", "tenant")).thenReturn(true);
-			SchemaRequest schReqPub = getMockSchemaObject_published();
-			Mockito.when(authorityService.checkAndRegisterAuthorityIfNotPresent(
-							schReqPub.getSchemaInfo().getSchemaIdentity().getAuthority()))
-					.thenReturn(true);
-			Mockito.when(sourceService.checkAndRegisterSourceIfNotPresent(
-					schReqPub.getSchemaInfo().getSchemaIdentity().getSource())).thenReturn(true);
-			Mockito.when(entityTypeService.checkAndRegisterEntityTypeIfNotPresent(
-							schReqPub.getSchemaInfo().getSchemaIdentity().getEntityType()))
-					.thenReturn(true);
-			Mockito.when(schemaInfoStore.getSchemaInfo("os:wks:well:1.1.1")).thenThrow(NotFoundException.class);
-			schemaService.updateSchema(schReqPub);
-			fail("Should not succeed");
+	public void testUpdateSchema_withUnregisteredSchema() throws ApplicationException, NotFoundException {
+		Mockito.when(headers.getPartitionId()).thenReturn("tenant");
+		when(schemaInfoStore.isUniqueSystemSchema("os:wks:well:1.1.1")).thenReturn(true);
+		when(schemaInfoStore.isUnique("os:wks:well:1.1.1", "tenant")).thenReturn(true);
+		SchemaRequest schReqPub = getMockSchemaObject_published();
+		Mockito.when(authorityService.checkAndRegisterAuthorityIfNotPresent(
+						schReqPub.getSchemaInfo().getSchemaIdentity().getAuthority()))
+				.thenReturn(true);
+		Mockito.when(sourceService.checkAndRegisterSourceIfNotPresent(
+				schReqPub.getSchemaInfo().getSchemaIdentity().getSource())).thenReturn(true);
+		Mockito.when(entityTypeService.checkAndRegisterEntityTypeIfNotPresent(
+						schReqPub.getSchemaInfo().getSchemaIdentity().getEntityType()))
+				.thenReturn(true);
+		Mockito.when(schemaInfoStore.getSchemaInfo("os:wks:well:1.1.1")).thenThrow(NotFoundException.class);
 
-		} catch (BadRequestException e) {
-			verify(messageBus, times(0)).publishMessage( anyString(), anyString());
-			assertEquals(SchemaConstants.SCHEMA_PUT_CREATE_EXCEPTION, e.getMessage());
-		} catch (Exception e) {
-			fail("Should not get different exception");
-		}
+		BadRequestException exception = Assertions.assertThrows(BadRequestException.class,
+				() -> schemaService.updateSchema(schReqPub));
+		verify(messageBus, times(0)).publishMessage(anyString(), anyString());
+		assertEquals(SchemaConstants.SCHEMA_PUT_CREATE_EXCEPTION, exception.getMessage());
 	}
 
 	@Test
