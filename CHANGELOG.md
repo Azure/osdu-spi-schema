@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.2](https://github.com/Azure/osdu-spi-schema/compare/v1.2.1...v1.2.2) (2026-11-17)
+
+
+### 🐛 Bug Fixes
+
+* Sync upstream changes from 1de1bac4 ([93730f8](https://github.com/Azure/osdu-spi-schema/commit/93730f83833952054e21666ae85d806579ca5f3d))
+
+
+### 🔧 Miscellaneous
+
+* Generate filtered upstream tree ([e2d8d98](https://github.com/Azure/osdu-spi-schema/commit/e2d8d98e2fc4357a776f4800c2b85057b9a8b989))
+* **notice:** Refresh NOTICE from Component Governance ([de57423](https://github.com/Azure/osdu-spi-schema/commit/de5742399c1ce89573397016149300eed7ee7bbc))
+* **notice:** Refresh NOTICE from Component Governance ([1c98987](https://github.com/Azure/osdu-spi-schema/commit/1c989871b16dc1fa0db500c2cf714eab893d3c0d))
+* Sync template updates ([c9f1a85](https://github.com/Azure/osdu-spi-schema/commit/c9f1a853c733decd9ae6d726ce1de8383d1ce055))
+* **template-sync:** Sync template updates 2026-11-16 ([25469dc](https://github.com/Azure/osdu-spi-schema/commit/25469dc64c9ffc62b26287de1bdd2a43dd1e2db3))
+
 ## [1.2.1](https://github.com/Azure/osdu-spi-schema/compare/v1.2.0...v1.2.1) (2026-11-10)
 
 
