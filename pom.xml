@@ -39,7 +39,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <!-- OSDU Versions-->
-        <os-core-common.version>10.0.0</os-core-common.version>
+        <os-core-common.version>10.0.1</os-core-common.version>
 
         <!-- Spring Versions-->
         <!-- Spring Boot 4 / Spring Framework 7.0.9: CVE-2026-47884 and CVE-2026-47890 (spring-webmvc)
