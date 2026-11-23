@@ -44,7 +44,7 @@
         <!-- Spring Versions-->
         <!-- Spring Boot 4 / Spring Framework 7.0.9: CVE-2026-47884 and CVE-2026-47890 (spring-webmvc)
              have no 6.2.x fix. -->
-        <spring-boot.version>4.0.9</spring-boot.version>
+        <spring-boot.version>4.0.10</spring-boot.version>
         <!-- Tomcat 11.0.26 (patched). Explicit dependencyManagement is required (BOM import, no spring-boot-starter-parent). -->
         <tomcat.version>11.0.27</tomcat.version>
         <!-- Jackson 2 (HTTP JSON mapper, kept for API compatibility) and Jackson 3 (Boot 4 default).
