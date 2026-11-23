@@ -60,3 +60,14 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Fail when data.schemaPackageVersion is set but is not a string. YAML turns an unquoted 27.10 into the number 27.1
+and 28.0 into 28, so the package version that is requested would silently be another one. Prints nothing.
+*/}}
+{{- define "deploy.validateSchemaPackageVersion" -}}
+{{- $version := .Values.data.schemaPackageVersion }}
+{{- if and $version (not (kindIs "string" $version)) }}
+{{- fail (printf "data.schemaPackageVersion must be a string, got the number %v: write it in quotes in the values file (for example \"27.1\") or use --set-string, because YAML would turn 27.10 into 27.1 and 28.0 into 28" $version) }}
+{{- end }}
+{{- end }}
