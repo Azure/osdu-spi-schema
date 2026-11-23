@@ -67,7 +67,7 @@
         <!-- Project Versions-->
         <json-smart.version>2.6.0</json-smart.version>
         <openapi.version>3.0.3</openapi.version>
-        <swagger-core.version>2.2.47</swagger-core.version>
+        <swagger-core.version>2.2.56</swagger-core.version>
         <!-- Nested spring-boot-dependencies → mockito-bom ignores consumer mockito.version; pin explicitly.
              Mockito 5.20+ pulls ByteBuddy with Java 25 support. -->
         <mockito.version>5.23.0</mockito.version>
