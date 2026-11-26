@@ -9,6 +9,14 @@
 
 All the Swagger and OpenAPI related common properties are managed here [swagger.properties](https://community.opengroup.org/osdu/platform/system/schema-service/-/blob/master/schema-core/src/main/resources/swagger.properties)
 
+## Schema registration order
+
+Patch-version compatibility is evaluated from the older schema to the newer
+schema, regardless of registration order. An older patch may be registered after
+a newer patch, including when its schema references use older compatible patch
+versions. This applies to both tenant and system schemas. Breaking patch changes
+are still rejected with HTTP 400; published schemas remain immutable.
+
 ## Version info endpoint
 For deployment available public `/info` endpoint, which provides build and git related information.
 #### Example response:

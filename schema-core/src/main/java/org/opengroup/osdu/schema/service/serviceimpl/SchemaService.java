@@ -473,6 +473,8 @@ public class SchemaService implements ISchemaService {
                         versionValidatorFactory.getVersionValidator(SchemaValidationType.MINOR).validateVersionChange(resolvedInputSchema, existingSchemaInStore);
                     }else if(inputSchemaInfo.getSchemaIdentity().getSchemaVersionMinor().compareTo(existingSchemaInfo.getSchemaIdentity().getSchemaVersionMinor()) > 0) {
                         versionValidatorFactory.getVersionValidator(SchemaValidationType.MINOR).validateVersionChange(existingSchemaInStore, resolvedInputSchema);
+                    }else if(inputSchemaInfo.getSchemaIdentity().getSchemaVersionPatch().compareTo(existingSchemaInfo.getSchemaIdentity().getSchemaVersionPatch()) < 0) {
+                        versionValidatorFactory.getVersionValidator(SchemaValidationType.PATCH).validateVersionChange(resolvedInputSchema, existingSchemaInStore);
                     }else {
                         versionValidatorFactory.getVersionValidator(SchemaValidationType.PATCH).validateVersionChange(existingSchemaInStore, resolvedInputSchema);
                     }
