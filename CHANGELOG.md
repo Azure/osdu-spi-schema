@@ -1,5 +1,35 @@
 # Changelog
 
+## [1.3.0](https://github.com/Azure/osdu-spi-schema/compare/v1.2.1...v1.3.0) (2026-11-27)
+
+
+### ✨ Features
+
+* **chart:** Add chart-owned HTTPRoute, remove VirtualService ([e5433c1](https://github.com/Azure/osdu-spi-schema/commit/e5433c15cb6fb855c1abe03f4f2aad7c6180479e))
+* **chart:** Add chart-owned HTTPRoute, remove VirtualService ([619cac4](https://github.com/Azure/osdu-spi-schema/commit/619cac40727c9ad9d20fa26dce408cbf4ae9caf6))
+* **core-plus:** Package shared schemas as a versioned bundle and port the bootstrap to Python ([fda3f32](https://github.com/Azure/osdu-spi-schema/commit/fda3f3261f05aae206c3c5a69e023426f5f1b7ea))
+* **core-plus:** Package shared schemas as a versioned bundle and port the bootstrap to Python ([779fe1b](https://github.com/Azure/osdu-spi-schema/commit/779fe1b259cc5c6fb51d63e08d3741e999d9b6c8))
+* Sync upstream changes from fda3f326 ([18865bc](https://github.com/Azure/osdu-spi-schema/commit/18865bc929d1a7a7150d0b87b32de07629586a26))
+
+
+### 🐛 Bug Fixes
+
+* Sync upstream changes from 1de1bac4 ([93730f8](https://github.com/Azure/osdu-spi-schema/commit/93730f83833952054e21666ae85d806579ca5f3d))
+
+
+### 🔧 Miscellaneous
+
+* Generate filtered upstream tree ([6d6b8eb](https://github.com/Azure/osdu-spi-schema/commit/6d6b8ebcd2368ad9e7fcde09ae918ad497509558))
+* Generate filtered upstream tree ([e2d8d98](https://github.com/Azure/osdu-spi-schema/commit/e2d8d98e2fc4357a776f4800c2b85057b9a8b989))
+* **notice:** Refresh NOTICE from Component Governance ([de57423](https://github.com/Azure/osdu-spi-schema/commit/de5742399c1ce89573397016149300eed7ee7bbc))
+* **notice:** Refresh NOTICE from Component Governance ([1c98987](https://github.com/Azure/osdu-spi-schema/commit/1c989871b16dc1fa0db500c2cf714eab893d3c0d))
+* Sync template updates ([2373988](https://github.com/Azure/osdu-spi-schema/commit/23739884da625cf976086de758a42cb27ff5c91a))
+* Sync template updates ([0e80285](https://github.com/Azure/osdu-spi-schema/commit/0e802853c5f90f65dc16e327d1053c32550a6be4))
+* Sync template updates ([c9f1a85](https://github.com/Azure/osdu-spi-schema/commit/c9f1a853c733decd9ae6d726ce1de8383d1ce055))
+* **template-sync:** Sync template updates (updated 2026-11-23) ([771ab37](https://github.com/Azure/osdu-spi-schema/commit/771ab37bbf43524ab9a12ce33de3db9c6c318d0d))
+* **template-sync:** Sync template updates (updated 2026-11-26) ([c3d7f9a](https://github.com/Azure/osdu-spi-schema/commit/c3d7f9a1a6b360d093b2d246f7ccf44e818ac0ea))
+* **template-sync:** Sync template updates 2026-11-16 ([25469dc](https://github.com/Azure/osdu-spi-schema/commit/25469dc64c9ffc62b26287de1bdd2a43dd1e2db3))
+
 ## [1.2.1](https://github.com/Azure/osdu-spi-schema/compare/v1.2.0...v1.2.1) (2026-11-10)
 
 
